@@ -1,3 +1,9 @@
+#### [unreleased]
+
+#### 0.4.0
+* refactor to new `class AJF_WP_Debugging`
+* use `array_splice` to add debug constants
+
 #### 0.3.0
 * use array functions to add and remove debug constants
 
