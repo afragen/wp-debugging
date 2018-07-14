@@ -22,7 +22,7 @@
     "slug": "debug-quick-look/debug-quick-look.php",
     "uri": "https://github.com/norcross/debug-quick-look",
     "branch": "master",
-    "optional": true,
+    "optional": false,
     "token": null
   }
 ]
