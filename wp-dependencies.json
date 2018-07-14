@@ -24,5 +24,13 @@
     "branch": "master",
     "optional": false,
     "token": null
+  },
+  {
+    "name": "Debug Bar",
+    "host": "wordpress",
+    "slug": "debug-bar/debug-bar.php",
+    "uri": "https://wordpress.org/plugins/debug-bar/",
+    "branch": "trunk",
+    "optional": true
   }
 ]

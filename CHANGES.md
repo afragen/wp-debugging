@@ -1,5 +1,9 @@
 #### [unreleased]
 
+#### 0.5.0
+* add more debug constants per [WordPress Debugging Tools](https://tommcfarlin.com/native-wordpress-debugging-tools/) by [Tom McFarlin](https://github.com/tommcfarlin)
+* add Debug Bar plugin as optional dependency
+
 #### 0.4.0
 * refactor to new `class AJF_WP_Debugging`
 * use `array_splice` to add debug constants
