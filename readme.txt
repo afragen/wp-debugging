@@ -22,7 +22,9 @@ This plugin sets the following debug constants in `wp-config.php` on plugin acti
     define( 'SCRIPT_DEBUG', true );
     define( 'SAVEQUERIES', true );
 
-Additionally [Query Monitor](https://wordpress.org/plugins/query-monitor/) and [Debug Quick Look](https://github.com/norcross/debug-quick-look) plugins are installed and activated to aid in debugging and troubleshooting.
+Additionally the [Query Monitor](https://wordpress.org/plugins/query-monitor/) and [Debug Quick Look](https://github.com/norcross/debug-quick-look) plugins are installed and activated as dependencies to aid in debugging and troubleshooting.
+
+The [Debug Bar](https://wordpress.org/plugins/debug-bar/) plugin is an optional dependency.
 
 [GitHub Updater](https://github.com/afragen/github-updater) is optionally installed for plugin updates.
 
