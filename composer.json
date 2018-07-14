@@ -1,0 +1,29 @@
+{
+  "name": "afragen/wp-debugging",
+  "type": "wordpress-plugin",
+  "keywords": [
+    "wordpress",
+    "debug",
+    "support"
+  ],
+  "license": "MIT",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/afragen/wp-debugging"
+    }
+  ],
+  "authors": [
+    {
+      "name": "Andy Fragen",
+      "email": "andy@thefragens.com",
+      "homepage": "https://thefragens.com",
+      "role": "Developer"
+    }
+  ],
+  "prefer-stable": true,
+  "require": {
+    "php": ">=5.6",
+    "afragen/wp-dependency-installer": "^1.3"
+  }
+}
