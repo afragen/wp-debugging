@@ -13,7 +13,7 @@ A debugging/support plugin for WordPress.
 
 ## Description
 
-This plugin sets the following debug constants in `wp-config.php` on plugin activation and removes them on plugin deactivation. Debug constants per [WordPress Debugging Tools](https://tommcfarlin.com/native-wordpress-debugging-tools/)
+This plugin sets the following debug constants in `wp-config.php` on plugin activation and removes them on plugin deactivation. Debug constants per [WordPress Debugging Tools](https://tommcfarlin.com/native-wordpress-debugging-tools/) by Tom McFarlin.
 
 ```php
 define( 'WP_DEBUG', true );
