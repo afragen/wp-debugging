@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:       WordPress Debuggin
+ * Plugin Name:       WordPress Debugging
  * Plugin URI:        https://github.com/afragen/wp-debugging
  * Description:       A support/troubleshooting plugin for WordPress.
- * Version:           0.1.0
+ * Version:           0.2.0
  * Author:            Andy Fragen
  * License:           MIT
  * Network:           true
