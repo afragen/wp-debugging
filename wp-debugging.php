@@ -3,7 +3,7 @@
  * Plugin Name:       WordPress Debugging
  * Plugin URI:        https://github.com/afragen/wp-debugging
  * Description:       A support/troubleshooting plugin for WordPress.
- * Version:           0.2.0
+ * Version:           0.3.0
  * Author:            Andy Fragen
  * License:           MIT
  * Network:           true
@@ -14,29 +14,32 @@
 
 register_activation_hook(
 	__FILE__, function() {
-		$orig_wp_config = file_get_contents( ABSPATH . 'wp-config.php' );
-		file_put_contents( ABSPATH . 'wp-config-orig.php', $orig_wp_config );
-
-		$new_wp_config = explode( "\n", $orig_wp_config );
-		unset( $new_wp_config[0] );
-
-		$wp_debugging_constants = array(
-			'<?php',
-			'// Add debugging constants',
+		$debugging_constants = array(
 			"define( 'WP_DEBUG', true );",
 			"define( 'WP_DEBUG_LOG', true );",
 			"define( 'WP_DEBUG_DISPLAY', true );",
-			null,
 		);
-		$new_wp_config          = array_merge( $wp_debugging_constants, $new_wp_config );
-		$new_wp_config          = implode( "\n", $new_wp_config );
-		file_put_contents( ABSPATH . 'wp-config.php', $new_wp_config );
+		$wp_config           = file_get_contents( ABSPATH . 'wp-config.php' );
+		$wp_config           = explode( "\n", $wp_config );
+		unset( $wp_config[0] );
+
+		$wp_config = array_merge( [ '<?php' ], $debugging_constants, $wp_config );
+		$wp_config = implode( "\n", $wp_config );
+		file_put_contents( ABSPATH . 'wp-config.php', $wp_config );
 	}
 );
 register_deactivation_hook(
 	__FILE__, function() {
-		$orig_wp_config = file_get_contents( ABSPATH . 'wp-config-orig.php' );
-		file_put_contents( ABSPATH . 'wp-config.php', $orig_wp_config );
+		$debugging_constants = array(
+			"define( 'WP_DEBUG', true );",
+			"define( 'WP_DEBUG_LOG', true );",
+			"define( 'WP_DEBUG_DISPLAY', true );",
+		);
+		$wp_config           = file_get_contents( ABSPATH . 'wp-config.php' );
+		$wp_config           = explode( "\n", $wp_config );
+		$wp_config           = array_diff( $wp_config, $debugging_constants );
+		$wp_config           = implode( "\n", $wp_config );
+		file_put_contents( ABSPATH . 'wp-config.php', $wp_config );
 	}
 );
 
