@@ -13,7 +13,17 @@ A debugging/support plugin for WordPress.
 
 ## Description
 
-This plugin sets many of the WordPress debug constants to `true`. Additionally it installs and activates the Query Monitor and Debug Quick Look plugins to aid in debugging and troubleshooting.
+This plugin sets the following debug constants in `wp-config.php` on plugin activation and removes them on plugin deactivation.
+
+```php
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_LOG', true );
+define( 'WP_DEBUG_DISPLAY', true );
+```
+
+Additionally the [Query Monitor](https://wordpress.org/plugins/query-monitor/) and [Debug Quick Look](https://github.com/norcross/debug-quick-look) plugins are installed and activated to aid in debugging and troubleshooting.
+
+[GitHub Updater](https://github.com/afragen/github-updater) is optionally installed for plugin updates.
 
 ## Development
 
