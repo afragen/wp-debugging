@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 0.6.0
+* ensure only privileged user can write out new `wp-config.php`
+
 #### 0.5.0
 * add more debug constants per [WordPress Debugging Tools](https://tommcfarlin.com/native-wordpress-debugging-tools/) by [Tom McFarlin](https://github.com/tommcfarlin)
 * add Debug Bar plugin as optional dependency
