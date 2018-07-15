@@ -1,0 +1,75 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: WordPress Debugging\n"
+"POT-Creation-Date: 2018-07-14 20:03-0700\n"
+"PO-Revision-Date: 2018-07-14 20:02-0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wp-debugging.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:184
+#, php-format
+msgid "Please activate the %s plugin."
+msgstr ""
+
+#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:194
+#, php-format
+msgid "The %s plugin is required."
+msgstr ""
+
+#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:302
+#, php-format
+msgid "%s has been installed and activated."
+msgstr ""
+
+#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:312
+#, php-format
+msgid "%s has been installed."
+msgstr ""
+
+#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:337
+#, php-format
+msgid "%s has been activated."
+msgstr ""
+
+#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:398
+msgid "Dependency"
+msgstr ""
+
+#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:439
+msgid "Plugin dependency"
+msgstr ""
+
+#: wp-debugging.php:58
+msgid "Keep playing, you do not have enough experience for this spell."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WordPress Debugging"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/afragen/wp-debugging"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "A support/troubleshooting plugin for WordPress."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Andy Fragen"
+msgstr ""
