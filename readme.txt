@@ -24,9 +24,9 @@ This plugin sets the following debug constants in `wp-config.php` on plugin acti
 
 [Query Monitor](https://wordpress.org/plugins/query-monitor/) and [Debug Quick Look](https://github.com/norcross/debug-quick-look) plugins are installed and activated as dependencies to aid in debugging and troubleshooting.
 
-The [Debug Bar](https://wordpress.org/plugins/debug-bar/) plugin is an optional dependency.
+[Debug Bar](https://wordpress.org/plugins/debug-bar/) plugin is an optional dependency.
 
-[GitHub Updater](https://github.com/afragen/github-updater) is optionally installed for plugin updates.
+[GitHub Updater](https://github.com/afragen/github-updater) plugin is an optional dependency for plugin updates.
 
 ## Development
 

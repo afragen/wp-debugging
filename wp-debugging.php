@@ -3,7 +3,7 @@
  * Plugin Name:       WordPress Debugging
  * Plugin URI:        https://github.com/afragen/wp-debugging
  * Description:       A support/troubleshooting plugin for WordPress.
- * Version:           0.7.1
+ * Version:           0.8.0
  * Author:            Andy Fragen
  * License:           MIT
  * Network:           true

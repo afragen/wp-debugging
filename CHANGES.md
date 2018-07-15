@@ -1,5 +1,6 @@
 #### [unreleased]
 
+#### 0.8.0
 * refactor to put activation and deactivation function in class
 
 #### 0.7.1
