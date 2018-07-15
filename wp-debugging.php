@@ -50,10 +50,10 @@ class AJF_WP_Debugging {
 	 * @return void
 	 */
 	public function write_wp_config_as_string( array $wp_config ) {
-		$can_user_update = is_multisite()
+		$is_user_privileged = is_multisite()
 			? current_user_can( 'manage_network' )
 			: current_user_can( 'manage_options' );
-		if ( $can_user_update ) {
+		if ( $is_user_privileged ) {
 			$wp_config = implode( "\n", $wp_config );
 			file_put_contents( ABSPATH . 'wp-config.php', $wp_config );
 		}
