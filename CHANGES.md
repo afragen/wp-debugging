@@ -2,6 +2,7 @@
 
 #### 0.7.0
 * use `wp_die()` to exit for non-privileged user, if a non-privileged user could ever get there
+* add POT file
 
 #### 0.6.0
 * ensure only privileged user can write out new `wp-config.php`

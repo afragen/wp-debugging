@@ -7,6 +7,7 @@
  * Author:            Andy Fragen
  * License:           MIT
  * Network:           true
+ * Text Domain:       wp-debugging
  * GitHub Plugin URI: https://github.com/afragen/wp-debugging
  * Requires WP:       4.6
  * Requires PHP:      5.4
@@ -77,6 +78,7 @@ register_deactivation_hook(
 	}
 );
 
+load_plugin_textdomain( 'wp-debugging' );
 require_once __DIR__ . '/vendor/autoload.php';
 
 WP_Dependency_Installer::instance()->run( __DIR__ );
