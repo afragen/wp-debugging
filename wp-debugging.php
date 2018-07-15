@@ -23,7 +23,7 @@ class AJF_WP_Debugging {
 	 *
 	 * @var array
 	 */
-	public static $debugging_constants = array(
+	private static $debugging_constants = array(
 		"define( 'WP_DEBUG', true );",
 		"define( 'WP_DEBUG_LOG', true );",
 		"define( 'WP_DEBUG_DISPLAY', true );",
@@ -33,11 +33,11 @@ class AJF_WP_Debugging {
 	);
 
 	/**
-	 * Return wp-config.php as array.
+	 * Return `wp-config.php` as array.
 	 *
-	 * @return array $wp_config wp-config.php as array.
+	 * @return array $wp_config `wp-config.php` as array.
 	 */
-	public function get_wp_config_as_array() {
+	private function get_wp_config_as_array() {
 		$wp_config = file_get_contents( ABSPATH . 'wp-config.php' );
 		$wp_config = explode( "\n", $wp_config );
 
@@ -47,10 +47,10 @@ class AJF_WP_Debugging {
 	/**
 	 * Write out wp-config.php as string for privileged user.
 	 *
-	 * @param array $wp_config wp-config.php as array.
+	 * @param array $wp_config `wp-config.php` as array.
 	 * @return void
 	 */
-	public function write_wp_config_as_string( array $wp_config ) {
+	private function write_wp_config_as_string( array $wp_config ) {
 		$is_user_privileged = is_multisite()
 			? current_user_can( 'manage_network' )
 			: current_user_can( 'manage_options' );
@@ -60,25 +60,42 @@ class AJF_WP_Debugging {
 		$wp_config = implode( "\n", $wp_config );
 		file_put_contents( ABSPATH . 'wp-config.php', $wp_config );
 	}
+
+	/**
+	 * Activation function to add debug constants to `wp-config.php`.
+	 *
+	 * @return void
+	 */
+	public function activate() {
+		$wp_config = $this->get_wp_config_as_array();
+		array_splice( $wp_config, 1, 0, self::$debugging_constants );
+		$this->write_wp_config_as_string( $wp_config );
+	}
+
+	/**
+	 * Deactivation function to remove debug constants from `wp-config.php`.
+	 *
+	 * @return void
+	 */
+	public function deactivate() {
+		$wp_config = $this->get_wp_config_as_array();
+		$wp_config = array_diff( $wp_config, self::$debugging_constants );
+		$this->write_wp_config_as_string( $wp_config );
+	}
 }
 
 register_activation_hook(
 	__FILE__, function() {
-		$wp_config = ( new AJF_WP_Debugging() )->get_wp_config_as_array();
-		array_splice( $wp_config, 1, 0, AJF_WP_Debugging::$debugging_constants );
-		( new AJF_WP_Debugging() )->write_wp_config_as_string( $wp_config );
+		( new AJF_WP_Debugging() )->activate();
 	}
 );
 
 register_deactivation_hook(
 	__FILE__, function() {
-		$wp_config = ( new AJF_WP_Debugging() )->get_wp_config_as_array();
-		$wp_config = array_diff( $wp_config, AJF_WP_Debugging::$debugging_constants );
-		( new AJF_WP_Debugging() )->write_wp_config_as_string( $wp_config );
+		( new AJF_WP_Debugging() )->deactivate();
 	}
 );
 
 load_plugin_textdomain( 'wp-debugging' );
 require_once __DIR__ . '/vendor/autoload.php';
-
 WP_Dependency_Installer::instance()->run( __DIR__ );

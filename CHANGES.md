@@ -1,5 +1,7 @@
 #### [unreleased]
 
+* refactor to put activation and deactivation function in class
+
 #### 0.7.1
 * fixed translatable string
 
