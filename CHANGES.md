@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 0.7.1
+* fixed translatable string
+
 #### 0.7.0
 * use `wp_die()` to exit for non-privileged user, if a non-privileged user could ever get there
 * add POT file
