@@ -3,7 +3,7 @@
  * Plugin Name:       WordPress Debugging
  * Plugin URI:        https://github.com/afragen/wp-debugging
  * Description:       A support/troubleshooting plugin for WordPress.
- * Version:           0.6.0
+ * Version:           0.7.0
  * Author:            Andy Fragen
  * License:           MIT
  * Network:           true
@@ -53,10 +53,11 @@ class AJF_WP_Debugging {
 		$is_user_privileged = is_multisite()
 			? current_user_can( 'manage_network' )
 			: current_user_can( 'manage_options' );
-		if ( $is_user_privileged ) {
-			$wp_config = implode( "\n", $wp_config );
-			file_put_contents( ABSPATH . 'wp-config.php', $wp_config );
+		if ( ! $is_user_privileged ) {
+			wp_die( esc_html__( 'Keep playing, you do not have enough experience for this spell.' ) );
 		}
+		$wp_config = implode( "\n", $wp_config );
+		file_put_contents( ABSPATH . 'wp-config.php', $wp_config );
 	}
 }
 
