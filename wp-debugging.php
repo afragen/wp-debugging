@@ -3,7 +3,7 @@
  * Plugin Name:       WordPress Debugging
  * Plugin URI:        https://github.com/afragen/wp-debugging
  * Description:       A support/troubleshooting plugin for WordPress.
- * Version:           0.8.0
+ * Version:           0.9.0
  * Author:            Andy Fragen
  * License:           MIT
  * Network:           true
@@ -39,6 +39,7 @@ class AJF_WP_Debugging {
 	 */
 	private function get_wp_config_as_array() {
 		$wp_config = file_get_contents( ABSPATH . 'wp-config.php' );
+		$wp_config = $this->normalize_line_endings( $wp_config );
 		$wp_config = explode( "\n", $wp_config );
 
 		return $wp_config;
@@ -59,6 +60,20 @@ class AJF_WP_Debugging {
 		}
 		$wp_config = implode( "\n", $wp_config );
 		file_put_contents( ABSPATH . 'wp-config.php', $wp_config );
+	}
+
+	/**
+	 * Normalize to unix line endings.
+	 *
+	 * @param string $str
+	 * @return string $str
+	 */
+	private function normalize_line_endings( $str ) {
+		$str = str_replace( "\r\n", "\n", $str );
+		$str = str_replace( "\r", "\n", $str );
+		$str = preg_replace( "/\n{2,}/", "\n\n", $str );
+
+		return $str;
 	}
 
 	/**

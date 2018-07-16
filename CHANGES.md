@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 0.9.0
+* added function to normalize to unix line endings
+
 #### 0.8.0
 * refactor to put activation and deactivation function in class
 
