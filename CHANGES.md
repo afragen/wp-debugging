@@ -1,4 +1,6 @@
 #### [unreleased]
+
+#### 1.0.1
 * fix regex to not replace double line feed with same
 
 #### 1.0.0
