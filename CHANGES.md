@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 1.0.0
+* update composer dependencies
+
 #### 0.9.0
 * added function to normalize to unix line endings
 
