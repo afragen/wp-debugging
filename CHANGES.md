@@ -1,4 +1,5 @@
 #### [unreleased]
+* fix regex to not replace double line feed with same
 
 #### 1.0.0
 * update composer dependencies

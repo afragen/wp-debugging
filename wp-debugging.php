@@ -3,7 +3,7 @@
  * Plugin Name:       WordPress Debugging
  * Plugin URI:        https://github.com/afragen/wp-debugging
  * Description:       A support/troubleshooting plugin for WordPress.
- * Version:           1.0.0
+ * Version:           1.0.0.1
  * Author:            Andy Fragen
  * License:           MIT
  * Network:           true
@@ -70,7 +70,7 @@ class AJF_WP_Debugging {
 	private function normalize_line_endings( $str ) {
 		$str = str_replace( "\r\n", "\n", $str );
 		$str = str_replace( "\r", "\n", $str );
-		$str = preg_replace( "/\n{2,}/", "\n\n", $str );
+		$str = preg_replace( "/\n{3,}/", "\n\n", $str );
 
 		return $str;
 	}
