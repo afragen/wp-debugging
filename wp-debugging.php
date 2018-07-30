@@ -3,7 +3,7 @@
  * Plugin Name:       WordPress Debugging
  * Plugin URI:        https://github.com/afragen/wp-debugging
  * Description:       A support/troubleshooting plugin for WordPress.
- * Version:           1.0.1
+ * Version:           1.1.0
  * Author:            Andy Fragen
  * License:           MIT
  * Network:           true
@@ -81,8 +81,15 @@ class AJF_WP_Debugging {
 	 * @return void
 	 */
 	public function activate() {
-		$wp_config = $this->get_wp_config_as_array();
-		array_splice( $wp_config, 1, 0, self::$debugging_constants );
+		/**
+		 * Filter contents of $debugging_contents array.
+		 *
+		 * @since 1.1.0
+		 * @return array $debugging_constants Modified array.
+		 */
+		$debug_constants = apply_filters( 'wp_debugging_constants', self::$debugging_constants );
+		$wp_config       = $this->get_wp_config_as_array();
+		array_splice( $wp_config, 1, 0, $debug_constants );
 		$this->write_wp_config_as_string( $wp_config );
 	}
 
@@ -92,8 +99,15 @@ class AJF_WP_Debugging {
 	 * @return void
 	 */
 	public function deactivate() {
-		$wp_config = $this->get_wp_config_as_array();
-		$wp_config = array_diff( $wp_config, self::$debugging_constants );
+		/**
+		 * Filter contents of $debugging_contents array.
+		 *
+		 * @since 1.1.0
+		 * @return array $debugging_constants Modified array.
+		 */
+		$debug_constants = apply_filters( 'wp_debugging_constants', self::$debugging_constants );
+		$wp_config       = $this->get_wp_config_as_array();
+		$wp_config       = array_diff( $wp_config, $debug_constants );
 		$this->write_wp_config_as_string( $wp_config );
 	}
 }
