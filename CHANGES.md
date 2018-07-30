@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 1.1.0
+* added filter `wp_debugging_constants` to filter array of added constants
+
 #### 1.0.1
 * fix regex to not replace double line feed with same
 

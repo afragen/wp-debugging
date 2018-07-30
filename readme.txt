@@ -28,6 +28,18 @@ This plugin sets the following debug constants in `wp-config.php` on plugin acti
 
 [GitHub Updater](https://github.com/afragen/github-updater) plugin is an optional dependency for plugin updates.
 
+You may use the filter `wp_debugging_constants` to add or remove your own constants. You **must** return an array of defined constants.
+
+
+    add_filter( 'wp_debugging_constants',
+        function( $constants ) {
+            $more_constants = array(
+                "define( 'MY_ADDITIONAL_CONSTANT','12356' );"
+            );
+            return array_merge($constants, $more_constants);
+        }
+    );
+
 ## Development
 
 PRs are welcome against the `develop` branch.
