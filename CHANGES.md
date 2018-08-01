@@ -1,4 +1,5 @@
 #### [unreleased]
+* update `vendor/afragen/wp-dependency-installer`
 
 #### 1.1.0
 * added filter `wp_debugging_constants` to filter array of added constants
