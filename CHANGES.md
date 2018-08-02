@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 1.2.1
+* composer update
+
 #### 1.2.0
 * use filter to set admin notice dismissal timeout
 * update `vendor/afragen/wp-dependency-installer`
