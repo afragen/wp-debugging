@@ -1,4 +1,4 @@
-# WordPress Debugging
+# WP Debugging
 
 Contributors: afragen
 Tags: debug, support, wp-config
@@ -36,7 +36,7 @@ You may use the filter `wp_debugging_constants` to add or remove your own consta
             $more_constants = array(
                 "define( 'MY_ADDITIONAL_CONSTANT','12356' );"
             );
-            return array_merge($constants, $more_constants);
+            return array_merge( $constants, $more_constants );
         }
     );
 

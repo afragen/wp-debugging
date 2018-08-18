@@ -1,4 +1,4 @@
-# WordPress Debugging
+# WP Debugging
 
 * Contributors: [Andy Fragen](https://github.com/afragen)
 * Tags: debug, support
@@ -38,7 +38,7 @@ add_filter( 'wp_debugging_constants',
         $more_constants = array(
             "define( 'MY_ADDITIONAL_CONSTANT','12356' );"
         );
-        return array_merge($constants, $more_constants);
+        return array_merge( $constants, $more_constants );
     }
 );
 ```
