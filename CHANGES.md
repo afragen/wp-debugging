@@ -1,4 +1,5 @@
 #### [unreleased]
+* make official name _WP Debugging_
 
 #### 1.2.1
 * composer update

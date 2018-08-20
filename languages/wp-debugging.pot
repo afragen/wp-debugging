@@ -2,9 +2,9 @@
 msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: WordPress Debugging\n"
-"POT-Creation-Date: 2018-08-01 15:58-0700\n"
-"PO-Revision-Date: 2018-08-01 15:58-0700\n"
+"Project-Id-Version: WP Debugging\n"
+"POT-Creation-Date: 2018-08-18 10:28-0700\n"
+"PO-Revision-Date: 2018-08-18 10:28-0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -22,41 +22,41 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #. translators: %s: Plugin name
-#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:206
+#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:205
 #, php-format
 msgid "Please activate the %s plugin."
 msgstr ""
 
 #. translators: %s: Plugin name
-#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:218
+#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:217
 #, php-format
 msgid "The %s plugin is required."
 msgstr ""
 
 #. translators: %s: Plugin name
-#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:328
+#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:327
 #, php-format
 msgid "%s has been installed and activated."
 msgstr ""
 
 #. translators: %s: Plugin name
-#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:339
+#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:338
 #, php-format
 msgid "%s has been installed."
 msgstr ""
 
 #. translators: %s: Plugin name
-#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:365
+#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:364
 #, php-format
 msgid "%s has been activated."
 msgstr ""
 
-#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:437
+#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:436
 msgid "Dependency"
 msgstr ""
 
 #. translators: %s: opening and closing span tags
-#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:479
+#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:478
 #, php-format
 msgid "%1$sPlugin dependency%2$s"
 msgstr ""
@@ -66,7 +66,7 @@ msgid "Keep playing, you do not have enough experience for this spell."
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "WordPress Debugging"
+msgid "WP Debugging"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
