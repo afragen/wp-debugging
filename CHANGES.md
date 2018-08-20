@@ -1,4 +1,6 @@
 #### [unreleased]
+
+#### 1.2.2
 * make official name _WP Debugging_
 
 #### 1.2.1
