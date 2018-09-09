@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 1.2.3
+* composer update, removing `composer/installers` dependency
+
 #### 1.2.2
 * make official name _WP Debugging_
 
