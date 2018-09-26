@@ -1,4 +1,5 @@
 #### [unreleased]
+* properly initialize `load_plugin_textdomain()`
 
 #### 1.2.3
 * composer update, removing `composer/installers` dependency
