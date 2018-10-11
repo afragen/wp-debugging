@@ -1,24 +1,24 @@
 [
     {
         "name": "afragen/wp-dependency-installer",
-        "version": "1.4.3",
-        "version_normalized": "1.4.3.0",
+        "version": "1.4.4",
+        "version_normalized": "1.4.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/afragen/wp-dependency-installer.git",
-            "reference": "58d34ed16cfc0af550026f8e2dc7aa3b9cd7434d"
+            "reference": "d3dfa604b99692f758bed1a79b0c380c14706916"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/58d34ed16cfc0af550026f8e2dc7aa3b9cd7434d",
-            "reference": "58d34ed16cfc0af550026f8e2dc7aa3b9cd7434d",
+            "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/d3dfa604b99692f758bed1a79b0c380c14706916",
+            "reference": "d3dfa604b99692f758bed1a79b0c380c14706916",
             "shasum": ""
         },
         "require": {
             "collizo4sky/persist-admin-notices-dismissal": ">=1.3",
             "php": ">=5.3"
         },
-        "time": "2018-09-09T01:16:59+00:00",
+        "time": "2018-10-11T02:20:06+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
