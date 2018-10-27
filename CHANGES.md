@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 1.2.5
+* composer update
+
 #### 1.2.4
 * properly initialize `load_plugin_textdomain()`
 * composer update
