@@ -4,7 +4,6 @@
     "host": "wordpress",
     "slug": "query-monitor/query-monitor.php",
     "uri": "https://wordpress.org/plugins/query-monitor/",
-    "branch": "trunk",
     "optional": false
   },
   {
@@ -30,7 +29,6 @@
     "host": "wordpress",
     "slug": "debug-bar/debug-bar.php",
     "uri": "https://wordpress.org/plugins/debug-bar/",
-    "branch": "trunk",
     "optional": true
   }
 ]
