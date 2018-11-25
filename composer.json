@@ -1,5 +1,7 @@
 {
   "name": "afragen/wp-debugging",
+  "description": "A support/troubleshooting plugin for WordPress.",
+  "version": "1.2.7",
   "type": "wordpress-plugin",
   "keywords": [
     "wordpress",
@@ -7,12 +9,6 @@
     "support"
   ],
   "license": "MIT",
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/afragen/wp-debugging"
-    }
-  ],
   "authors": [
     {
       "name": "Andy Fragen",
@@ -21,6 +17,16 @@
       "role": "Developer"
     }
   ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/afragen/wp-debugging"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/afragen/wp-debugging/issues",
+    "source": "https://github.com/afragen/wp-debugging"
+  },
   "prefer-stable": true,
   "require": {
     "php": ">=5.6",

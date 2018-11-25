@@ -6,14 +6,14 @@ Requires at least: 4.6
 Requires PHP: 5.4
 Tested up to: 5.0
 Stable tag: master
-Donate link: http://thefragens.com/github-updater-donate
+Donate link: https://thefragens.com/github-updater-donate
 License: MIT
 
 A support/troubleshooting plugin for WordPress.
 
 ## Description
 
-This plugin sets the following debug constants in `wp-config.php` on plugin activation and removes them on plugin deactivation. Debug constants per [WordPress Debugging Tools](https://tommcfarlin.com/native-wordpress-debugging-tools/) by Tom McFarlin.
+This plugin sets the following debug constants in `wp-config.php` on plugin activation and removes them on plugin deactivation. If your `wp-config.php` is not writable then nothing will happen. Debug constants per [WordPress Debugging Tools](https://tommcfarlin.com/native-wordpress-debugging-tools/) by Tom McFarlin.
 
     define( 'WP_DEBUG', true );
     define( 'WP_DEBUG_LOG', true );

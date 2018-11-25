@@ -1,28 +1,28 @@
 [
     {
         "name": "afragen/wp-dependency-installer",
-        "version": "1.4.6",
-        "version_normalized": "1.4.6.0",
+        "version": "1.4.7",
+        "version_normalized": "1.4.7.0",
         "source": {
             "type": "git",
             "url": "https://github.com/afragen/wp-dependency-installer.git",
-            "reference": "1655421b550636bdefc3bd5daf7cc28cd01e5ad8"
+            "reference": "230bf0c1aea5f22daf9a8141c3e59f74ff329fa6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/1655421b550636bdefc3bd5daf7cc28cd01e5ad8",
-            "reference": "1655421b550636bdefc3bd5daf7cc28cd01e5ad8",
+            "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/230bf0c1aea5f22daf9a8141c3e59f74ff329fa6",
+            "reference": "230bf0c1aea5f22daf9a8141c3e59f74ff329fa6",
             "shasum": ""
         },
         "require": {
             "collizo4sky/persist-admin-notices-dismissal": "^1",
             "php": ">=5.3"
         },
-        "time": "2018-11-05T00:43:30+00:00",
+        "time": "2018-11-24T22:56:59+00:00",
         "type": "library",
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
-            "files": [
+            "classmap": [
                 "wp-dependency-installer.php"
             ]
         },
@@ -46,24 +46,24 @@
     },
     {
         "name": "collizo4sky/persist-admin-notices-dismissal",
-        "version": "1.4.1",
-        "version_normalized": "1.4.1.0",
+        "version": "1.4.2",
+        "version_normalized": "1.4.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/collizo4sky/persist-admin-notices-dismissal.git",
-            "reference": "5c77ea58c30318041d321b0f7e33586e262eac0b"
+            "reference": "b63922b4ad023d78039cca71caf9002913058fd8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/collizo4sky/persist-admin-notices-dismissal/zipball/5c77ea58c30318041d321b0f7e33586e262eac0b",
-            "reference": "5c77ea58c30318041d321b0f7e33586e262eac0b",
+            "url": "https://api.github.com/repos/collizo4sky/persist-admin-notices-dismissal/zipball/b63922b4ad023d78039cca71caf9002913058fd8",
+            "reference": "b63922b4ad023d78039cca71caf9002913058fd8",
             "shasum": ""
         },
-        "time": "2018-10-24T14:32:02+00:00",
+        "time": "2018-11-25T07:06:31+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
-            "files": [
+            "classmap": [
                 "persist-admin-notices-dismissal.php"
             ]
         },
