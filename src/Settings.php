@@ -218,10 +218,25 @@ class Settings {
 	 */
 	public function print_settings_section() {
 		esc_html_e( 'The following constants are set with plugin activation and removed with plugin deactivation.', 'wp-debugging' );
-		echo"<p><code>define( 'WP_DEBUG_LOG', true );</code></p>";
-		echo"<p><code>define( 'SCRIPT_DEBUG', true );</code></p>";
-		echo"<p><code>define( 'SAVEQUERIES', true );</code></p>";
+		$this->print_constants();
 		esc_html_e( 'Select the debugging constants.', 'wp-debugging' );
+	}
+
+	/**
+	 * Print current constants.
+	 *
+	 * @return void
+	 */
+	private function print_constants() {
+		$constants = [ 'wp_debug_log', 'script_debug', 'savequeries' ];
+		echo '<pre>';
+		$constants = array_merge( array_keys( self::$options ), $constants );
+		foreach ( $constants as $constant ) {
+			$value    = 'wp_debug_display' === $constant ? 'false' : 'true';
+			$constant = strtoupper( $constant );
+			echo "<code>define( '{$constant}', {$value} );</code><br>";
+		}
+		echo '</pre>';
 	}
 
 	/**
