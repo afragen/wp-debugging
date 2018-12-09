@@ -30,6 +30,12 @@ class Settings {
 		add_action( is_multisite() ? 'network_admin_menu' : 'admin_menu', array( $this, 'add_plugin_menu' ) );
 		add_action( 'network_admin_edit_wp_debugging', array( $this, 'update_settings' ) );
 		add_action( 'admin_init', array( $this, 'update_settings' ) );
+		add_filter(
+			is_multisite()
+			? 'network_admin_plugin_action_links_wp-debugging/wp-debugging.php'
+			: 'plugin_action_links_wp-debugging/wp-debugging.php',
+			[ $this, 'plugin_action_links' ]
+		);
 	}
 
 	/**
@@ -276,6 +282,23 @@ class Settings {
 			<?php echo $args['title']; ?>
 		</label>
 		<?php
+	}
+
+	/**
+	 * Add setting link to plugin page.
+	 * Applied to the list of links to display on the plugins page (beside the activate/deactivate links).
+	 *
+	 * @link http://codex.wordpress.org/Plugin_API/Filter_Reference/plugin_action_links_(plugin_file_name)
+	 *
+	 * @param $links
+	 *
+	 * @return array
+	 */
+	public function plugin_action_links( $links ) {
+		$settings_page = is_multisite() ? 'settings.php' : 'tools.php';
+		$link          = [ '<a href="' . esc_url( network_admin_url( $settings_page ) ) . '?page=wp-debugging">' . esc_html__( 'Settings', 'wp-debugging' ) . '</a>' ];
+
+		return array_merge( $links, $link );
 	}
 
 }
