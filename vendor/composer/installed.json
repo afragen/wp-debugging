@@ -1,26 +1,26 @@
 [
     {
         "name": "afragen/wp-dependency-installer",
-        "version": "1.4.7",
-        "version_normalized": "1.4.7.0",
+        "version": "1.4.8",
+        "version_normalized": "1.4.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/afragen/wp-dependency-installer.git",
-            "reference": "230bf0c1aea5f22daf9a8141c3e59f74ff329fa6"
+            "reference": "ea09e08c20e9071f5a0e61fae6c5b34a72e3e55f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/230bf0c1aea5f22daf9a8141c3e59f74ff329fa6",
-            "reference": "230bf0c1aea5f22daf9a8141c3e59f74ff329fa6",
+            "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/ea09e08c20e9071f5a0e61fae6c5b34a72e3e55f",
+            "reference": "ea09e08c20e9071f5a0e61fae6c5b34a72e3e55f",
             "shasum": ""
         },
         "require": {
             "collizo4sky/persist-admin-notices-dismissal": "^1",
             "php": ">=5.3"
         },
-        "time": "2018-11-24T22:56:59+00:00",
+        "time": "2018-11-26T00:08:14+00:00",
         "type": "library",
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "classmap": [
                 "wp-dependency-installer.php"
@@ -75,5 +75,48 @@
             }
         ],
         "description": "Simple library to persist dismissal of admin notices across pages in WordPress dashboard."
+    },
+    {
+        "name": "wp-cli/wp-config-transformer",
+        "version": "v1.2.3",
+        "version_normalized": "1.2.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/wp-cli/wp-config-transformer.git",
+            "reference": "d1a82e15c290d2a3e2c4f23234bf514ff8d9845f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/wp-cli/wp-config-transformer/zipball/d1a82e15c290d2a3e2c4f23234bf514ff8d9845f",
+            "reference": "d1a82e15c290d2a3e2c4f23234bf514ff8d9845f",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.29"
+        },
+        "require-dev": {
+            "composer/composer": "^1.5.6",
+            "phpunit/phpunit": "^6.5.5",
+            "wp-coding-standards/wpcs": "^0.14.0"
+        },
+        "time": "2018-11-09T21:25:11+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/WPConfigTransformer.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Frankie Jarrett",
+                "email": "fjarrett@gmail.com"
+            }
+        ],
+        "description": "Programmatically edit a wp-config.php file."
     }
 ]
