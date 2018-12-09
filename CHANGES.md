@@ -1,7 +1,7 @@
 #### [unreleased]
 * total re-write
 * add settings page
-* use `wp-cli/wp-config-transformer` to change `wp-config.php `
+* use `wp-cli/wp-config-transformer` to change `wp-config.php`
 
 #### 1.2.5 - 1.2.7
 * composer update

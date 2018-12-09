@@ -180,7 +180,7 @@ class Settings {
 
 		add_settings_section(
 			'wp_debugging',
-			null,
+			esc_html__( 'Debugging Constants', 'wp-debugging' ),
 			array( $this, 'print_settings_section' ),
 			'wp_debugging'
 		);
@@ -250,7 +250,7 @@ class Settings {
 
 		?>
 		<div class="wrap">
-			<h1><?php esc_html_e( 'Debugging WordPress', 'wp-debugging' ); ?></h1>
+			<h1><?php esc_html_e( 'WP Debugging', 'wp-debugging' ); ?></h1>
 			<div class="updated fade">
 				<p><?php echo( wp_kses_post( __( '<strong>Please note:</strong> Your <code>wp-config.php</code> file must be writable by the filesystem.', 'wp-debugging' ) ) ); ?></p>
 			</div>
