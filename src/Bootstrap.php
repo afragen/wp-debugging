@@ -56,37 +56,45 @@ class Bootstrap {
 		);
 
 		// On activation also re-add saved options.
-		register_activation_hook(
-			$this->file,
-			function () {
-				$options            = get_site_option( 'wp_debugging', [] );
-				$config_arg         = [
-					'raw'       => true,
-					'normalize' => true,
-				];
-				$config_transformer = new \WPConfigTransformer( ABSPATH . 'wp-config.php' );
-				$config_transformer->update( 'constant', 'WP_DEBUG_LOG', 'true', $config_arg );
-				$config_transformer->update( 'constant', 'SCRIPT_DEBUG', 'true', $config_arg );
-				$config_transformer->update( 'constant', 'SAVEQUERIES', 'true', $config_arg );
-				foreach ( array_keys( $options ) as $option ) {
-					$value = 'wp_debug_display' === $option ? 'false' : 'true';
-					$config_transformer->update( 'constant', strtoupper( $option ), $value, $config_arg );
-				}
-			}
-		);
+		register_activation_hook( $this->file, [ $this, 'activate' ] );
 
 		// Remove all constants on deactivation.
-		register_deactivation_hook(
-			$this->file,
-			function () {
-				$config_transformer = new \WPConfigTransformer( ABSPATH . 'wp-config.php' );
-				$config_transformer->remove( 'constant', 'WP_DEBUG_LOG' );
-				$config_transformer->remove( 'constant', 'SCRIPT_DEBUG' );
-				$config_transformer->remove( 'constant', 'SAVEQUERIES' );
-				$config_transformer->remove( 'constant', 'WP_DEBUG' );
-				$config_transformer->remove( 'constant', 'WP_DEBUG_DISPLAY' );
-			}
-		);
+		register_deactivation_hook( $this->file, [ $this, 'deactivate' ] );
+	}
+
+	/**
+	 * Run on activation.
+	 * Reloads constants to wp-config.php.
+	 *
+	 * @return void
+	 */
+	public function activate() {
+		$config_transformer = new \WPConfigTransformer( ABSPATH . 'wp-config.php' );
+		$options            = get_site_option( 'wp_debugging', [] );
+		$constants          = [ 'wp_debug_log', 'script_debug', 'savequeries' ];
+		$constants          = array_merge( array_keys( $options ), $constants );
+		$config_arg         = [
+			'raw'       => true,
+			'normalize' => true,
+		];
+		foreach ( $constants as $constant ) {
+			$value = 'wp_debug_display' === $constant ? 'false' : 'true';
+			$config_transformer->update( 'constant', strtoupper( $constant ), $value, $config_arg );
+		}
+	}
+
+	/**
+	 * Run on deactivation.
+	 * Removes all added constants from wp-config.php.
+	 *
+	 * @return void
+	 */
+	public function deactivate() {
+		$config_transformer = new \WPConfigTransformer( ABSPATH . 'wp-config.php' );
+		$constants          = [ 'wp_debug_log', 'script_debug', 'savequeries', 'wp_debug', 'wp_debug_display' ];
+		foreach ( $constants as $constant ) {
+			$config_transformer->remove( 'constant', strtoupper( $constant ) );
+		}
 	}
 
 }
