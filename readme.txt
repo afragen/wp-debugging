@@ -16,10 +16,10 @@ A support/troubleshooting plugin for WordPress.
 This plugin sets the following debug constants in `wp-config.php` on plugin activation and removes them on plugin deactivation. If your `wp-config.php` is not writable then nothing will happen. Debug constants per [WordPress Debugging Tools](https://tommcfarlin.com/native-wordpress-debugging-tools/) by Tom McFarlin.
 
 Default settings:
+
     define( 'WP_DEBUG_LOG', true );
     define( 'SCRIPT_DEBUG', true );
     define( 'SAVEQUERIES', true );
-
 
 <code>@ini_set( 'display_errors', 1 );</code> is set when the plugin is active.
 
