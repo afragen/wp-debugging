@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WP Debugging\n"
-"POT-Creation-Date: 2018-12-08 20:12-0800\n"
+"POT-Creation-Date: 2018-12-09 17:33-0800\n"
 "PO-Revision-Date: 2018-12-08 20:12-0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,51 +11,56 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2\n"
-"X-Poedit-Basepath: .\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: wp-debugging.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"X-Poedit-SearchPath-0: .\n"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: languages\n"
+"X-Poedit-SearchPath-1: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #. Plugin Name of the plugin/theme
-#: src/Settings.php:46 src/Settings.php:47
+#: src/Settings.php:52 src/Settings.php:53 src/Settings.php:253
 msgid "WP Debugging"
 msgstr ""
 
-#: src/Settings.php:158
+#: src/Settings.php:164
 msgid "Saved."
 msgstr ""
 
-#: src/Settings.php:190
+#: src/Settings.php:183
+msgid "Debugging Constants"
+msgstr ""
+
+#: src/Settings.php:196
 msgid "Set WP_DEBUG to true."
 msgstr ""
 
-#: src/Settings.php:202
-msgid "Set WP_DEBUG_DISPLAY to false, default is true"
+#: src/Settings.php:208
+msgid "Set WP_DEBUG_DISPLAY to false, default is true."
 msgstr ""
 
-#: src/Settings.php:214
+#: src/Settings.php:220
 msgid ""
 "The following constants are set with plugin activation and removed with "
 "plugin deactivation."
 msgstr ""
 
-#: src/Settings.php:218
+#: src/Settings.php:222
 msgid "Select the debugging constants."
 msgstr ""
 
-#: src/Settings.php:232
-msgid "Debugging WordPress"
-msgstr ""
-
-#: src/Settings.php:234
+#: src/Settings.php:255
 msgid ""
 "<strong>Please note:</strong> Your <code>wp-config.php</code> file must be "
 "writable by the filesystem."
+msgstr ""
+
+#: src/Settings.php:314
+msgid "Settings"
 msgstr ""
 
 #. translators: %s: Plugin name
