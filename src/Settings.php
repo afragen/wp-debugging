@@ -229,8 +229,8 @@ class Settings {
 	 */
 	private function print_constants() {
 		$constants = [ 'wp_debug_log', 'script_debug', 'savequeries' ];
-		echo '<pre>';
 		$constants = array_merge( array_keys( self::$options ), $constants );
+		echo '<pre>';
 		foreach ( $constants as $constant ) {
 			$value    = 'wp_debug_display' === $constant ? 'false' : 'true';
 			$constant = strtoupper( $constant );
