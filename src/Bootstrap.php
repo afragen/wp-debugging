@@ -55,16 +55,13 @@ class Bootstrap {
 			}
 		);
 
-		// On activation also re-add saved options.
 		register_activation_hook( $this->file, [ $this, 'activate' ] );
-
-		// Remove all constants on deactivation.
 		register_deactivation_hook( $this->file, [ $this, 'deactivate' ] );
 	}
 
 	/**
 	 * Run on activation.
-	 * Reloads constants to wp-config.php.
+	 * Reloads constants to wp-config.php, including saved options.
 	 *
 	 * @return void
 	 */
