@@ -205,7 +205,7 @@ class Settings {
 			'wp_debugging',
 			array(
 				'id'    => 'wp_debug_display',
-				'title' => esc_html__( 'Set WP_DEBUG_DISPLAY to false, default is true', 'wp-debugging' ),
+				'title' => esc_html__( 'Set WP_DEBUG_DISPLAY to false, default is true.', 'wp-debugging' ),
 			)
 		);
 
