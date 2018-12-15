@@ -84,7 +84,7 @@ class Settings {
 	}
 
 	/**
-	 * Update Feature Flag constants in wp-config.php.
+	 * Update constants in wp-config.php.
 	 *
 	 * @uses https://github.com/wp-cli/wp-config-transformer
 	 *

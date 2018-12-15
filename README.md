@@ -13,8 +13,7 @@ A debugging/support plugin for WordPress.
 
 ## Description
 
-This plugin sets the following debug constants in `wp-config.php` on plugin activation and removes them on plugin deactivation. If your `wp-config.php` is not writable then nothing will happen. Debug constants per [WordPress Debugging Tools](https://tommcfarlin.com/native-wordpress-debugging-tools/) by Tom McFarlin.
-
+This plugin sets the following debug constants in `wp-config.php` on plugin activation and removes them on plugin deactivation. If your `wp-config.php` is not writable then nothing will happen. Debug constants per [Debugging in WordPress](https://codex.wordpress.org/Debugging_in_WordPress).
 Default settings:
 
 ```php
@@ -23,7 +22,7 @@ define( 'SCRIPT_DEBUG', true );
 define( 'SAVEQUERIES', true );
 ```
 
-<code>@ini_set( 'display_errors', 1 );</code> is set when the plugin is active.
+`@ini_set( 'display_errors', 1 );` is set when the plugin is active.
 
 The Settings page allows the user to set the following.
 
