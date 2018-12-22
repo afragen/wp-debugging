@@ -252,7 +252,7 @@ class Settings {
 		<div class="wrap">
 			<h1><?php esc_html_e( 'WP Debugging', 'wp-debugging' ); ?></h1>
 			<div class="updated fade">
-				<p><?php echo( wp_kses_post( __( '<strong>Please note:</strong> Your <code>wp-config.php</code> file must be writable by the filesystem.', 'wp-debugging' ) ) ); ?></p>
+				<p><?php echo( wp_kses_post( __( '<strong>Please note:</strong> Your <code>wp-config.php</code> file must be writable by the filesystem. If your <code>wp-config.php</code> is not writable then nothing will happen. When the plugin is deactivated all the constants are removed. When the plugin is activated the default settings and any saved settings are restored. Debug constants per <a href="https://codex.wordpress.org/Debugging_in_WordPress">Debugging in WordPress</a>.', 'wp-debugging' ) ) ); ?></p>
 			</div>
 			<div>
 			<form method="post" action="<?php esc_attr_e( $action ); ?>">
