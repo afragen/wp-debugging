@@ -77,6 +77,24 @@
         "description": "Simple library to persist dismissal of admin notices across pages in WordPress dashboard."
     },
     {
+        "name": "norcross/debug-quick-look",
+        "version": "0.0.3",
+        "version_normalized": "0.0.3.0",
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/norcross/debug-quick-look/archive/0.0.3.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "debug-quick-look.php"
+            ]
+        }
+    },
+    {
         "name": "wp-cli/wp-config-transformer",
         "version": "v1.2.4",
         "version_normalized": "1.2.4.0",

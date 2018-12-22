@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit033dd907e30f4d564dcbec2bcff7a96e
 {
     public static $files = array (
+        'ab4b292309a54cb14fb006d8f6ed2fba' => __DIR__ . '/..' . '/norcross/debug-quick-look/debug-quick-look.php',
         'ac949ce40a981819ba132473518a9a31' => __DIR__ . '/..' . '/wp-cli/wp-config-transformer/src/WPConfigTransformer.php',
     );
 
