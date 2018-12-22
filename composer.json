@@ -28,7 +28,7 @@
         "name": "norcross/debug-quick-look",
         "version": "0.3.0",
         "dist": {
-          "url": "https://github.com/norcross/debug-quick-look/archive/master.zip",
+          "url": "https://github.com/norcross/debug-quick-look/archive/0.0.3.zip",
           "type": "zip"
         },
         "autoload": {
