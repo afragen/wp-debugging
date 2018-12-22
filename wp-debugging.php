@@ -3,7 +3,7 @@
  * Plugin Name:       WP Debugging
  * Plugin URI:        https://github.com/afragen/wp-debugging
  * Description:       A support/troubleshooting plugin for WordPress.
- * Version:           1.2.7.2
+ * Version:           1.2.7.3
  * Author:            Andy Fragen
  * License:           MIT
  * Network:           true
@@ -20,7 +20,7 @@ WP_Dependency_Installer::instance()->run( __DIR__ );
 add_filter(
 	'wp_dependency_timeout',
 	function( $timeout, $source ) {
-		$timeout = $source !== basename( __DIR__ ) ? $timeout : 14;
+		$timeout = $source !== basename( __DIR__ ) ? $timeout : 30;
 		return $timeout;
 	},
 	10,

@@ -33,11 +33,9 @@ define( 'WP_DEBUG_DISPLAY', false ); // Default when not declared is true.
 
 When the plugin is deactivated all the constants are removed. When the plugin is activated the default settings and any saved settings are restored.
 
-[Query Monitor](https://wordpress.org/plugins/query-monitor/) and [Debug Quick Look](https://github.com/norcross/debug-quick-look) plugins are installed and activated as dependencies to aid in debugging and troubleshooting.
+[Debug Quick Look](https://github.com/norcross/debug-quick-look) from Andrew Norcross is included with this plugin to assist in reading the debug.log file.
 
-[Debug Bar](https://wordpress.org/plugins/debug-bar/) plugin is an optional dependency.
-
-[GitHub Updater](https://github.com/afragen/github-updater) plugin is optional dependency for plugin updates.
+[Query Monitor](https://wordpress.org/plugins/query-monitor/) and [Debug Bar](https://wordpress.org/plugins/debug-bar/) plugins are optional dependencies to aid in debugging and troubleshooting. The notice for installation will recur 30 days after being dismissed.
 
 ## Development
 
