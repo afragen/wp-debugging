@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WP Debugging\n"
-"POT-Creation-Date: 2018-12-09 17:33-0800\n"
+"POT-Creation-Date: 2018-12-21 21:34-0800\n"
 "PO-Revision-Date: 2018-12-08 20:12-0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -56,7 +56,11 @@ msgstr ""
 #: src/Settings.php:255
 msgid ""
 "<strong>Please note:</strong> Your <code>wp-config.php</code> file must be "
-"writable by the filesystem."
+"writable by the filesystem. If your <code>wp-config.php</code> is not "
+"writable then nothing will happen. When the plugin is deactivated all the "
+"constants are removed. When the plugin is activated the default settings "
+"and any saved settings are restored. Debug constants per <a href=\"https://"
+"codex.wordpress.org/Debugging_in_WordPress\">Debugging in WordPress</a>."
 msgstr ""
 
 #: src/Settings.php:314
@@ -101,6 +105,36 @@ msgstr ""
 #: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:515
 #, php-format
 msgid "%1$sPlugin dependency%2$s"
+msgstr ""
+
+#: vendor/norcross/debug-quick-look/debug-quick-look.php:161
+msgid "Return To Admin Dashboard"
+msgstr ""
+
+#: vendor/norcross/debug-quick-look/debug-quick-look.php:165
+msgid "Your debug file is empty."
+msgstr ""
+
+#: vendor/norcross/debug-quick-look/debug-quick-look.php:234
+msgid "The log file has been purged."
+msgstr ""
+
+#: vendor/norcross/debug-quick-look/debug-quick-look.php:333
+msgid "Debug Quick Look"
+msgstr ""
+
+#: vendor/norcross/debug-quick-look/debug-quick-look.php:348
+#: vendor/norcross/debug-quick-look/debug-quick-look.php:353
+msgid "View Log"
+msgstr ""
+
+#: vendor/norcross/debug-quick-look/debug-quick-look.php:363
+#: vendor/norcross/debug-quick-look/debug-quick-look.php:368
+msgid "Purge Log"
+msgstr ""
+
+#: vendor/norcross/debug-quick-look/debug-quick-look.php:381
+msgid "The <span>WP_DEBUG_LOG</span> constant is not defined!"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
