@@ -38,7 +38,6 @@ class Bootstrap {
 	 */
 	public function run() {
 		require_once $this->dir . '/vendor/autoload.php';
-		require_once $this->dir . '/vendor/norcross/debug-quick-look/debug-quick-look.php';
 		$this->load_hooks();
 		( new Settings() )->load_hooks();
 	}
