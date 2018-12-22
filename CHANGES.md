@@ -2,6 +2,7 @@
 * total re-write
 * add settings page
 * use `wp-cli/wp-config-transformer` to change `wp-config.php`
+* include `norcross/debug-quick-look` as dependency
 
 #### 1.2.5 - 1.2.7
 * composer update

@@ -26,7 +26,7 @@
       "type": "package",
       "package": {
         "name": "norcross/debug-quick-look",
-        "version": "0.3.0",
+        "version": "0.0.3",
         "dist": {
           "url": "https://github.com/norcross/debug-quick-look/archive/0.0.3.zip",
           "type": "zip"
@@ -48,7 +48,7 @@
     "php": ">=5.4",
     "afragen/wp-dependency-installer": "^1.4",
     "wp-cli/wp-config-transformer": "^1.2",
-    "norcross/debug-quick-look": "0.3.*"
+    "norcross/debug-quick-look": "0.0.3"
   },
   "autoload": {
     "psr-4": {
