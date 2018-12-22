@@ -34,6 +34,8 @@ When the plugin is deactivated all the constants are removed. When the plugin is
 
 [Query Monitor](https://wordpress.org/plugins/query-monitor/) and [Debug Bar](https://wordpress.org/plugins/debug-bar/) plugins are optional dependencies to aid in debugging and troubleshooting. The notice for installation will recur 30 days after being dismissed.
 
+This plugin uses the [wp-cli/wp-config-transformer ](https://github.com/wp-cli/wp-config-transformer) command for writing constants to `wp-config.php`.
+
 ## Development
 
 PRs are welcome against the `develop` branch.
