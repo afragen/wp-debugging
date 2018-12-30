@@ -32,7 +32,7 @@
           "type": "zip"
         },
         "autoload": {
-          "files": [
+          "classmap": [
             "debug-quick-look.php"
           ]
         }
