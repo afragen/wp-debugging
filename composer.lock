@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "323c1c72515965d39aa72f4c17d9959b",
+    "content-hash": "aa651c5e00dc9e38c4d3c6ff6b502986",
     "packages": [
         {
             "name": "afragen/wp-dependency-installer",
@@ -91,7 +91,7 @@
             "type": "library",
             "autoload": {
                 "classmap": [
-                    ""
+                    "debug-quick-look.php"
                 ]
             }
         },

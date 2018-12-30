@@ -90,7 +90,7 @@
         "installation-source": "dist",
         "autoload": {
             "classmap": [
-                ""
+                "debug-quick-look.php"
             ]
         }
     },
