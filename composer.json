@@ -1,7 +1,6 @@
 {
   "name": "afragen/wp-debugging",
   "description": "A support/troubleshooting plugin for WordPress.",
-  "version": "1.2.7",
   "type": "wordpress-plugin",
   "keywords": [
     "wordpress",
