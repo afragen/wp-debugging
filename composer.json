@@ -33,7 +33,7 @@
         },
         "autoload": {
           "classmap": [
-            "debug-quick-look.php"
+            ""
           ]
         }
       }
