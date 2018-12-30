@@ -30,9 +30,9 @@ The Settings page allows the user to set the following.
 
 When the plugin is deactivated all the constants are removed. When the plugin is activated the default settings and any saved settings are restored.
 
-This plugin uses the [wp-cli/wp-config-transformer ](https://github.com/wp-cli/wp-config-transformer) command for writing constants to `wp-config.php`.
+This plugin uses the [wp-cli/wp-config-transformer](https://github.com/wp-cli/wp-config-transformer) command for writing constants to `wp-config.php`.
 
-[Debug Quick Look](https://github.com/norcross/debug-quick-look) from Andrew Norcross is included with this plugin to assist in reading the debug.log file.
+[Debug Quick Look](https://github.com/norcross/debug-quick-look) from Andrew Norcross is included with this plugin to assist in reading the debug.log file. If you already have this plugin installed you should delete it when WP Debugging is not active.
 
 [Query Monitor](https://wordpress.org/plugins/query-monitor/) and [Debug Bar](https://wordpress.org/plugins/debug-bar/) plugins are optional dependencies to aid in debugging and troubleshooting. The notice for installation will recur 30 days after being dismissed.
 
