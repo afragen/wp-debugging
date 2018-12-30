@@ -40,6 +40,7 @@ class Bootstrap {
 		require_once $this->dir . '/vendor/autoload.php';
 		$this->load_hooks();
 		( new Settings() )->load_hooks();
+		( new \DebugQuickLook() )->init();
 	}
 
 	/**
