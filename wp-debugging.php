@@ -14,7 +14,7 @@
  */
 
 require_once __DIR__ . '/src/Bootstrap.php';
-( new Fragen\WP_Debugging\Bootstrap( __FILE__, __DIR__ ) )->run();
+( new Fragen\WP_Debugging\Bootstrap( __FILE__ ) )->run();
 
 WP_Dependency_Installer::instance()->run( __DIR__ );
 add_filter(

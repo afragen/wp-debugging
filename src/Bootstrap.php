@@ -5,18 +5,18 @@ namespace Fragen\WP_Debugging;
 class Bootstrap {
 
 	/**
-	 * Holds main plugin directory.
-	 *
-	 * @var $dir
-	 */
-	protected $dir;
-
-	/**
 	 * Holds main plugin file.
 	 *
 	 * @var $file
 	 */
 	protected $file;
+
+	/**
+	 * Holds main plugin directory.
+	 *
+	 * @var $dir
+	 */
+	protected $dir;
 
 	/**
 	 * Constructor.
@@ -25,9 +25,9 @@ class Bootstrap {
 	 * @param string $dir Main plugin directory.
 	 * @return void
 	 */
-	public function __construct( $file, $dir ) {
+	public function __construct( $file ) {
 		$this->file = $file;
-		$this->dir  = $dir;
+		$this->dir  = dirname( $file );
 		@ini_set( 'display_errors', 1 );
 	}
 
