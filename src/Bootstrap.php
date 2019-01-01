@@ -1,7 +1,17 @@
 <?php
+/**
+ * WP Debugging
+ *
+ * @package wp-debugging
+ * @author Andy Fragen
+ * @license MIT
+ */
 
 namespace Fragen\WP_Debugging;
 
+/**
+ * Class Bootstrap
+ */
 class Bootstrap {
 
 	/**
@@ -22,7 +32,6 @@ class Bootstrap {
 	 * Constructor.
 	 *
 	 * @param string $file Main plugin file.
-	 * @param string $dir Main plugin directory.
 	 * @return void
 	 */
 	public function __construct( $file ) {

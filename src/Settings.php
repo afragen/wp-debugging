@@ -1,7 +1,17 @@
 <?php
+/**
+ * WP Debugging
+ *
+ * @package wp-debugging
+ * @author Andy Fragen
+ * @license MIT
+ */
 
 namespace Fragen\WP_Debugging;
 
+/**
+ * Class Settings
+ */
 class Settings {
 
 	/**
@@ -69,7 +79,7 @@ class Settings {
 			$options = isset( $_POST['wp-debugging'] )
 				? $_POST['wp-debugging']
 				: array();
-			$options = Settings::sanitize( $options );
+			$options = self::sanitize( $options );
 			$this->update_constants( self::$options, $options );
 			$filtered_options = array_filter(
 				self::$options,
@@ -107,7 +117,7 @@ class Settings {
 	 *
 	 * @uses https://github.com/wp-cli/wp-config-transformer
 	 *
-	 * @param array $add
+	 * @param array $add Constants to add to wp-config.php.
 	 * @return void
 	 */
 	private function add_constants( $add ) {
@@ -131,7 +141,7 @@ class Settings {
 	 *
 	 * @uses https://github.com/wp-cli/wp-config-transformer
 	 *
-	 * @param array $remove
+	 * @param array $remove Constants to remove from wp-config.php.
 	 * @return void
 	 */
 	private function remove_constants( $remove ) {
@@ -157,7 +167,7 @@ class Settings {
 		$redirect_url = is_multisite() ? network_admin_url( 'settings.php' ) : admin_url( 'tools.php' );
 
 		if ( $update ) {
-			$query = isset( $_POST['_wp_http_referer'] ) ? parse_url( $_POST['_wp_http_referer'], PHP_URL_QUERY ) : null;
+			$query = isset( $_POST['_wp_http_referer'] ) ? wp_parse_url( $_POST['_wp_http_referer'], PHP_URL_QUERY ) : null;
 
 			$location = add_query_arg(
 				array(
@@ -166,7 +176,7 @@ class Settings {
 				),
 				$redirect_url
 			);
-			wp_redirect( $location );
+			wp_safe_redirect( $location );
 			exit;
 		}
 	}
@@ -254,7 +264,7 @@ class Settings {
 		foreach ( $constants as $constant ) {
 			$value    = 'wp_debug_display' === $constant ? 'false' : 'true';
 			$constant = strtoupper( $constant );
-			echo "<code>define( '{$constant}', {$value} );</code><br>";
+			echo( wp_kses_post( "<code>define( '{$constant}', {$value} );</code><br>" ) );
 		}
 		echo '</pre>';
 	}
@@ -287,8 +297,8 @@ class Settings {
 	/**
 	 * Sanitize save settings.
 	 *
-	 * @param array $input
-	 * @return array $new_input
+	 * @param array $input Input.
+	 * @return array $new_input Sanitized output.
 	 */
 	public function sanitize( $input ) {
 		$new_input = array();
@@ -325,7 +335,7 @@ class Settings {
 	 *
 	 * @link http://codex.wordpress.org/Plugin_API/Filter_Reference/plugin_action_links_(plugin_file_name)
 	 *
-	 * @param $links
+	 * @param array $links Plugin links on plugins.php.
 	 *
 	 * @return array
 	 */

@@ -1,4 +1,11 @@
 <?php
+/**
+ * WP Debugging
+ *
+ * @package wp-debugging
+ * @author Andy Fragen
+ * @license MIT
+ */
 
 /**
  * Fired when the plugin is uninstalled.
