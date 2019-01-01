@@ -86,8 +86,6 @@ class Settings {
 	/**
 	 * Update constants in wp-config.php.
 	 *
-	 * @uses https://github.com/wp-cli/wp-config-transformer
-	 *
 	 * @param array $old Current value of self::$options.
 	 * @param mixed $new New value of $options.
 	 * @return void
@@ -97,27 +95,49 @@ class Settings {
 		$add    = array_diff_assoc( $new, $old );
 
 		if ( ! empty( $add ) ) {
-			// Use class WPConfigTransformer to add constant.
-			$config_transformer = new \WPConfigTransformer( ABSPATH . 'wp-config.php' );
-			foreach ( array_keys( $add ) as $constant ) {
-				$value = 'wp_debug_display' === $constant ? 'false' : 'true';
-				$config_transformer->update(
-					'constant',
-					strtoupper( $constant ),
-					$value,
-					array(
-						'raw'       => true,
-						'normalize' => true,
-					)
-				);
-			}
+			$this->add_constants( $add );
 		}
 		if ( ! empty( $remove ) ) {
-			// Use class WPConfigTransformer to remove constant.
-			$config_transformer = new \WPConfigTransformer( ABSPATH . 'wp-config.php' );
-			foreach ( array_keys( $remove ) as $constant ) {
-				$config_transformer->remove( 'constant', strtoupper( $constant ) );
-			}
+			$this->remove_constants( $remove );
+		}
+	}
+
+	/**
+	 * Add constants to wp-config.php file.
+	 *
+	 * @uses https://github.com/wp-cli/wp-config-transformer
+	 *
+	 * @param array $add
+	 * @return void
+	 */
+	private function add_constants( $add ) {
+		$config_transformer = new \WPConfigTransformer( ABSPATH . 'wp-config.php' );
+		foreach ( array_keys( $add ) as $constant ) {
+			$value = 'wp_debug_display' === $constant ? 'false' : 'true';
+			$config_transformer->update(
+				'constant',
+				strtoupper( $constant ),
+				$value,
+				array(
+					'raw'       => true,
+					'normalize' => true,
+				)
+			);
+		}
+	}
+
+	/**
+	 * Remove constants from wp-config.php file.
+	 *
+	 * @uses https://github.com/wp-cli/wp-config-transformer
+	 *
+	 * @param array $remove
+	 * @return void
+	 */
+	private function remove_constants( $remove ) {
+		$config_transformer = new \WPConfigTransformer( ABSPATH . 'wp-config.php' );
+		foreach ( array_keys( $remove ) as $constant ) {
+			$config_transformer->remove( 'constant', strtoupper( $constant ) );
 		}
 	}
 
