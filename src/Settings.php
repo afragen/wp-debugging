@@ -167,7 +167,7 @@ class Settings {
 		$redirect_url = is_multisite() ? network_admin_url( 'settings.php' ) : admin_url( 'tools.php' );
 
 		if ( $update ) {
-			$query = isset( $_POST['_wp_http_referer'] ) ? wp_parse_url( $_POST['_wp_http_referer'], PHP_URL_QUERY ) : null;
+			$query = isset( $_POST['_wp_http_referer'] ) ? parse_url( $_POST['_wp_http_referer'], PHP_URL_QUERY ) : null;
 
 			$location = add_query_arg(
 				array(
