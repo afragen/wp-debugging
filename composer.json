@@ -53,5 +53,10 @@
     "psr-4": {
       "Fragen\\WP_Debugging\\": "src/"
     }
+  },
+  "scripts": {
+    "post-update-cmd": [
+      "wp i18n make-pot . languages/wp-debugging.pot"
+    ]
   }
 }
