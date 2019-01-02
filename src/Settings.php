@@ -13,7 +13,6 @@ namespace Fragen\WP_Debugging;
  * Class Settings
  */
 class Settings {
-
 	/**
 	 * Hold plugin options.
 	 *
@@ -36,10 +35,10 @@ class Settings {
 	 * @return void
 	 */
 	public function load_hooks() {
-		add_action( 'admin_init', array( $this, 'add_settings' ) );
-		add_action( is_multisite() ? 'network_admin_menu' : 'admin_menu', array( $this, 'add_plugin_menu' ) );
-		add_action( 'network_admin_edit_wp_debugging', array( $this, 'update_settings' ) );
-		add_action( 'admin_init', array( $this, 'update_settings' ) );
+		add_action( 'admin_init', [ $this, 'add_settings' ] );
+		add_action( is_multisite() ? 'network_admin_menu' : 'admin_menu', [ $this, 'add_plugin_menu' ] );
+		add_action( 'network_admin_edit_wp_debugging', [ $this, 'update_settings' ] );
+		add_action( 'admin_init', [ $this, 'update_settings' ] );
 		add_filter(
 			is_multisite()
 			? 'network_admin_plugin_action_links_wp-debugging/wp-debugging.php'
@@ -63,7 +62,7 @@ class Settings {
 			esc_html__( 'WP Debugging', 'wp-debugging' ),
 			$capability,
 			'wp-debugging',
-			array( $this, 'create_settings_page' )
+			[ $this, 'create_settings_page' ]
 		);
 	}
 
@@ -78,13 +77,13 @@ class Settings {
 		) {
 			$options = isset( $_POST['wp-debugging'] )
 				? $_POST['wp-debugging']
-				: array();
+				: [];
 			$options = self::sanitize( $options );
 			$this->update_constants( self::$options, $options );
 			$filtered_options = array_filter(
 				self::$options,
 				function ( $e ) {
-						return '1' !== $e;
+					return '1' !== $e;
 				}
 			);
 			$options          = array_merge( $filtered_options, $options );
@@ -96,8 +95,8 @@ class Settings {
 	/**
 	 * Update constants in wp-config.php.
 	 *
-	 * @param array $old Current value of self::$options.
-	 * @param mixed $new New value of $options.
+	 * @param  array $old Current value of self::$options.
+	 * @param  mixed $new New value of $options.
 	 * @return void
 	 */
 	private function update_constants( $old, $new ) {
@@ -117,22 +116,18 @@ class Settings {
 	 *
 	 * @uses https://github.com/wp-cli/wp-config-transformer
 	 *
-	 * @param array $add Constants to add to wp-config.php.
+	 * @param  array $add Constants to add to wp-config.php.
 	 * @return void
 	 */
 	private function add_constants( $add ) {
 		$config_transformer = new \WPConfigTransformer( ABSPATH . 'wp-config.php' );
+		$config_args        = [
+			'raw'       => true,
+			'normalize' => true,
+		];
 		foreach ( array_keys( $add ) as $constant ) {
 			$value = 'wp_debug_display' === $constant ? 'false' : 'true';
-			$config_transformer->update(
-				'constant',
-				strtoupper( $constant ),
-				$value,
-				array(
-					'raw'       => true,
-					'normalize' => true,
-				)
-			);
+			$config_transformer->update( 'constant', strtoupper( $constant ), $value, $config_args );
 		}
 	}
 
@@ -141,7 +136,7 @@ class Settings {
 	 *
 	 * @uses https://github.com/wp-cli/wp-config-transformer
 	 *
-	 * @param array $remove Constants to remove from wp-config.php.
+	 * @param  array $remove Constants to remove from wp-config.php.
 	 * @return void
 	 */
 	private function remove_constants( $remove ) {
@@ -170,10 +165,10 @@ class Settings {
 			$query = isset( $_POST['_wp_http_referer'] ) ? parse_url( $_POST['_wp_http_referer'], PHP_URL_QUERY ) : null;
 
 			$location = add_query_arg(
-				array(
+				[
 					'page'    => 'wp-debugging',
 					'updated' => $update,
-				),
+				],
 				$redirect_url
 			);
 			wp_safe_redirect( $location );
@@ -205,40 +200,39 @@ class Settings {
 		register_setting(
 			'wp_debugging',
 			'wp_debugging',
-			array( $this, 'sanitize' )
+			[ $this, 'sanitize' ]
 		);
 
 		add_settings_section(
 			'wp_debugging',
 			esc_html__( 'Debugging Constants', 'wp-debugging' ),
-			array( $this, 'print_settings_section' ),
+			[ $this, 'print_settings_section' ],
 			'wp_debugging'
 		);
 
 		add_settings_field(
 			'wp_debug',
 			null,
-			array( $this, 'checkbox_setting' ),
+			[ $this, 'checkbox_setting' ],
 			'wp_debugging',
 			'wp_debugging',
-			array(
+			[
 				'id'    => 'wp_debug',
 				'title' => esc_html__( 'Set WP_DEBUG to true.', 'wp-debugging' ),
-			)
+			]
 		);
 
 		add_settings_field(
 			'wp_debug_display',
 			null,
-			array( $this, 'checkbox_setting' ),
+			[ $this, 'checkbox_setting' ],
 			'wp_debugging',
 			'wp_debugging',
-			array(
+			[
 				'id'    => 'wp_debug_display',
 				'title' => esc_html__( 'Set WP_DEBUG_DISPLAY to false, default is true.', 'wp-debugging' ),
-			)
+			]
 		);
-
 	}
 
 	/**
@@ -276,13 +270,11 @@ class Settings {
 	 */
 	public function create_settings_page() {
 		$this->saved_settings_notice();
-		$action = is_multisite() ? 'edit.php?action=wp-debugging' : 'options.php';
-
-		?>
+		$action = is_multisite() ? 'edit.php?action=wp-debugging' : 'options.php'; ?>
 		<div class="wrap">
 			<h1><?php esc_html_e( 'WP Debugging', 'wp-debugging' ); ?></h1>
 			<div class="updated fade">
-				<p><?php echo( wp_kses_post( __( '<strong>Please note:</strong> Your <code>wp-config.php</code> file must be writable by the filesystem. If your <code>wp-config.php</code> is not writable then nothing will happen. Debug constants per <a href="https://codex.wordpress.org/Debugging_in_WordPress">Debugging in WordPress</a>.', 'wp-debugging' ) ) ); ?></p>
+				<p><?php echo wp_kses_post( __( '<strong>Please note:</strong> Your <code>wp-config.php</code> file must be writable by the filesystem. If your <code>wp-config.php</code> is not writable then nothing will happen. Debug constants per <a href="https://codex.wordpress.org/Debugging_in_WordPress">Debugging in WordPress</a>.', 'wp-debugging' ) ); ?></p>
 			</div>
 			<div>
 			<form method="post" action="<?php esc_attr_e( $action ); ?>">
@@ -297,11 +289,11 @@ class Settings {
 	/**
 	 * Sanitize save settings.
 	 *
-	 * @param array $input Input.
+	 * @param  array $input Input.
 	 * @return array $new_input Sanitized output.
 	 */
 	public function sanitize( $input ) {
-		$new_input = array();
+		$new_input = [];
 		if ( ! is_array( $input ) ) {
 			$new_input = sanitize_text_field( $input );
 		} else {
@@ -345,5 +337,4 @@ class Settings {
 
 		return array_merge( $links, $link );
 	}
-
 }

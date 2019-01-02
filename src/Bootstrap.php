@@ -13,7 +13,6 @@ namespace Fragen\WP_Debugging;
  * Class Bootstrap
  */
 class Bootstrap {
-
 	/**
 	 * Holds main plugin file.
 	 *
@@ -38,12 +37,12 @@ class Bootstrap {
 	/**
 	 * Constructor.
 	 *
-	 * @param string $file Main plugin file.
+	 * @param  string $file Main plugin file.
 	 * @return void
 	 */
 	public function __construct( $file ) {
-		$this->file = $file;
-		$this->dir  = dirname( $file );
+		$this->file    = $file;
+		$this->dir     = dirname( $file );
 		self::$options = get_site_option( 'wp_debugging', [] );
 		@ini_set( 'display_errors', 1 );
 	}
@@ -68,7 +67,7 @@ class Bootstrap {
 	public function load_hooks() {
 		add_action(
 			'init',
-			function() {
+			function () {
 				load_plugin_textdomain( 'wp-debugging' );
 			}
 		);
@@ -87,13 +86,13 @@ class Bootstrap {
 		$config_transformer = new \WPConfigTransformer( ABSPATH . 'wp-config.php' );
 		$constants          = [ 'wp_debug_log', 'script_debug', 'savequeries' ];
 		$constants          = array_merge( array_keys( self::$options ), $constants );
-		$config_arg         = [
+		$config_args        = [
 			'raw'       => true,
 			'normalize' => true,
 		];
 		foreach ( $constants as $constant ) {
 			$value = 'wp_debug_display' === $constant ? 'false' : 'true';
-			$config_transformer->update( 'constant', strtoupper( $constant ), $value, $config_arg );
+			$config_transformer->update( 'constant', strtoupper( $constant ), $value, $config_args );
 		}
 	}
 
@@ -110,5 +109,4 @@ class Bootstrap {
 			$config_transformer->remove( 'constant', strtoupper( $constant ) );
 		}
 	}
-
 }
