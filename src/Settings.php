@@ -26,8 +26,8 @@ class Settings {
 	 *
 	 * @return void
 	 */
-	public function __construct() {
-		self::$options = get_site_option( 'wp_debugging', [] );
+	public function __construct( $options ) {
+		self::$options = $options;
 	}
 
 	/**

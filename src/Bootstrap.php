@@ -29,6 +29,13 @@ class Bootstrap {
 	protected $dir;
 
 	/**
+	 * Holds plugin options.
+	 *
+	 * @var $options
+	 */
+	protected static $options;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param string $file Main plugin file.
@@ -37,6 +44,7 @@ class Bootstrap {
 	public function __construct( $file ) {
 		$this->file = $file;
 		$this->dir  = dirname( $file );
+		self::$options = get_site_option( 'wp_debugging', [] );
 		@ini_set( 'display_errors', 1 );
 	}
 
@@ -48,7 +56,7 @@ class Bootstrap {
 	public function run() {
 		require_once $this->dir . '/vendor/autoload.php';
 		$this->load_hooks();
-		( new Settings() )->load_hooks();
+		( new Settings( self::$options ) )->load_hooks();
 		( new \DebugQuickLook() )->init();
 	}
 
@@ -77,9 +85,8 @@ class Bootstrap {
 	 */
 	public function activate() {
 		$config_transformer = new \WPConfigTransformer( ABSPATH . 'wp-config.php' );
-		$options            = get_site_option( 'wp_debugging', [] );
 		$constants          = [ 'wp_debug_log', 'script_debug', 'savequeries' ];
-		$constants          = array_merge( array_keys( $options ), $constants );
+		$constants          = array_merge( array_keys( self::$options ), $constants );
 		$config_arg         = [
 			'raw'       => true,
 			'normalize' => true,
