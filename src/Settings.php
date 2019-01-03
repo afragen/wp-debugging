@@ -23,6 +23,7 @@ class Settings {
 	/**
 	 * Constructor.
 	 *
+	 * @param array $options Plugin options.
 	 * @return void
 	 */
 	public function __construct( $options ) {
