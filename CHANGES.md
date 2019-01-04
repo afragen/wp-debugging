@@ -3,6 +3,7 @@
 * add settings page
 * use `wp-cli/wp-config-transformer` to change `wp-config.php`
 * include `norcross/debug-quick-look` as dependency via composer
+* update POT via `composer.json` and wp-cli
 
 #### 1.2.5 - 1.2.7
 * composer update
