@@ -28,15 +28,3 @@ if ( ! defined( 'WPINC' ) ) {
 
 require_once __DIR__ . '/src/Bootstrap.php';
 ( new Fragen\WP_Debugging\Bootstrap( __FILE__ ) )->run();
-
-WP_Dependency_Installer::instance()->run( __DIR__ );
-add_filter(
-	'wp_dependency_timeout',
-	function ( $timeout, $source ) {
-		$timeout = basename( __DIR__ ) !== $source ? $timeout : 30;
-
-		return $timeout;
-	},
-	10,
-	2
-);

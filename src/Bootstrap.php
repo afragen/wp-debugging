@@ -57,6 +57,7 @@ class Bootstrap {
 		$this->load_hooks();
 		( new Settings( self::$options ) )->load_hooks();
 		( new \DebugQuickLook() )->init();
+		\WP_Dependency_Installer::instance()->run( $this->dir );
 	}
 
 	/**
@@ -70,6 +71,16 @@ class Bootstrap {
 			function () {
 				load_plugin_textdomain( 'wp-debugging' );
 			}
+		);
+		add_filter(
+			'wp_dependency_timeout',
+			function ( $timeout, $source ) {
+				$timeout = basename( $this->dir ) !== $source ? $timeout : 30;
+
+				return $timeout;
+			},
+			10,
+			2
 		);
 
 		register_activation_hook( $this->file, [ $this, 'activate' ] );
