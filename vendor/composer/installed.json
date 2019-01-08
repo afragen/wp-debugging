@@ -78,18 +78,18 @@
     },
     {
         "name": "norcross/debug-quick-look",
-        "version": "0.0.3",
-        "version_normalized": "0.0.3.0",
+        "version": "0.1.0.1",
+        "version_normalized": "0.1.0.1",
         "dist": {
             "type": "zip",
-            "url": "https://github.com/norcross/debug-quick-look/archive/0.0.3.zip",
+            "url": "https://github.com/afragen/debug-quick-look/archive/vendor.zip",
             "reference": null,
             "shasum": null
         },
         "type": "library",
         "installation-source": "dist",
         "autoload": {
-            "classmap": [
+            "files": [
                 "debug-quick-look.php"
             ]
         }

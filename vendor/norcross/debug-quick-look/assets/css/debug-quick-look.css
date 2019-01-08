@@ -1,0 +1,157 @@
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html {
+	background: #f1f1f1;
+}
+
+body {
+	background: #f1f1f1;
+	color: #444;
+	font-family: Consolas, Monaco, monospace;
+	margin: 10px;
+	padding: 5px;
+}
+
+.debug-quick-look-intro {
+	text-align: center;
+	margin: 0 0 10px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.debug-quick-look-intro p {
+	font-size: 12px;
+	line-height: 1;
+	margin: 0;
+}
+
+.debug-quick-look-intro .debug-quick-look-intro-count:before,
+.debug-quick-look-intro .debug-quick-look-intro-count:after {
+	content: "|";
+	padding: 0 4px;
+}
+
+.debug-quick-look-intro .debug-intro-purge-link {
+	color: #a00;
+}
+
+.debug-quick-look-block-list {
+	background-color: #fff;
+	clear: both;
+	display: block;
+	margin: 0;
+	width: 100%;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.13);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.13);
+}
+
+.debug-quick-look-block-list .log-entry-block {
+	display: block;
+	width: 100%;
+	margin: 0 0 10px;
+	padding: 20px 20px 10px;
+	border-bottom: 1px dotted #ccc;
+}
+
+.debug-quick-look-block-list .log-entry-block .log-entry-block-pre-wrap {
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+}
+
+.debug-quick-look-block-list .log-entry-block .log-entry-block-pre-wrap span,
+.debug-quick-look-block-list .log-entry-block .log-entry-block-pre-wrap p,
+.debug-quick-look-block-list .log-entry-block .log-entry-block-pre-wrap p span,
+.debug-quick-look-block-list .log-entry-block .log-entry-block-pre-wrap ul,
+.debug-quick-look-block-list .log-entry-block .log-entry-block-pre-wrap ul li,
+.debug-quick-look-block-list .log-entry-block .log-entry-block-pre-wrap ul li span,
+.debug-quick-look-block-list .log-entry-block .log-entry-block-pre-wrap ul li ul, {
+	font-size: 14px;
+	line-height: 18px;
+	white-space: normal;
+}
+
+.debug-quick-look-block-list p {
+	margin: 0 0 5px;
+}
+
+.debug-quick-look-block-list .log-entry-block ul,
+.debug-quick-look-block-list .log-entry-block ol {
+	margin: 0 0 5px 15px;
+	padding: 0 0 0 15px;
+}
+
+.debug-quick-look-block-list .log-entry-block ul li,
+.debug-quick-look-block-list .log-entry-block ol li {
+	margin: 0 0 2px;
+}
+
+.debug-quick-look-block-list .log-entry-block ul li ul {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.debug-quick-look-block-list .log-entry-block .log-entry-date {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-weight: 300;
+}
+
+.debug-quick-look-block-list .log-entry-block .log-entry-error-label {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-weight: 600;
+	color: #000;
+}
+
+.debug-quick-look-block-list .log-entry-block .log-entry-error-label.log-entry-error-notice-label { color: #00a0d2; }
+.debug-quick-look-block-list .log-entry-block .log-entry-error-label.log-entry-error-warning-label { color: #ffb900; }
+.debug-quick-look-block-list .log-entry-block .log-entry-error-label.log-entry-error-fatal-label { color: #dc3232; }
+.debug-quick-look-block-list .log-entry-block .log-entry-error-label.log-entry-error-wordpress-db-label { color: #3232ff; }
+.debug-quick-look-block-list .log-entry-block .log-entry-error-label.log-entry-error-wp-community-label { color: #3232ff; }
+
+
+.log-entry-json-array-section {
+	white-space: normal;
+	display: inline-block;
+	width: auto;
+	padding: 10px;
+	margin: 0 0 10px;
+	background: #f1f1f1;
+	border: 1px dashed #ccc;
+}
+
+.debug-quick-look-block-list .log-entry-block .log-entry-json-array-section .log-entry-json-array-wrap {
+	margin-left: 0;
+}
+
+.debug-quick-look-block-list .log-entry-block .log-entry-json-array-section .log-entry-json-array-piece {
+	display: inline-block;
+	width: auto;
+	vertical-align: middle;
+	white-space: normal;
+}
+
+.log-entry-json-array-section .log-entry-json-array-piece.log-entry-json-array-splitter {
+	font-size: 80%;
+	vertical-align: middle;
+}
+
+pre.debug-quick-look-raw {
+	background-color: #fff;
+	color: #000;
+	margin: 0;
+	padding: 15px;
+	font-size: 14px;
+	line-height: 22px;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+}
