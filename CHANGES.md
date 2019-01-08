@@ -2,7 +2,7 @@
 * total re-write
 * add settings page
 * use `wp-cli/wp-config-transformer` to change `wp-config.php`
-* include `norcross/debug-quick-look` as dependency via composer
+* include `norcross/debug-quick-look` as dependency via composer but use my fork
 * update POT via `composer.json` and wp-cli
 
 #### 1.2.5 - 1.2.7

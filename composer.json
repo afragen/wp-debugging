@@ -22,15 +22,11 @@
       "url": "https://github.com/afragen/wp-debugging"
     },
     {
-      "type": "vcs",
-      "url": "https://github.com/afragen/debug-quick-look"
-    },
-    {
       "type": "package",
       "package": {
         "name": "norcross/debug-quick-look",
-        "version": "0.1.0.1",
-        "dist":{
+        "version": "0.1.1",
+        "dist": {
           "url": "https://github.com/afragen/debug-quick-look/archive/vendor.zip",
           "type": "zip"
         },

@@ -53,13 +53,14 @@ body {
 .debug-quick-look-block-list .log-entry-block {
 	display: block;
 	width: 100%;
-	margin: 0 0 10px;
-	padding: 20px 20px 10px;
+	margin-top: 10px;
+	padding: 0 5px;
+	font-size: 12px;
 	border-bottom: 1px dotted #ccc;
 }
 
 .debug-quick-look-block-list .log-entry-block .log-entry-block-pre-wrap {
-	white-space: pre-wrap;
+	/* white-space: pre-wrap; */
 	white-space: -moz-pre-wrap;
 	white-space: -pre-wrap;
 	white-space: -o-pre-wrap;
@@ -73,8 +74,8 @@ body {
 .debug-quick-look-block-list .log-entry-block .log-entry-block-pre-wrap ul li,
 .debug-quick-look-block-list .log-entry-block .log-entry-block-pre-wrap ul li span,
 .debug-quick-look-block-list .log-entry-block .log-entry-block-pre-wrap ul li ul, {
-	font-size: 14px;
-	line-height: 18px;
+	font-size: 10px;
+	line-height: 12px;
 	white-space: normal;
 }
 
@@ -148,7 +149,7 @@ pre.debug-quick-look-raw {
 	margin: 0;
 	padding: 15px;
 	font-size: 14px;
-	line-height: 22px;
+	line-height: 18px;
 	white-space: pre-wrap;
 	white-space: -moz-pre-wrap;
 	white-space: -pre-wrap;

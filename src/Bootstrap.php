@@ -56,7 +56,6 @@ class Bootstrap {
 		require_once $this->dir . '/vendor/autoload.php';
 		$this->load_hooks();
 		( new Settings( self::$options ) )->load_hooks();
-		( new \DebugQuickLook() )->init();
 		\WP_Dependency_Installer::instance()->run( $this->dir );
 	}
 

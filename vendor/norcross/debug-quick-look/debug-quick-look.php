@@ -7,7 +7,7 @@
  * Author URI:          http://andrewnorcross.com
  * Text Domain:         debug-quick-look
  * Domain Path:         /languages
- * Version:             0.1.0.1
+ * Version:             0.1.1
  * License:             MIT
  * License URI:         https://opensource.org/licenses/MIT
  * GitHub Plugin URI:   https://github.com/norcross/debug-quick-look
