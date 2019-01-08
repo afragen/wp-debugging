@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit8fbb530a853b5e85ef54e29cb992c886
 {
     public static $files = array (
+        'ab4b292309a54cb14fb006d8f6ed2fba' => __DIR__ . '/..' . '/norcross/debug-quick-look/debug-quick-look.php',
         'ac949ce40a981819ba132473518a9a31' => __DIR__ . '/..' . '/wp-cli/wp-config-transformer/src/WPConfigTransformer.php',
     );
 
@@ -25,7 +26,6 @@ class ComposerStaticInit8fbb530a853b5e85ef54e29cb992c886
     );
 
     public static $classMap = array (
-        'DebugQuickLook' => __DIR__ . '/..' . '/norcross/debug-quick-look/debug-quick-look.php',
         'PAnD' => __DIR__ . '/..' . '/collizo4sky/persist-admin-notices-dismissal/persist-admin-notices-dismissal.php',
         'WPDI_Plugin_Installer_Skin' => __DIR__ . '/..' . '/afragen/wp-dependency-installer/wp-dependency-installer.php',
         'WP_Dependency_Installer' => __DIR__ . '/..' . '/afragen/wp-dependency-installer/wp-dependency-installer.php',
