@@ -40,6 +40,8 @@ This plugin uses the [wp-cli/wp-config-transformer](https://github.com/wp-cli/wp
 
 [Query Monitor](https://wordpress.org/plugins/query-monitor/) and [Debug Bar](https://wordpress.org/plugins/debug-bar/) plugins are optional dependencies to aid in debugging and troubleshooting. The notice for installation will recur 30 days after being dismissed.
 
+There is also an option to bypass the WordPress 5.1 WSOD Shutdown Handler.
+
 ## Development
 
 PRs are welcome against the `develop` branch.
