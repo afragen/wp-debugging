@@ -286,7 +286,7 @@ class Settings {
 	public function print_settings_section() {
 		esc_html_e( 'The following constants are set with plugin activation and removed with plugin deactivation.', 'wp-debugging' );
 		$this->print_constants();
-		esc_html_e( 'Select the debugging constants.', 'wp-debugging' );
+		esc_html_e( 'Select the debugging options.', 'wp-debugging' );
 	}
 
 	/**
