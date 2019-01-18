@@ -4,6 +4,7 @@
 * use `wp-cli/wp-config-transformer` to change `wp-config.php`
 * include `norcross/debug-quick-look` as dependency via composer but use my fork
 * update POT via `composer.json` and wp-cli
+* add image assets
 
 #### 1.2.5 - 1.2.7
 * composer update
