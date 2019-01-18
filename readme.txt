@@ -42,4 +42,4 @@ This plugin uses the [wp-cli/wp-config-transformer](https://github.com/wp-cli/wp
 
 ## Development
 
-PRs are welcome against the `develop` branch.
+PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
