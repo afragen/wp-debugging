@@ -4,7 +4,7 @@
 * Tags: debug, support
 * Requires at least: 4.6
 * Requires PHP: 5.4
-* Tested up to: 5.0
+* Tested up to: 5.1
 * Stable tag: master
 * Donate link: <https://thefragens.com/github-updater-donate>
 * License: MIT
