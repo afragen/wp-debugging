@@ -1,7 +1,6 @@
 {
   "name": "afragen/wp-debugging",
   "description": "A support/troubleshooting plugin for WordPress.",
-  "version": "1.2.7",
   "type": "wordpress-plugin",
   "keywords": [
     "wordpress",
@@ -21,6 +20,22 @@
     {
       "type": "vcs",
       "url": "https://github.com/afragen/wp-debugging"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "norcross/debug-quick-look",
+        "version": "0.1.1",
+        "dist": {
+          "url": "https://github.com/afragen/debug-quick-look/archive/vendor.zip",
+          "type": "zip"
+        },
+        "autoload": {
+          "files": [
+            "debug-quick-look.php"
+          ]
+        }
+      }
     }
   ],
   "support": {
@@ -29,7 +44,19 @@
   },
   "prefer-stable": true,
   "require": {
-    "php": ">=5.6",
-    "afragen/wp-dependency-installer": "^1.4"
+    "php": ">=5.4",
+    "afragen/wp-dependency-installer": "^1.4",
+    "wp-cli/wp-config-transformer": "^1.2",
+    "norcross/debug-quick-look": "^0.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Fragen\\WP_Debugging\\": "src/"
+    }
+  },
+  "scripts": {
+    "post-update-cmd": [
+      "wp i18n make-pot . languages/wp-debugging.pot"
+    ]
   }
 }

@@ -1,82 +1,66 @@
-#, fuzzy
+# Copyright (C) 2019 Andy Fragen
+# This file is distributed under the same license as the WP Debugging plugin.
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: WP Debugging\n"
-"POT-Creation-Date: 2018-08-18 10:28-0700\n"
-"PO-Revision-Date: 2018-08-18 10:28-0700\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"Project-Id-Version: WP Debugging 2.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-debugging\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.1.1\n"
-"X-Poedit-Basepath: .\n"
-"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
-"X-Poedit-WPHeader: wp-debugging.php\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
+"POT-Creation-Date: 2019-01-18T20:31:52+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.1.0\n"
+"X-Domain: wp-debugging\n"
 
-#. translators: %s: Plugin name
-#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:205
-#, php-format
-msgid "Please activate the %s plugin."
-msgstr ""
-
-#. translators: %s: Plugin name
-#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:217
-#, php-format
-msgid "The %s plugin is required."
-msgstr ""
-
-#. translators: %s: Plugin name
-#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:327
-#, php-format
-msgid "%s has been installed and activated."
-msgstr ""
-
-#. translators: %s: Plugin name
-#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:338
-#, php-format
-msgid "%s has been installed."
-msgstr ""
-
-#. translators: %s: Plugin name
-#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:364
-#, php-format
-msgid "%s has been activated."
-msgstr ""
-
-#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:436
-msgid "Dependency"
-msgstr ""
-
-#. translators: %s: opening and closing span tags
-#: vendor/afragen/wp-dependency-installer/wp-dependency-installer.php:478
-#, php-format
-msgid "%1$sPlugin dependency%2$s"
-msgstr ""
-
-#: wp-debugging.php:58
-msgid "Keep playing, you do not have enough experience for this spell."
-msgstr ""
-
-#. Plugin Name of the plugin/theme
+#. Plugin Name of the plugin
+#: src/Settings.php:62
+#: src/Settings.php:63
+#: src/Settings.php:274
 msgid "WP Debugging"
 msgstr ""
 
-#. Plugin URI of the plugin/theme
+#. Plugin URI of the plugin
 msgid "https://github.com/afragen/wp-debugging"
 msgstr ""
 
-#. Description of the plugin/theme
+#. Description of the plugin
 msgid "A support/troubleshooting plugin for WordPress."
 msgstr ""
 
-#. Author of the plugin/theme
+#. Author of the plugin
 msgid "Andy Fragen"
+msgstr ""
+
+#: src/Settings.php:188
+msgid "Saved."
+msgstr ""
+
+#: src/Settings.php:207
+msgid "Debugging Constants"
+msgstr ""
+
+#: src/Settings.php:220
+msgid "Set WP_DEBUG to true."
+msgstr ""
+
+#: src/Settings.php:232
+msgid "Set WP_DEBUG_DISPLAY to false, default is true."
+msgstr ""
+
+#: src/Settings.php:243
+msgid "The following constants are set with plugin activation and removed with plugin deactivation."
+msgstr ""
+
+#: src/Settings.php:245
+msgid "Select the debugging constants."
+msgstr ""
+
+#: src/Settings.php:276
+msgid "<strong>Please note:</strong> Your <code>wp-config.php</code> file must be writable by the filesystem. If your <code>wp-config.php</code> is not writable then nothing will happen. Debug constants per <a href=\"https://codex.wordpress.org/Debugging_in_WordPress\">Debugging in WordPress</a>."
+msgstr ""
+
+#: src/Settings.php:333
+msgid "Settings"
 msgstr ""
