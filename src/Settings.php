@@ -21,13 +21,6 @@ class Settings {
 	protected static $options;
 
 	/**
-	 * Hold non-constant options.
-	 *
-	 * @var array $not_constants
-	 */
-	private static $not_constants = [ 'bypass_shutdown_handler' ];
-
-	/**
 	 * Constructor.
 	 *
 	 * @param array $options Plugin options.
@@ -109,9 +102,7 @@ class Settings {
 	 */
 	private function update_constants( $old, $new ) {
 		$remove = array_diff_assoc( $old, $new );
-		$remove = $this->filter_constants( $remove );
-		$add    = array_diff_assoc( $new, $old, [ 'shutdown_handler' ] );
-		$add    = $this->filter_constants( $add );
+		$add    = array_diff_assoc( $new, $old );
 
 		if ( ! empty( $add ) ) {
 			$this->add_constants( $add );
@@ -119,29 +110,6 @@ class Settings {
 		if ( ! empty( $remove ) ) {
 			$this->remove_constants( $remove );
 		}
-	}
-
-	/**
-	 * Filter and return constants.
-	 *
-	 * Unset saved options that are not constants.
-	 *
-	 * @param array $constants Options.
-	 *
-	 * @return array $constants
-	 */
-	private function filter_constants( $constants ) {
-		if ( empty( $constants ) ) {
-			return $constants;
-		}
-		foreach ( self::$not_constants as $not_constant ) {
-			unset( $constants[ $not_constant ] );
-			$constants = array_flip( $constants );
-			unset( $constants[ $not_constant ] );
-			$constants = array_flip( $constants );
-		}
-
-		return $constants;
 	}
 
 	/**
@@ -264,18 +232,6 @@ class Settings {
 				'title' => esc_html__( 'Set WP_DEBUG_DISPLAY to false, default is true.', 'wp-debugging' ),
 			]
 		);
-
-		add_settings_field(
-			'shutdown_hander',
-			null,
-			[ $this, 'checkbox_setting' ],
-			'wp_debugging',
-			'wp_debugging',
-			[
-				'id'    => 'bypass_shutdown_handler',
-				'title' => esc_html__( 'Bypass WordPress 5.1 WSOD protection.', 'wp-debugging' ),
-			]
-		);
 	}
 
 	/**
@@ -286,7 +242,7 @@ class Settings {
 	public function print_settings_section() {
 		esc_html_e( 'The following constants are set with plugin activation and removed with plugin deactivation.', 'wp-debugging' );
 		$this->print_constants();
-		esc_html_e( 'Select the debugging options.', 'wp-debugging' );
+		esc_html_e( 'Select the debugging constants.', 'wp-debugging' );
 	}
 
 	/**
@@ -297,7 +253,6 @@ class Settings {
 	private function print_constants() {
 		$constants = [ 'wp_debug_log', 'script_debug', 'savequeries' ];
 		$constants = array_merge( array_keys( self::$options ), $constants );
-		$constants = $this->filter_constants( $constants );
 		echo '<pre>';
 		foreach ( $constants as $constant ) {
 			$value    = 'wp_debug_display' === $constant ? 'false' : 'true';
@@ -368,8 +323,6 @@ class Settings {
 	/**
 	 * Add setting link to plugin page.
 	 * Applied to the list of links to display on the plugins page (beside the activate/deactivate links).
-	 *
-	 * @link http://codex.wordpress.org/Plugin_API/Filter_Reference/plugin_action_links_(plugin_file_name)
 	 *
 	 * @param array $links Plugin links on plugins.php.
 	 *

@@ -57,9 +57,6 @@ class Bootstrap {
 		$this->load_hooks();
 		( new Settings( self::$options ) )->load_hooks();
 		\WP_Dependency_Installer::instance()->run( $this->dir );
-		if ( isset( self::$options['bypass_shutdown_handler'] ) && version_compare( get_bloginfo( 'version' ), '5.1-beta', '>=' ) ) {
-			return new Shutdown_Handler();
-		}
 	}
 
 	/**
