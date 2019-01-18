@@ -21,10 +21,12 @@
  * Requires PHP:      5.4
  */
 
+namespace Fragen\WP_Debugging;
+
 // Exit if called directly.
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
 require_once __DIR__ . '/src/Bootstrap.php';
-( new Fragen\WP_Debugging\Bootstrap( __FILE__ ) )->run();
+( new Bootstrap( __FILE__ ) )->run();
