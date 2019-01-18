@@ -1,4 +1,6 @@
 #### [unreleased]
+
+#### 2.0.0 / 2019-01-18
 * total re-write
 * add settings page
 * use `wp-cli/wp-config-transformer` to change `wp-config.php`
