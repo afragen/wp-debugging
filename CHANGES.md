@@ -1,4 +1,5 @@
 #### [unreleased]
+* update Debug Quick Look, minor CSS changes
 
 #### 2.0.0 / 2019-01-18
 * total re-write
