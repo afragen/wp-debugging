@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the WP Debugging plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Debugging 2.0.0\n"
+"Project-Id-Version: WP Debugging 2.0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-debugging\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-01-18T20:31:52+00:00\n"
+"POT-Creation-Date: 2019-01-19T18:16:12+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.1.0\n"
 "X-Domain: wp-debugging\n"
@@ -58,7 +58,7 @@ msgid "Select the debugging constants."
 msgstr ""
 
 #: src/Settings.php:276
-msgid "<strong>Please note:</strong> Your <code>wp-config.php</code> file must be writable by the filesystem. If your <code>wp-config.php</code> is not writable then nothing will happen. Debug constants per <a href=\"https://codex.wordpress.org/Debugging_in_WordPress\">Debugging in WordPress</a>."
+msgid "<strong>Please note:</strong> Your <code>wp-config.php</code> file must be writable by the filesystem. Any errors will result in a PHP Exception being thrown. Debug constants per <a href=\"https://codex.wordpress.org/Debugging_in_WordPress\">Debugging in WordPress</a>."
 msgstr ""
 
 #: src/Settings.php:333

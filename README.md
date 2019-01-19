@@ -13,7 +13,7 @@ A debugging/support plugin for WordPress.
 
 ## Description
 
-This plugin sets the following debug constants in `wp-config.php` on plugin activation and removes them on plugin deactivation. If your `wp-config.php` is not writable then nothing will happen. Debug constants per [Debugging in WordPress](https://codex.wordpress.org/Debugging_in_WordPress).
+This plugin sets the following debug constants in `wp-config.php` on plugin activation and removes them on plugin deactivation. Any errors will result in a PHP Exception being thrown. Debug constants per [Debugging in WordPress](https://codex.wordpress.org/Debugging_in_WordPress).
 
 Default settings:
 
