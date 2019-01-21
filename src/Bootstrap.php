@@ -74,7 +74,7 @@ class Bootstrap {
 		add_filter(
 			'wp_dependency_timeout',
 			function ( $timeout, $source ) {
-				$timeout = basename( $this->dir ) !== $source ? $timeout : 30;
+				$timeout = basename( $this->dir ) !== $source ? $timeout : 45;
 
 				return $timeout;
 			},
