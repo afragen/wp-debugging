@@ -1,6 +1,7 @@
 #### [unreleased]
 * update Debug Quick Look, minor CSS changes
 * Improve messaging
+* add setting for WP_DISABLE_FATAL_ERROR_HANDLER constant (WSOD)
 
 #### 2.0.0 / 2019-01-18
 * total re-write

@@ -30,6 +30,7 @@ The Settings page allows the user to set the following.
 ```php
 define( 'WP_DEBUG', true );
 define( 'WP_DEBUG_DISPLAY', false ); // Default when not declared is true.
+define( 'WP_DISABLE_FATAL_ERROR_HANDLER', true ); //WSOD Override.
 ```
 
 When the plugin is deactivated all the constants are removed. When the plugin is activated the default settings and any saved settings are restored.
