@@ -43,7 +43,7 @@ class Bootstrap {
 	public function __construct( $file ) {
 		$this->file    = $file;
 		$this->dir     = dirname( $file );
-		self::$options = get_site_option( 'wp_debugging', [] );
+		self::$options = get_site_option( 'wp_debugging', [ 'wp_debug' => '1' ] );
 		@ini_set( 'display_errors', 1 );
 	}
 

@@ -21,11 +21,11 @@ Default settings:
     define( 'SCRIPT_DEBUG', true );
     define( 'SAVEQUERIES', true );
 
-`@ini_set( 'display_errors', 1 );` is set when the plugin is active.
+`@ini_set( 'display_errors', 1 );` is set when the plugin is active. `WP_DEBUG` is set to true when the plugin is first run, thereafter it can be turned off in the Settings.
 
 The Settings page allows the user to set the following.
 
-    define( 'WP_DEBUG', true );
+    define( 'WP_DEBUG', true ); // Default on initial plugin installation.
     define( 'WP_DEBUG_DISPLAY', false ); // Default when not declared is true.
     define( 'WP_DISABLE_FATAL_ERROR_HANDLER', true ); //WSOD Override.
 
