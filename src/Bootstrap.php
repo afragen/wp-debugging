@@ -114,7 +114,7 @@ class Bootstrap {
 	 */
 	public function deactivate() {
 		$config_transformer = new \WPConfigTransformer( ABSPATH . 'wp-config.php' );
-		$constants          = [ 'wp_debug_log', 'script_debug', 'savequeries', 'wp_debug', 'wp_debug_display' ];
+		$constants          = [ 'wp_debug_log', 'script_debug', 'savequeries', 'wp_debug', 'wp_debug_display', 'wp_disable_fatal_error_handler' ];
 		foreach ( $constants as $constant ) {
 			$config_transformer->remove( 'constant', strtoupper( $constant ) );
 		}
