@@ -44,3 +44,19 @@ This plugin uses the [wp-cli/wp-config-transformer](https://github.com/wp-cli/wp
 ## Development
 
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
+
+## Changelog
+
+#### 2.1.0 / 2019-01-26
+* update Debug Quick Look, minor CSS changes
+* Improve messaging
+* add setting for WP_DISABLE_FATAL_ERROR_HANDLER constant (WSOD)
+* add default setting of WP_DEBUG to true, can be changed
+
+#### 2.0.0 / 2019-01-18
+* total re-write
+* add settings page
+* use `wp-cli/wp-config-transformer` to change `wp-config.php`
+* include `norcross/debug-quick-look` as dependency via composer but use my fork
+* update POT via `composer.json` and wp-cli
+* add image assets
