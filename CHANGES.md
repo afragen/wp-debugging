@@ -1,5 +1,11 @@
 #### [unreleased]
 
+#### 2.1.0 / 2019-01-26
+* update Debug Quick Look, minor CSS changes
+* Improve messaging
+* add setting for WP_DISABLE_FATAL_ERROR_HANDLER constant (WSOD)
+* add default setting of WP_DEBUG to true, can be changed
+
 #### 2.0.0 / 2019-01-18
 * total re-write
 * add settings page

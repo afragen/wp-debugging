@@ -13,7 +13,7 @@ A support/troubleshooting plugin for WordPress.
 
 ## Description
 
-This plugin sets the following debug constants in `wp-config.php` on plugin activation and removes them on plugin deactivation. If your `wp-config.php` is not writable then nothing will happen. Debug constants per [Debugging in WordPress](https://codex.wordpress.org/Debugging_in_WordPress).
+This plugin sets the following debug constants in `wp-config.php` on plugin activation and removes them on plugin deactivation. Any errors will result in a PHP Exception being thrown. Debug constants per [Debugging in WordPress](https://codex.wordpress.org/Debugging_in_WordPress).
 
 Default settings:
 
@@ -21,12 +21,13 @@ Default settings:
     define( 'SCRIPT_DEBUG', true );
     define( 'SAVEQUERIES', true );
 
-`@ini_set( 'display_errors', 1 );` is set when the plugin is active.
+`@ini_set( 'display_errors', 1 );` is set when the plugin is active. `WP_DEBUG` is set to true when the plugin is first run, thereafter it can be turned off in the Settings.
 
 The Settings page allows the user to set the following.
 
-    define( 'WP_DEBUG', true );
+    define( 'WP_DEBUG', true ); // Default on initial plugin installation.
     define( 'WP_DEBUG_DISPLAY', false ); // Default when not declared is true.
+    define( 'WP_DISABLE_FATAL_ERROR_HANDLER', true ); //WSOD Override.
 
 When the plugin is deactivated all the constants are removed. When the plugin is activated the default settings and any saved settings are restored.
 
@@ -34,7 +35,7 @@ This plugin uses the [wp-cli/wp-config-transformer](https://github.com/wp-cli/wp
 
 [Debug Quick Look](https://github.com/norcross/debug-quick-look) from Andrew Norcross is included with this plugin to assist in reading the debug.log file. If you already have this plugin installed you should delete it when WP Debugging is not active.
 
-[Query Monitor](https://wordpress.org/plugins/query-monitor/) and [Debug Bar](https://wordpress.org/plugins/debug-bar/) plugins are optional dependencies to aid in debugging and troubleshooting. The notice for installation will recur 30 days after being dismissed.
+[Query Monitor](https://wordpress.org/plugins/query-monitor/) and [Debug Bar](https://wordpress.org/plugins/debug-bar/) plugins are optional dependencies to aid in debugging and troubleshooting. The notice for installation will recur 45 days after being dismissed.
 
 ## Screenshots
 
@@ -43,3 +44,19 @@ This plugin uses the [wp-cli/wp-config-transformer](https://github.com/wp-cli/wp
 ## Development
 
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
+
+## Changelog
+
+#### 2.1.0 / 2019-01-26
+* update Debug Quick Look, minor CSS changes
+* Improve messaging
+* add setting for WP_DISABLE_FATAL_ERROR_HANDLER constant (WSOD)
+* add default setting of WP_DEBUG to true, can be changed
+
+#### 2.0.0 / 2019-01-18
+* total re-write
+* add settings page
+* use `wp-cli/wp-config-transformer` to change `wp-config.php`
+* include `norcross/debug-quick-look` as dependency via composer but use my fork
+* update POT via `composer.json` and wp-cli
+* add image assets
