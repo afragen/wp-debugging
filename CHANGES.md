@@ -1,4 +1,5 @@
 #### [unreleased]
+* only show WSOD bypass when appropriate
 
 #### 2.1.0 / 2019-01-26
 * update Debug Quick Look, minor CSS changes
