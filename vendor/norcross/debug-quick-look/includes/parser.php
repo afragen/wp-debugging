@@ -34,6 +34,7 @@ function run_parse( $parse = true ) {
 	add_filter( 'wp_die_handler', __NAMESPACE__ . '\die_handler' );
 
 	// Set our debug log file.
+	Helpers\check_debug_file();
 	$debug_file = Helpers\get_debug_file();
 
 	// If we didn't wanna parse the file, do it raw.

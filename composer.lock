@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6f742c8426ccf0e1c0d8854c0c61df3d",
+    "content-hash": "45b1a93f5cbb59339606956ac5cdf15f",
     "packages": [
         {
             "name": "afragen/wp-dependency-installer",
-            "version": "1.4.8",
+            "version": "1.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/afragen/wp-dependency-installer.git",
-                "reference": "ea09e08c20e9071f5a0e61fae6c5b34a72e3e55f"
+                "reference": "627dc299008f7d011ae632b4c5b30076ac853d57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/ea09e08c20e9071f5a0e61fae6c5b34a72e3e55f",
-                "reference": "ea09e08c20e9071f5a0e61fae6c5b34a72e3e55f",
+                "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/627dc299008f7d011ae632b4c5b30076ac853d57",
+                "reference": "627dc299008f7d011ae632b4c5b30076ac853d57",
                 "shasum": ""
             },
             "require": {
@@ -47,7 +47,7 @@
                 }
             ],
             "description": "Library that helps WordPress plugin dependency management.",
-            "time": "2018-11-26T00:08:14+00:00"
+            "time": "2019-02-01T03:35:55+00:00"
         },
         {
             "name": "collizo4sky/persist-admin-notices-dismissal",
@@ -81,7 +81,7 @@
         },
         {
             "name": "norcross/debug-quick-look",
-            "version": "0.1.2",
+            "version": "0.1.3",
             "dist": {
                 "type": "zip",
                 "url": "https://github.com/afragen/debug-quick-look/archive/vendor.zip",
