@@ -12,7 +12,6 @@
  * @author    Matt Gibbs
  * @license   MIT
  * @link      https://github.com/afragen/wp-dependency-installer
- * @version   1.4.6
  */
 
 /**
@@ -28,13 +27,6 @@ if ( ! class_exists( 'WP_Dependency_Installer' ) ) {
 	 * Class WP_Dependency_Installer
 	 */
 	class WP_Dependency_Installer {
-
-		/**
-		 * Holds the singleton instance.
-		 *
-		 * @var \WP_Dependency_Installer
-		 */
-		private static $instance;
 
 		/**
 		 * Holds the JSON file contents.
@@ -68,11 +60,12 @@ if ( ! class_exists( 'WP_Dependency_Installer' ) ) {
 		 * Singleton.
 		 */
 		public static function instance() {
-			if ( null === self::$instance ) {
-				self::$instance = new self();
+			static $instance = null;
+			if ( null === $instance ) {
+				$instance = new self();
 			}
 
-			return self::$instance;
+			return $instance;
 		}
 
 		/**
@@ -86,6 +79,9 @@ if ( ! class_exists( 'WP_Dependency_Installer' ) ) {
 			add_action( 'admin_notices', array( $this, 'admin_notices' ) );
 			add_action( 'network_admin_notices', array( $this, 'admin_notices' ) );
 			add_action( 'wp_ajax_dependency_installer', array( $this, 'ajax_router' ) );
+
+			// Initialize Persist admin Notices Dismissal dependency.
+			add_action( 'admin_init', array( 'PAnD', 'init' ) );
 		}
 
 		/**
@@ -210,11 +206,6 @@ if ( ! class_exists( 'WP_Dependency_Installer' ) ) {
 		 * Determine if dependency is active or installed.
 		 */
 		public function admin_init() {
-			// Initialize Persist admin Notices Dismissal dependency.
-			if ( class_exists( 'PaND' ) ) {
-				PaND::init();
-			}
-
 			// Get the gears turning.
 			$this->apply_config();
 
