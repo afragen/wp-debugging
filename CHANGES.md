@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 2.2.0 / 2019-02-02 🏈
+* initial release on dot org
+
 #### 2.1.1 / 2019-02-01
 * only show WSOD bypass when appropriate
 * update dependencies

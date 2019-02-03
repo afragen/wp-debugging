@@ -5,7 +5,7 @@ Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.4
 Tested up to: 5.1
-Stable tag: master
+Stable tag: 2.2.0
 Donate link: https://thefragens.com/github-updater-donate
 License: MIT
 
@@ -46,6 +46,9 @@ This plugin uses the [wp-cli/wp-config-transformer](https://github.com/wp-cli/wp
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.2.0 / 2019-02-02 🏈
+* initial release on dot org
 
 #### 2.1.1 / 2019-02-01
 * only show WSOD bypass when appropriate
