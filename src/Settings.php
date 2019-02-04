@@ -21,13 +21,22 @@ class Settings {
 	protected static $options;
 
 	/**
+	 * Hold `wp-config.php` file path.
+	 *
+	 * @var string $config_path
+	 */
+	protected static $config_path;
+
+	/**
 	 * Constructor.
 	 *
-	 * @param array $options Plugin options.
+	 * @param array  $options Plugin options.
+	 * @param string $config_path Path to config file.
 	 * @return void
 	 */
-	public function __construct( $options ) {
-		self::$options = $options;
+	public function __construct( $options, $config_path ) {
+		self::$options     = $options;
+		self::$config_path = $config_path;
 	}
 
 	/**
@@ -121,7 +130,7 @@ class Settings {
 	 * @return void
 	 */
 	private function add_constants( $add ) {
-		$config_transformer = new \WPConfigTransformer( ABSPATH . 'wp-config.php' );
+		$config_transformer = new \WPConfigTransformer( self::$config_path );
 		$config_args        = [
 			'raw'       => true,
 			'normalize' => true,
@@ -141,7 +150,7 @@ class Settings {
 	 * @return void
 	 */
 	private function remove_constants( $remove ) {
-		$config_transformer = new \WPConfigTransformer( ABSPATH . 'wp-config.php' );
+		$config_transformer = new \WPConfigTransformer( self::$config_path );
 		foreach ( array_keys( $remove ) as $constant ) {
 			$config_transformer->remove( 'constant', strtoupper( $constant ) );
 		}

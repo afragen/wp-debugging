@@ -5,7 +5,7 @@ Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.4
 Tested up to: 5.1
-Stable tag: 2.2.0
+Stable tag: 2.3.0
 Donate link: https://thefragens.com/github-updater-donate
 License: MIT
 
@@ -37,6 +37,8 @@ This plugin uses the [wp-cli/wp-config-transformer](https://github.com/wp-cli/wp
 
 [Query Monitor](https://wordpress.org/plugins/query-monitor/) and [Debug Bar](https://wordpress.org/plugins/debug-bar/) plugins are optional dependencies to aid in debugging and troubleshooting. The notice for installation will recur 45 days after being dismissed.
 
+If you have a non-standard location for your `wp-config.php` file you can use the filter `wp_debugging_config_path` to return the file path for your installation.
+
 ## Screenshots
 
 1. Settings Screen
@@ -46,6 +48,10 @@ This plugin uses the [wp-cli/wp-config-transformer](https://github.com/wp-cli/wp
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.3.0 / 2019-02-04
+* look for `wp-config.php` in directory above `ABSPATH`
+* add filter `wp_debugging_config_path` to set non-standard path to `wp-config.php`
 
 #### 2.2.0 / 2019-02-02 🏈
 * initial release on dot org

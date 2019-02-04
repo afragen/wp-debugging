@@ -41,6 +41,8 @@ This plugin uses the [wp-cli/wp-config-transformer](https://github.com/wp-cli/wp
 
 [Query Monitor](https://wordpress.org/plugins/query-monitor/) and [Debug Bar](https://wordpress.org/plugins/debug-bar/) plugins are optional dependencies to aid in debugging and troubleshooting. The notice for installation will recur 45 days after being dismissed.
 
+If you have a non-standard location for your `wp-config.php` file you can use the filter `wp_debugging_config_path` to return the file path for your installation.
+
 ## Development
 
 PRs are welcome against the `develop` branch.
