@@ -1,4 +1,6 @@
 #### [unreleased]
+
+#### 2.3.0 / 2019-02-04
 * look for `wp-config.php` in directory above `ABSPATH`
 * add filter `wp_debugging_config_path` to set non-standard path to `wp-config.php`
 
