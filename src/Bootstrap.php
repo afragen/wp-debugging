@@ -41,6 +41,8 @@ class Bootstrap {
 	 */
 	protected static $config_path;
 
+	protected $defined_constants = [ 'wp_debug_log', 'script_debug', 'savequeries', 'wp_debug', 'wp_debug_display', 'wp_disable_fatal_error_handler' ];
+
 	/**
 	 * Constructor.
 	 *
@@ -129,13 +131,20 @@ class Bootstrap {
 	 * @return void
 	 */
 	public function activate() {
-		$config_transformer = new \WPConfigTransformer( self::$config_path );
-		$constants          = [ 'wp_debug_log', 'script_debug', 'savequeries' ];
-		$constants          = array_merge( array_keys( self::$options ), $constants );
-		$config_args        = [
+		$config_transformer   = new \WPConfigTransformer( self::$config_path );
+		$predefined_constants = [];
+		$constants            = [ 'wp_debug_log', 'script_debug', 'savequeries' ];
+		$constants            = array_merge( array_keys( self::$options ), $constants );
+		$config_args          = [
 			'raw'       => true,
 			'normalize' => true,
 		];
+		foreach ( $this->defined_constants as $defined_constant ) {
+			if ( $config_transformer->exists( 'constant', strtoupper( $defined_constant ) ) ) {
+				$predefined_constants[ $defined_constant ] = $config_transformer->get_value( 'constant', strtoupper( $defined_constant ) );
+			}
+		}
+		update_site_option( 'wp_debugging_restore', $predefined_constants );
 		foreach ( $constants as $constant ) {
 			$value = 'wp_debug_display' === $constant ? 'false' : 'true';
 			$config_transformer->update( 'constant', strtoupper( $constant ), $value, $config_args );
@@ -149,10 +158,19 @@ class Bootstrap {
 	 * @return void
 	 */
 	public function deactivate() {
+		$restore_constants  = get_site_option( 'wp_debugging_restore' );
+		$remove_constants   = array_diff( $this->defined_constants, array_keys( $restore_constants ) );
 		$config_transformer = new \WPConfigTransformer( self::$config_path );
-		$constants          = [ 'wp_debug_log', 'script_debug', 'savequeries', 'wp_debug', 'wp_debug_display', 'wp_disable_fatal_error_handler' ];
-		foreach ( $constants as $constant ) {
+		$config_args        = [
+			'raw'       => true,
+			'normalize' => true,
+		];
+
+		foreach ( $remove_constants as $constant ) {
 			$config_transformer->remove( 'constant', strtoupper( $constant ) );
+		}
+		foreach ( $restore_constants as $constant => $value ) {
+			$config_transformer->update( 'constant', strtoupper( $constant ), $value, $config_args );
 		}
 	}
 }

@@ -1,4 +1,5 @@
 #### [unreleased]
+* save pre-activation constants for re-installation on deactivation ( say that 5x fast )
 
 #### 2.3.0 / 2019-02-04
 * look for `wp-config.php` in directory above `ABSPATH`

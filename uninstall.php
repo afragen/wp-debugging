@@ -28,3 +28,5 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 
 delete_option( 'wp_debugging' );
 delete_site_option( 'wp_debugging' );
+delete_option( 'wp_debugging_restore' );
+delete_site_option( 'wp_debugging_restore' );

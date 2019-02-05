@@ -29,7 +29,7 @@ The Settings page allows the user to set the following.
     define( 'WP_DEBUG_DISPLAY', false ); // Default when not declared is true.
     define( 'WP_DISABLE_FATAL_ERROR_HANDLER', true ); // WordPress 5.2 WSOD Override.
 
-When the plugin is deactivated all the constants are removed. When the plugin is activated the default settings and any saved settings are restored.
+When the plugin is deactivated best efforts are made to re-add pre-existing constants to their former state. When the plugin is activated the default settings and any saved settings are restored.
 
 This plugin uses the [wp-cli/wp-config-transformer](https://github.com/wp-cli/wp-config-transformer) command for writing constants to `wp-config.php`.
 
