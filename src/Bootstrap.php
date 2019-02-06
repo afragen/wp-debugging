@@ -16,31 +16,36 @@ class Bootstrap {
 	/**
 	 * Holds main plugin file.
 	 *
-	 * @var $file
+	 * @var string
 	 */
 	protected $file;
 
 	/**
 	 * Holds main plugin directory.
 	 *
-	 * @var $dir
+	 * @var string
 	 */
 	protected $dir;
 
 	/**
 	 * Holds plugin options.
 	 *
-	 * @var $options
+	 * @var array
 	 */
 	protected static $options;
 
 	/**
 	 * Holds `wp-config.php` file path.
 	 *
-	 * @var $config_path
+	 * @var string
 	 */
 	protected static $config_path;
 
+	/**
+	 * Holds pre-defined constants for `wp-config.php`.
+	 *
+	 * @var array
+	 */
 	protected $defined_constants = [ 'wp_debug_log', 'script_debug', 'savequeries', 'wp_debug', 'wp_debug_display', 'wp_disable_fatal_error_handler' ];
 
 	/**
