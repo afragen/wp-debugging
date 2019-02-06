@@ -5,7 +5,7 @@ Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.4
 Tested up to: 5.1
-Stable tag: 2.3.0
+Stable tag: 2.4.0
 Donate link: https://thefragens.com/github-updater-donate
 License: MIT
 
@@ -48,6 +48,9 @@ If you have a non-standard location for your `wp-config.php` file you can use th
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.4.0 / 2019-02-06
+* save pre-activation constants for re-installation on deactivation ( say that 5x fast )
 
 #### 2.3.0 / 2019-02-04
 * look for `wp-config.php` in directory above `ABSPATH`
