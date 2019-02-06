@@ -16,14 +16,14 @@ class Settings {
 	/**
 	 * Hold plugin options.
 	 *
-	 * @var array $options
+	 * @var array
 	 */
 	protected static $options;
 
 	/**
 	 * Hold `wp-config.php` file path.
 	 *
-	 * @var string $config_path
+	 * @var string
 	 */
 	protected static $config_path;
 

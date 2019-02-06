@@ -5,7 +5,7 @@ Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.4
 Tested up to: 5.1
-Stable tag: 2.3.0
+Stable tag: 2.4.0
 Donate link: https://thefragens.com/github-updater-donate
 License: MIT
 
@@ -29,7 +29,7 @@ The Settings page allows the user to set the following.
     define( 'WP_DEBUG_DISPLAY', false ); // Default when not declared is true.
     define( 'WP_DISABLE_FATAL_ERROR_HANDLER', true ); // WordPress 5.2 WSOD Override.
 
-When the plugin is deactivated all the constants are removed. When the plugin is activated the default settings and any saved settings are restored.
+When the plugin is deactivated best efforts are made to re-add pre-existing constants to their former state. When the plugin is activated the default settings and any saved settings are restored.
 
 This plugin uses the [wp-cli/wp-config-transformer](https://github.com/wp-cli/wp-config-transformer) command for writing constants to `wp-config.php`.
 
@@ -48,6 +48,9 @@ If you have a non-standard location for your `wp-config.php` file you can use th
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.4.0 / 2019-02-06
+* save pre-activation constants for re-installation on deactivation ( say that 5x fast )
 
 #### 2.3.0 / 2019-02-04
 * look for `wp-config.php` in directory above `ABSPATH`
