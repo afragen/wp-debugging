@@ -1,4 +1,5 @@
 #### [unreleased]
+* refactor set/restore pre-activation constants
 
 #### 2.4.0 / 2019-02-06
 * save pre-activation constants for re-installation on deactivation ( say that 5x fast )
