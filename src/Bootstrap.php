@@ -136,23 +136,14 @@ class Bootstrap {
 	 * @return void
 	 */
 	public function activate() {
-		$config_transformer   = new \WPConfigTransformer( self::$config_path );
-		$predefined_constants = [];
-		$constants            = [ 'wp_debug_log', 'script_debug', 'savequeries' ];
-		$constants            = array_merge( array_keys( self::$options ), $constants );
-		$config_args          = [
+		$config_transformer = new \WPConfigTransformer( self::$config_path );
+		$constants          = [ 'wp_debug_log', 'script_debug', 'savequeries' ];
+		$constants          = array_merge( array_keys( self::$options ), $constants );
+		$config_args        = [
 			'raw'       => true,
 			'normalize' => true,
 		];
-		foreach ( $this->defined_constants as $defined_constant ) {
-			if ( $config_transformer->exists( 'constant', strtoupper( $defined_constant ) ) ) {
-				$value = $config_transformer->get_value( 'constant', strtoupper( $defined_constant ) );
-				$value = trim( $value, '"\'' ); // Normalize quoted value.
-
-				$predefined_constants[ $defined_constant ] = $value;
-			}
-		}
-		update_site_option( 'wp_debugging_restore', $predefined_constants );
+		$this->set_pre_activation_constants( $config_transformer );
 		foreach ( $constants as $constant ) {
 			$value = 'wp_debug_display' === $constant ? 'false' : 'true';
 			$config_transformer->update( 'constant', strtoupper( $constant ), $value, $config_args );
@@ -169,14 +160,46 @@ class Bootstrap {
 		$restore_constants  = get_site_option( 'wp_debugging_restore' );
 		$remove_constants   = array_diff( $this->defined_constants, array_keys( $restore_constants ) );
 		$config_transformer = new \WPConfigTransformer( self::$config_path );
-		$config_args        = [
-			'raw'       => true,
-			'normalize' => true,
-		];
 
 		foreach ( $remove_constants as $constant ) {
 			$config_transformer->remove( 'constant', strtoupper( $constant ) );
 		}
+		$this->restore_pre_activation_constants( $config_transformer );
+	}
+
+	/**
+	 * Set pre-activation constant from `wp-config.php`.
+	 *
+	 * @param \WPConfigTransformer $config_transformer
+	 *
+	 * @return void
+	 */
+	private function set_pre_activation_constants( \WPConfigTransformer $config_transformer ) {
+		$predefined_constants = [];
+		foreach ( $this->defined_constants as $defined_constant ) {
+			if ( $config_transformer->exists( 'constant', strtoupper( $defined_constant ) ) ) {
+				$value = $config_transformer->get_value( 'constant', strtoupper( $defined_constant ) );
+				$value = trim( $value, '"\'' ); // Normalize quoted value.
+
+				$predefined_constants[ $defined_constant ] = $value;
+			}
+		}
+		update_site_option( 'wp_debugging_restore', $predefined_constants );
+	}
+
+	/**
+	 * Restore pre-activation constants to `wp-config.php`.
+	 *
+	 * @param \WPConfigTransformer $config_transformer
+	 *
+	 * @return void
+	 */
+	private function restore_pre_activation_constants( \WPConfigTransformer $config_transformer ) {
+		$restore_constants = get_site_option( 'wp_debugging_restore' );
+		$config_args       = [
+			'raw'       => true,
+			'normalize' => true,
+		];
 		foreach ( $restore_constants as $constant => $value ) {
 			$config_transformer->update( 'constant', strtoupper( $constant ), $value, $config_args );
 		}
