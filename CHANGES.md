@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 2.4.2 / 2019-02-26
+* add `Domain Path` header
+
 #### 2.4.1 / 2019-02-10
 * refactor set/restore pre-activation constants
 
