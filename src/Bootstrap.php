@@ -72,6 +72,13 @@ class Bootstrap {
 		$this->load_hooks();
 		( new Settings( self::$options, self::$config_path ) )->load_hooks();
 		\WP_Dependency_Installer::instance()->run( $this->dir );
+
+		add_action(
+			'init',
+			function() {
+				load_plugin_textdomain( 'wp-debugging' );
+			}
+		);
 	}
 
 	/**

@@ -1,5 +1,6 @@
 #### [unreleased]
 * add `Domain Path` header
+* add `load_plugin_textdomain`
 
 #### 2.4.1 / 2019-02-10
 * refactor set/restore pre-activation constants
