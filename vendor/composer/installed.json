@@ -82,9 +82,7 @@
         "version_normalized": "0.1.3.0",
         "dist": {
             "type": "zip",
-            "url": "https://github.com/afragen/debug-quick-look/archive/vendor.zip",
-            "reference": null,
-            "shasum": null
+            "url": "https://github.com/afragen/debug-quick-look/archive/vendor.zip"
         },
         "type": "library",
         "installation-source": "dist",
