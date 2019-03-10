@@ -1,5 +1,6 @@
 #### [unreleased]
 
+* missed an output escape
 #### 2.4.2 / 2019-02-26
 * add `Domain Path` header
 
