@@ -332,11 +332,23 @@ class Settings {
 	 * @return void
 	 */
 	private function print_constants() {
+		$added_constants      = apply_filters( 'wp_debugging_add_constants', [] );
+		$additional_constants = [];
+		if ( $added_constants ) {
+			foreach ( $added_constants as $constant => $config ) {
+				$additional_constants[ $constant ] = $config['value'];
+			}
+		}
 		$constants = [ 'wp_debug_log', 'script_debug', 'savequeries' ];
 		$constants = array_merge( array_keys( self::$options ), $constants );
+		$constants = array_diff( $constants, array_keys( $additional_constants ) );
 		echo '<pre>';
 		foreach ( $constants as $constant ) {
 			$value    = 'wp_debug_display' === $constant ? 'false' : 'true';
+			$constant = strtoupper( $constant );
+			echo( wp_kses_post( "<code>define( '{$constant}', {$value} );</code><br>" ) );
+		}
+		foreach ( $additional_constants as $constant => $value ) {
 			$constant = strtoupper( $constant );
 			echo( wp_kses_post( "<code>define( '{$constant}', {$value} );</code><br>" ) );
 		}
