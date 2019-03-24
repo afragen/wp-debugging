@@ -153,15 +153,14 @@ class Settings {
 		}
 
 		return $added;
-
 	}
 
 	/**
 	 * Process user defined constants added via filter.
 	 *
-	 * @return array $add_constants Array of added constants.
+	 * @return void
 	 */
-	private function add_filter_constants() {
+	public function process_filter_constants() {
 		/**
 		 * Filter to add user define constants.
 		 *
@@ -309,7 +308,7 @@ class Settings {
 			);
 		}
 
-		$this->add_filter_constants();
+		$this->process_filter_constants();
 	}
 
 	/**
