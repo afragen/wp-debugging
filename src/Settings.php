@@ -178,19 +178,18 @@ class Settings {
 		 *              )
 		 *              Default is an empty array.
 		 */
-		$add_filtered_config = apply_filters( 'wp_debugging_add_constants', [] );
-		//$added_constants     = [];
-		$remove              = array_diff( self::$options, array_flip( $this->defined_constants ) );
-		if ( ! empty( $remove ) ) {
-			$this->remove_constants( $remove );
-		}
-		$added_constants = $this->add_constants( $add_filtered_config );
+		$filter_constants    = apply_filters( 'wp_debugging_add_constants', [] );
+		$remove_user_defined = array_diff( self::$options, array_flip( $this->defined_constants ) );
 
-		$options       = array_diff( self::$options, $remove );
+		// Remove and re-add user defined constants. Clean up for when filter removed or changed.
+		if ( ! empty( $remove_user_defined ) ) {
+			$this->remove_constants( $remove_user_defined );
+		}
+		$added_constants = $this->add_constants( $filter_constants );
+
+		$options       = array_diff( self::$options, $remove_user_defined );
 		self::$options = array_merge( $options, $added_constants );
 		update_site_option( 'wp_debugging', (array) self::$options );
-
-		return $added_constants;
 	}
 
 	/**
