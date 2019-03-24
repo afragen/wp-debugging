@@ -140,15 +140,6 @@ class Settings {
 	private function add_constants( $add ) {
 		$added              = [];
 		$config_transformer = new \WPConfigTransformer( self::$config_path );
-		// $config_args        = [
-		// 'raw'       => true,
-		// 'normalize' => true,
-		// ];
-		// foreach ( array_keys( $add ) as $constant ) {
-		// $value = 'wp_debug_display' === $constant ? 'false' : 'true';
-		// $config_transformer->update( 'constant', strtoupper( $constant ), $value, //$config_args );
-		// }
-		// TODO:
 		foreach ( $add as $constant => $config ) {
 			$value       = 'wp_debug_display' === $constant ? 'false' : 'true';
 			$value       = isset( $config['value'] ) ? $config['value'] : $value;
@@ -194,17 +185,6 @@ class Settings {
 		if ( ! empty( $remove ) ) {
 			$this->remove_constants( $remove );
 		}
-
-		// $config_transformer = new \WPConfigTransformer( self::$config_path );
-		// foreach ( $add_filtered_config as $constant => $config ) {
-		// $raw         = isset( $config['raw'] ) ? $config['raw'] : true;
-		// $config_args = [
-		// 'raw'       => $raw,
-		// 'normalize' => true,
-		// ];
-		// $config_transformer->update( 'constant', strtoupper( $constant ), $config['value'], $config_args );
-		// $added_constants[ $constant ] = $config['value'];
-		// }
 		$added_constants = $this->add_constants( $add_filtered_config );
 
 		$options       = array_diff( self::$options, $remove );
@@ -366,12 +346,12 @@ class Settings {
 		foreach ( $constants as $constant ) {
 			$value    = 'wp_debug_display' === $constant ? 'false' : 'true';
 			$constant = strtoupper( $constant );
-			echo( wp_kses_post( "<code>define( '{$constant}', {$value} );</code><br>" ) );
+			echo wp_kses_post( "<code>define( '{$constant}', {$value} );</code><br>" );
 		}
 		foreach ( $additional_constants as $constant => $value ) {
+			$value    = in_array( $value, [ 'true', 'false' ], true ) ? $value : "'$value'";
 			$constant = strtoupper( $constant );
-			$value    = in_array( $value, [ 'true', 'false' ] ) ? $value : "'$value'";
-			echo( wp_kses_post( "<code>define( '{$constant}', {$value} );</code><br>" ) );
+			echo wp_kses_post( "<code>define( '{$constant}', {$value} );</code><br>" );
 		}
 		echo '</pre>';
 	}
