@@ -400,7 +400,7 @@ class Settings {
 	/**
 	 * Get the settings option array and print one of its values.
 	 *
-	 * @param array $args 'id' and 'title'
+	 * @param array $args 'id' and 'title'.
 	 */
 	public function checkbox_setting( $args ) {
 		$checked = isset( self::$options[ $args['id'] ] ) ? self::$options[ $args['id'] ] : null;
