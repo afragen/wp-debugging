@@ -43,6 +43,50 @@ This plugin uses the [wp-cli/wp-config-transformer](https://github.com/wp-cli/wp
 
 If you have a non-standard location for your `wp-config.php` file you can use the filter `wp_debugging_config_path` to return the file path for your installation.
 
+The filter `wp_debugging_add_constants` allows the user to add constants to `wp-config.php`.
+
+The filter returns an array where the key is the name of the constant and the value is an array of data containing the value as a string and a boolean to indicate whether or not the value should be passed without quotes.
+
+```php
+$my_constants = [
+    'my_test_constant' =>
+    [
+        'value' => 'abc123',
+        'raw' => false,
+    ],
+    'another_test_constant' => [ 'value' => 'true' ],
+];
+```
+
+The `value` option contains the constant's value as a string.
+
+The `raw` option means that instead of placing the value inside the config as a string it will become unquoted. The default is `true`. Set as `false` for non-boolean values.
+
+Example:
+
+```php
+add_filter(
+	'wp_debugging_add_constants',
+	function() {
+		$my_constants = [
+			'my_test_constant'      => [
+				'value' => '124xyz',
+				'raw'   => false,
+			],
+			'another_test_constant' => [ 'value' => 'true' ],
+		];
+		return $my_constants;
+	}
+);
+```
+
+This will create the following constants.
+
+```php
+define( 'MY_TEST_CONSTANT', '124xyz' );
+define( 'ANOTHER_TEST_CONSTANT', true );
+```
+
 ## Development
 
 PRs are welcome against the `develop` branch.
