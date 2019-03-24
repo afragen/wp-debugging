@@ -136,8 +136,7 @@ class Bootstrap {
 	 * @return void
 	 */
 	public function activate() {
-		$config_transformer = new \WPConfigTransformer( self::$config_path );
-		$this->set_pre_activation_constants( $config_transformer );
+		$this->set_pre_activation_constants();
 
 		// Need to remove user defined constants from filter.
 		$user_defined = apply_filters( 'wp_debugging_add_constants', [] );
@@ -171,11 +170,10 @@ class Bootstrap {
 	/**
 	 * Set pre-activation constant from `wp-config.php`.
 	 *
-	 * @param \WPConfigTransformer $config_transformer
-	 *
 	 * @return void
 	 */
-	private function set_pre_activation_constants( \WPConfigTransformer $config_transformer ) {
+	private function set_pre_activation_constants() {
+		$config_transformer   = new \WPConfigTransformer( self::$config_path );
 		$predefined_constants = [];
 		foreach ( $this->defined_constants as $defined_constant ) {
 			if ( $config_transformer->exists( 'constant', strtoupper( $defined_constant ) ) ) {
