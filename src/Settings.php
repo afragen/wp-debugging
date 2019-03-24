@@ -28,15 +28,23 @@ class Settings {
 	protected static $config_path;
 
 	/**
+	 * Holds pre-defined constants for `wp-config.php`.
+	 *
+	 * @var array
+	 */
+	protected $defined_constants;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param array  $options Plugin options.
 	 * @param string $config_path Path to config file.
 	 * @return void
 	 */
-	public function __construct( $options, $config_path ) {
-		self::$options     = $options;
-		self::$config_path = $config_path;
+	public function __construct( $options, $config_path, $defined_constants ) {
+		self::$options           = $options;
+		self::$config_path       = $config_path;
+		$this->defined_constants = $defined_constants;
 	}
 
 	/**
