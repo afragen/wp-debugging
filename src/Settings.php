@@ -150,6 +150,54 @@ class Settings {
 	}
 
 	/**
+	 * Process user defined constants added via filter.
+	 *
+	 * @return array $add_constants Array of added constants.
+	 */
+	private function add_filter_constants() {
+		/**
+		 * Filter to add user define constants.
+		 *
+		 * @since 2.5.0
+		 *
+		 * @param array Array of added constants.
+		 *              The format for adding constants is to return an array of arrays.
+		 *              Each array will have the constant as the key with an array of configuration data.
+		 *              array(
+		 *                  'my_constant' =>
+		 *                  array(
+		 *                      'value' => $value, @type string
+		 *                      'raw' => $raw, // Optional. @type bool $raw is a boolean where false will return the value in quotes and true will return the raw value. Default is true.
+		 *                  ),
+		 *              )
+		 *              Default is an empty array.
+		 */
+		$add_filtered_config = apply_filters( 'wp_debugging_add_constants', [] );
+		$added_constants     = [];
+		$remove              = array_diff( self::$options, array_flip( $this->defined_constants ) );
+		if ( ! empty( $remove ) ) {
+			$this->remove_constants( $remove );
+		}
+
+		$config_transformer = new \WPConfigTransformer( self::$config_path );
+		foreach ( $add_filtered_config as $constant => $config ) {
+			$raw         = isset( $config['raw'] ) ? $config['raw'] : true;
+			$config_args = [
+				'raw'       => $raw,
+				'normalize' => true,
+			];
+			$config_transformer->update( 'constant', strtoupper( $constant ), $config['value'], $config_args );
+			$added_constants[ $constant ] = $config['value'];
+		}
+
+		$options       = array_diff( self::$options, $remove );
+		self::$options = array_merge( $options, $added_constants );
+		update_site_option( 'wp_debugging', (array) self::$options );
+
+		return $added_constants;
+	}
+
+	/**
 	 * Remove constants from wp-config.php file.
 	 *
 	 * @uses https://github.com/wp-cli/wp-config-transformer
@@ -263,6 +311,8 @@ class Settings {
 				]
 			);
 		}
+
+		$this->add_filter_constants();
 	}
 
 	/**
