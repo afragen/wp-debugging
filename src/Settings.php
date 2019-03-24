@@ -37,8 +37,9 @@ class Settings {
 	/**
 	 * Constructor.
 	 *
-	 * @param array  $options Plugin options.
-	 * @param string $config_path Path to config file.
+	 * @param  array  $options           Plugin options.
+	 * @param  string $config_path       Path to config file.
+	 * @param  array  $defined_constants Pre-defined constant group.
 	 * @return void
 	 */
 	public function __construct( $options, $config_path, $defined_constants ) {
@@ -137,7 +138,7 @@ class Settings {
 	 * @param  array $add Constants to add to wp-config.php.
 	 * @return array $added Array of added constants.
 	 */
-	private function add_constants( $add ) {
+	public function add_constants( $add ) {
 		$added              = [];
 		$config_transformer = new \WPConfigTransformer( self::$config_path );
 		foreach ( $add as $constant => $config ) {
@@ -200,7 +201,7 @@ class Settings {
 	 * @param  array $remove Constants to remove from wp-config.php.
 	 * @return void
 	 */
-	private function remove_constants( $remove ) {
+	public function remove_constants( $remove ) {
 		$config_transformer = new \WPConfigTransformer( self::$config_path );
 		foreach ( array_keys( $remove ) as $constant ) {
 			$config_transformer->remove( 'constant', strtoupper( $constant ) );
