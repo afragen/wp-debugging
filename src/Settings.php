@@ -135,18 +135,34 @@ class Settings {
 	 * @uses https://github.com/wp-cli/wp-config-transformer
 	 *
 	 * @param  array $add Constants to add to wp-config.php.
-	 * @return void
+	 * @return array $added Array of added constants.
 	 */
 	private function add_constants( $add ) {
+		$added              = [];
 		$config_transformer = new \WPConfigTransformer( self::$config_path );
-		$config_args        = [
-			'raw'       => true,
-			'normalize' => true,
-		];
-		foreach ( array_keys( $add ) as $constant ) {
-			$value = 'wp_debug_display' === $constant ? 'false' : 'true';
+		// $config_args        = [
+		// 'raw'       => true,
+		// 'normalize' => true,
+		// ];
+		// foreach ( array_keys( $add ) as $constant ) {
+		// $value = 'wp_debug_display' === $constant ? 'false' : 'true';
+		// $config_transformer->update( 'constant', strtoupper( $constant ), $value, //$config_args );
+		// }
+		// TODO:
+		foreach ( $add as $constant => $config ) {
+			$value       = 'wp_debug_display' === $constant ? 'false' : 'true';
+			$value       = isset( $config['value'] ) ? $config['value'] : $value;
+			$raw         = isset( $config['raw'] ) ? $config['raw'] : true;
+			$config_args = [
+				'raw'       => $raw,
+				'normalize' => true,
+			];
 			$config_transformer->update( 'constant', strtoupper( $constant ), $value, $config_args );
+			$added[ $constant ] = $value;
 		}
+
+		return $added;
+
 	}
 
 	/**
@@ -173,22 +189,23 @@ class Settings {
 		 *              Default is an empty array.
 		 */
 		$add_filtered_config = apply_filters( 'wp_debugging_add_constants', [] );
-		$added_constants     = [];
+		//$added_constants     = [];
 		$remove              = array_diff( self::$options, array_flip( $this->defined_constants ) );
 		if ( ! empty( $remove ) ) {
 			$this->remove_constants( $remove );
 		}
 
-		$config_transformer = new \WPConfigTransformer( self::$config_path );
-		foreach ( $add_filtered_config as $constant => $config ) {
-			$raw         = isset( $config['raw'] ) ? $config['raw'] : true;
-			$config_args = [
-				'raw'       => $raw,
-				'normalize' => true,
-			];
-			$config_transformer->update( 'constant', strtoupper( $constant ), $config['value'], $config_args );
-			$added_constants[ $constant ] = $config['value'];
-		}
+		// $config_transformer = new \WPConfigTransformer( self::$config_path );
+		// foreach ( $add_filtered_config as $constant => $config ) {
+		// $raw         = isset( $config['raw'] ) ? $config['raw'] : true;
+		// $config_args = [
+		// 'raw'       => $raw,
+		// 'normalize' => true,
+		// ];
+		// $config_transformer->update( 'constant', strtoupper( $constant ), $config['value'], $config_args );
+		// $added_constants[ $constant ] = $config['value'];
+		// }
+		$added_constants = $this->add_constants( $add_filtered_config );
 
 		$options       = array_diff( self::$options, $remove );
 		self::$options = array_merge( $options, $added_constants );
@@ -339,9 +356,12 @@ class Settings {
 				$additional_constants[ $constant ] = $config['value'];
 			}
 		}
+
+		// Strip user defined constants from $constants array.
 		$constants = [ 'wp_debug_log', 'script_debug', 'savequeries' ];
 		$constants = array_merge( array_keys( self::$options ), $constants );
 		$constants = array_diff( $constants, array_keys( $additional_constants ) );
+
 		echo '<pre>';
 		foreach ( $constants as $constant ) {
 			$value    = 'wp_debug_display' === $constant ? 'false' : 'true';
@@ -350,6 +370,7 @@ class Settings {
 		}
 		foreach ( $additional_constants as $constant => $value ) {
 			$constant = strtoupper( $constant );
+			$value    = in_array( $value, [ 'true', 'false' ] ) ? $value : "'$value'";
 			echo( wp_kses_post( "<code>define( '{$constant}', {$value} );</code><br>" ) );
 		}
 		echo '</pre>';
