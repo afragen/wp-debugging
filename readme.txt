@@ -5,7 +5,7 @@ Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.4
 Tested up to: 5.1
-Stable tag: 2.4.3
+Stable tag: 2.5.0
 Donate link: https://thefragens.com/github-updater-donate
 License: MIT
 
@@ -89,6 +89,9 @@ This will create the following constants.
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.5.0 / 2019-03-25
+* added `wp_debugging_add_constants` filter for users to add their own constants
 
 #### 2.4.3 / 2019-03-09
 * missed an output escape
