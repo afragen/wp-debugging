@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 2.5.0 / 2019-03-25
+* added `wp_debugging_add_constants` filter for users to add their own constants
+
 #### 2.4.3 / 2019-03-09
 * missed an output escape
 

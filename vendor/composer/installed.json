@@ -46,20 +46,20 @@
     },
     {
         "name": "collizo4sky/persist-admin-notices-dismissal",
-        "version": "1.4.2",
-        "version_normalized": "1.4.2.0",
+        "version": "1.4.3",
+        "version_normalized": "1.4.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/collizo4sky/persist-admin-notices-dismissal.git",
-            "reference": "b63922b4ad023d78039cca71caf9002913058fd8"
+            "reference": "2d7d8bb3cba631ad227c92296a4b675d7cbc71d7"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/collizo4sky/persist-admin-notices-dismissal/zipball/b63922b4ad023d78039cca71caf9002913058fd8",
-            "reference": "b63922b4ad023d78039cca71caf9002913058fd8",
+            "url": "https://api.github.com/repos/collizo4sky/persist-admin-notices-dismissal/zipball/2d7d8bb3cba631ad227c92296a4b675d7cbc71d7",
+            "reference": "2d7d8bb3cba631ad227c92296a4b675d7cbc71d7",
             "shasum": ""
         },
-        "time": "2018-11-25T07:06:31+00:00",
+        "time": "2019-03-12T05:19:51+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

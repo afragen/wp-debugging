@@ -28,15 +28,24 @@ class Settings {
 	protected static $config_path;
 
 	/**
+	 * Holds pre-defined constants for `wp-config.php`.
+	 *
+	 * @var array
+	 */
+	protected $defined_constants;
+
+	/**
 	 * Constructor.
 	 *
-	 * @param array  $options Plugin options.
-	 * @param string $config_path Path to config file.
+	 * @param  array  $options           Plugin options.
+	 * @param  string $config_path       Path to config file.
+	 * @param  array  $defined_constants Pre-defined constant group.
 	 * @return void
 	 */
-	public function __construct( $options, $config_path ) {
-		self::$options     = $options;
-		self::$config_path = $config_path;
+	public function __construct( $options, $config_path, $defined_constants ) {
+		self::$options           = $options;
+		self::$config_path       = $config_path;
+		$this->defined_constants = $defined_constants;
 	}
 
 	/**
@@ -127,18 +136,61 @@ class Settings {
 	 * @uses https://github.com/wp-cli/wp-config-transformer
 	 *
 	 * @param  array $add Constants to add to wp-config.php.
+	 * @return array $added Array of added constants.
+	 */
+	public function add_constants( $add ) {
+		$added              = [];
+		$config_transformer = new \WPConfigTransformer( self::$config_path );
+		foreach ( $add as $constant => $config ) {
+			$value       = 'wp_debug_display' === $constant ? 'false' : 'true';
+			$value       = isset( $config['value'] ) ? $config['value'] : $value;
+			$raw         = isset( $config['raw'] ) ? $config['raw'] : true;
+			$config_args = [
+				'raw'       => $raw,
+				'normalize' => true,
+			];
+			$config_transformer->update( 'constant', strtoupper( $constant ), $value, $config_args );
+			$added[ $constant ] = $value;
+		}
+
+		return $added;
+	}
+
+	/**
+	 * Process user defined constants added via filter.
+	 *
 	 * @return void
 	 */
-	private function add_constants( $add ) {
-		$config_transformer = new \WPConfigTransformer( self::$config_path );
-		$config_args        = [
-			'raw'       => true,
-			'normalize' => true,
-		];
-		foreach ( array_keys( $add ) as $constant ) {
-			$value = 'wp_debug_display' === $constant ? 'false' : 'true';
-			$config_transformer->update( 'constant', strtoupper( $constant ), $value, $config_args );
+	public function process_filter_constants() {
+		/**
+		 * Filter to add user define constants.
+		 *
+		 * @since 2.5.0
+		 *
+		 * @param array Array of added constants.
+		 *              The format for adding constants is to return an array of arrays.
+		 *              Each array will have the constant as the key with an array of configuration data.
+		 *              array(
+		 *                  'my_constant' =>
+		 *                  array(
+		 *                      'value' => $value, @type string
+		 *                      'raw' => $raw, // Optional. @type bool $raw is a boolean where false will return the value in quotes and true will return the raw value. Default is true.
+		 *                  ),
+		 *              )
+		 *              Default is an empty array.
+		 */
+		$filter_constants    = apply_filters( 'wp_debugging_add_constants', [] );
+		$remove_user_defined = array_diff( self::$options, array_flip( $this->defined_constants ) );
+
+		// Remove and re-add user defined constants. Clean up for when filter removed or changed.
+		if ( ! empty( $remove_user_defined ) ) {
+			$this->remove_constants( $remove_user_defined );
 		}
+		$added_constants = $this->add_constants( $filter_constants );
+
+		$options       = array_diff( self::$options, $remove_user_defined );
+		self::$options = array_merge( $options, $added_constants );
+		update_site_option( 'wp_debugging', (array) self::$options );
 	}
 
 	/**
@@ -149,7 +201,7 @@ class Settings {
 	 * @param  array $remove Constants to remove from wp-config.php.
 	 * @return void
 	 */
-	private function remove_constants( $remove ) {
+	public function remove_constants( $remove ) {
 		$config_transformer = new \WPConfigTransformer( self::$config_path );
 		foreach ( array_keys( $remove ) as $constant ) {
 			$config_transformer->remove( 'constant', strtoupper( $constant ) );
@@ -255,6 +307,8 @@ class Settings {
 				]
 			);
 		}
+
+		$this->process_filter_constants();
 	}
 
 	/**
@@ -274,13 +328,29 @@ class Settings {
 	 * @return void
 	 */
 	private function print_constants() {
+		$added_constants      = apply_filters( 'wp_debugging_add_constants', [] );
+		$additional_constants = [];
+		if ( $added_constants ) {
+			foreach ( $added_constants as $constant => $config ) {
+				$additional_constants[ $constant ] = $config['value'];
+			}
+		}
+
+		// Strip user defined constants from $constants array.
 		$constants = [ 'wp_debug_log', 'script_debug', 'savequeries' ];
 		$constants = array_merge( array_keys( self::$options ), $constants );
+		$constants = array_diff( $constants, array_keys( $additional_constants ) );
+
 		echo '<pre>';
 		foreach ( $constants as $constant ) {
 			$value    = 'wp_debug_display' === $constant ? 'false' : 'true';
 			$constant = strtoupper( $constant );
-			echo( wp_kses_post( "<code>define( '{$constant}', {$value} );</code><br>" ) );
+			echo wp_kses_post( "<code>define( '{$constant}', {$value} );</code><br>" );
+		}
+		foreach ( $additional_constants as $constant => $value ) {
+			$value    = in_array( $value, [ 'true', 'false' ], true ) ? $value : "'$value'";
+			$constant = strtoupper( $constant );
+			echo wp_kses_post( "<code>define( '{$constant}', {$value} );</code><br>" );
 		}
 		echo '</pre>';
 	}
@@ -330,7 +400,7 @@ class Settings {
 	/**
 	 * Get the settings option array and print one of its values.
 	 *
-	 * @param array $args 'id' and 'title'
+	 * @param array $args 'id' and 'title'.
 	 */
 	public function checkbox_setting( $args ) {
 		$checked = isset( self::$options[ $args['id'] ] ) ? self::$options[ $args['id'] ] : null;
