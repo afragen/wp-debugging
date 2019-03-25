@@ -67,7 +67,7 @@ Example:
 ```php
 add_filter(
 	'wp_debugging_add_constants',
-	function() {
+	function( $added_constants ) {
 		$my_constants = [
 			'my_test_constant'      => [
 				'value' => '124xyz',
@@ -75,8 +75,10 @@ add_filter(
 			],
 			'another_test_constant' => [ 'value' => 'true' ],
 		];
-		return $my_constants;
-	}
+		return array_merge( $added_constants, $my_constants );
+	},
+	10,
+	1
 );
 ```
 

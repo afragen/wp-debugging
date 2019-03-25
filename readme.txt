@@ -60,17 +60,19 @@ The `raw` option means that instead of placing the value inside the config as a 
 Example:
 
     add_filter(
-    	'wp_debugging_add_constants',
-    	function() {
-    		$my_constants = [
-    			'my_test_constant'      => [
-    				'value' => '124xyz',
-    				'raw'   => false,
-    			],
-    			'another_test_constant' => [ 'value' => 'true' ],
-    		];
-    		return $my_constants;
-    	}
+	    'wp_debugging_add_constants',
+	    function( $added_constants ) {
+	    	$my_constants = [
+	    		'my_test_constant'      => [
+	    			'value' => '124xyz',
+	    			'raw'   => false,
+	    		],
+	    		'another_test_constant' => [ 'value' => 'true' ],
+	    	];
+	    	return array_merge( $added_constants, $my_constants );
+	    },
+	    10,
+	    1
     );
 
 This will create the following constants.
