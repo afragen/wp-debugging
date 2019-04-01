@@ -1,6 +1,6 @@
 #### [unreleased]
 
-#### 2.5.2 / 2019-04-01
+#### 2.5.3 / 2019-04-01
 * update `Debug Quick Look` to display error log file path
 
 #### 2.5.1 / 2019-04-01
