@@ -132,9 +132,6 @@ function handler_body_tag( $message = '', $args = array(), $echo = false ) {
 		// Include our action to run before we close the body tag.
 		$build .= do_action( Core\HOOK_PREFIX . 'before_body_tag_close', $args );
 
-		// Display log file path.
-		$build .= '<span class="debug-intro-error-file">' . Core\DEBUG_FILE . '</span>';
-
 	// Close out the body tag.
 	$build .= '</body>';
 
@@ -217,6 +214,9 @@ function load_handler_intro( $args = array() ) {
 
 			// Handle the purge links output.
 			$build .= '<a class="debug-intro-link debug-intro-purge-link" href="' . esc_url( $purge ) . '">&times; ' . esc_html__( 'Purge File', 'debug-quick-look' ) . '</a>';
+
+			// Display log file path.
+			$build .= '<span class="debug-intro-error-file">' . Core\DEBUG_FILE . '</span>';
 
 		// Close the paragraph
 		$build .= '</p>' . "\n";

@@ -5,7 +5,7 @@ Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.4
 Tested up to: 5.1
-Stable tag: 2.5.2
+Stable tag: 2.5.3
 Donate link: https://thefragens.com/github-updater-donate
 License: MIT
 
@@ -90,7 +90,7 @@ PRs are welcome against the [develop branch on GitHub](https://github.com/afrage
 
 ## Changelog
 
-#### 2.5.2 / 2019-04-01
+#### 2.5.3 / 2019-04-01
 * update `Debug Quick Look` to display error log file path
 
 #### 2.5.1 / 2019-04-01
