@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 2.5.1 / 2019-04-01
+* updated version of wp-cli/wp-config-transformer
+
 #### 2.5.0 / 2019-03-25
 * added `wp_debugging_add_constants` filter for users to add their own constants
 
