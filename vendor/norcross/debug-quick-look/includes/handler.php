@@ -132,6 +132,9 @@ function handler_body_tag( $message = '', $args = array(), $echo = false ) {
 		// Include our action to run before we close the body tag.
 		$build .= do_action( Core\HOOK_PREFIX . 'before_body_tag_close', $args );
 
+		// Display log file path.
+		$build .= '<span class="debug-intro-error-file">' . Core\DEBUG_FILE . '</span>';
+
 	// Close out the body tag.
 	$build .= '</body>';
 
