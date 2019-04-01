@@ -94,17 +94,17 @@
     },
     {
         "name": "wp-cli/wp-config-transformer",
-        "version": "v1.2.4",
-        "version_normalized": "1.2.4.0",
+        "version": "v1.2.5",
+        "version_normalized": "1.2.5.0",
         "source": {
             "type": "git",
             "url": "https://github.com/wp-cli/wp-config-transformer.git",
-            "reference": "960ce687ac09a7c406087d0c6716be166ef32062"
+            "reference": "46c6c3622196c55ea9b94e735e8c408425de8944"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/wp-cli/wp-config-transformer/zipball/960ce687ac09a7c406087d0c6716be166ef32062",
-            "reference": "960ce687ac09a7c406087d0c6716be166ef32062",
+            "url": "https://api.github.com/repos/wp-cli/wp-config-transformer/zipball/46c6c3622196c55ea9b94e735e8c408425de8944",
+            "reference": "46c6c3622196c55ea9b94e735e8c408425de8944",
             "shasum": ""
         },
         "require": {
@@ -115,7 +115,7 @@
             "phpunit/phpunit": "^6.5.5",
             "wp-coding-standards/wpcs": "^0.14.0"
         },
-        "time": "2018-12-14T08:16:36+00:00",
+        "time": "2019-04-01T15:03:00+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
