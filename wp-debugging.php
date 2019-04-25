@@ -30,4 +30,4 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 require_once __DIR__ . '/src/Bootstrap.php';
-( new Bootstrap( __FILE__ ) )->run();
+( new Bootstrap( __FILE__ ) )->init();

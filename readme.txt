@@ -90,6 +90,9 @@ PRs are welcome against the [develop branch on GitHub](https://github.com/afrage
 
 ## Changelog
 
+#### 2.5.4 / 2019-04-25
+* added check for writable `wp-config.php`, exit with notice if not found
+
 #### 2.5.3 / 2019-04-01
 * update `Debug Quick Look` to display error log file path
 
