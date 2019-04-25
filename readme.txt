@@ -5,7 +5,7 @@ Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.4
 Tested up to: 5.1
-Stable tag: 2.5.3
+Stable tag: 2.5.4
 Donate link: https://thefragens.com/github-updater-donate
 License: MIT
 
@@ -89,6 +89,9 @@ This will create the following constants.
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.5.4 / 2019-04-25
+* added check for writable `wp-config.php`, exit with notice if not found
 
 #### 2.5.3 / 2019-04-01
 * update `Debug Quick Look` to display error log file path
