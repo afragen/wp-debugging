@@ -1,4 +1,5 @@
 #### [unreleased]
+* update composer.json for wp-dependency-installer update, now requires at least PHP 5.6 for spread operator
 
 #### 2.5.4 / 2019-04-25
 * added check for writable `wp-config.php`, exit with notice if not found

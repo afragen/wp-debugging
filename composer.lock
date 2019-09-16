@@ -4,25 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc120ac1e4c519e73c81c5c4d73c7632",
+    "content-hash": "3bde90f69cad5c0112a04057cef8b965",
     "packages": [
         {
             "name": "afragen/wp-dependency-installer",
-            "version": "1.4.11",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/afragen/wp-dependency-installer.git",
-                "reference": "59941012624fdf979b15c1b9333edb5bd080ef9d"
+                "reference": "05ba1f94bf8268d1a66ebe6a3d510a78281d6d5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/59941012624fdf979b15c1b9333edb5bd080ef9d",
-                "reference": "59941012624fdf979b15c1b9333edb5bd080ef9d",
+                "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/05ba1f94bf8268d1a66ebe6a3d510a78281d6d5d",
+                "reference": "05ba1f94bf8268d1a66ebe6a3d510a78281d6d5d",
                 "shasum": ""
             },
             "require": {
                 "collizo4sky/persist-admin-notices-dismissal": "^1",
-                "php": ">=5.3"
+                "php": ">=5.6"
             },
             "type": "library",
             "autoload": {
@@ -36,18 +36,18 @@
             ],
             "authors": [
                 {
-                    "name": "Matt Gibbs",
-                    "role": "Developer"
-                },
-                {
                     "name": "Andy Fragen",
                     "email": "andy@thefragens.com",
                     "homepage": "https://thefragens.com",
                     "role": "Developer"
+                },
+                {
+                    "name": "Matt Gibbs",
+                    "role": "Developer"
                 }
             ],
             "description": "Library that helps WordPress plugin dependency management.",
-            "time": "2019-03-09T17:57:11+00:00"
+            "time": "2019-09-16T15:45:10+00:00"
         },
         {
             "name": "collizo4sky/persist-admin-notices-dismissal",
@@ -95,16 +95,16 @@
         },
         {
             "name": "wp-cli/wp-config-transformer",
-            "version": "v1.2.5",
+            "version": "v1.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/wp-config-transformer.git",
-                "reference": "46c6c3622196c55ea9b94e735e8c408425de8944"
+                "reference": "1ca98343443a8e4585865db5f50e8e6121fee70b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/wp-config-transformer/zipball/46c6c3622196c55ea9b94e735e8c408425de8944",
-                "reference": "46c6c3622196c55ea9b94e735e8c408425de8944",
+                "url": "https://api.github.com/repos/wp-cli/wp-config-transformer/zipball/1ca98343443a8e4585865db5f50e8e6121fee70b",
+                "reference": "1ca98343443a8e4585865db5f50e8e6121fee70b",
                 "shasum": ""
             },
             "require": {
@@ -113,7 +113,7 @@
             "require-dev": {
                 "composer/composer": "^1.5.6",
                 "phpunit/phpunit": "^6.5.5",
-                "wp-coding-standards/wpcs": "^0.14.0"
+                "wp-coding-standards/wpcs": "^0.14.0 || ^1.0.0 || ^2.0.0"
             },
             "type": "library",
             "autoload": {
@@ -132,7 +132,7 @@
                 }
             ],
             "description": "Programmatically edit a wp-config.php file.",
-            "time": "2019-04-01T15:03:00+00:00"
+            "time": "2019-07-23T17:24:43+00:00"
         }
     ],
     "packages-dev": [],
@@ -142,7 +142,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.4"
+        "php": ">=5.6"
     },
     "platform-dev": []
 }
