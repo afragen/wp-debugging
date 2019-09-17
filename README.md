@@ -3,7 +3,7 @@
 * Contributors: [Andy Fragen](https://github.com/afragen)
 * Tags: debug, support
 * Requires at least: 4.6
-* Requires PHP: 5.4
+* Requires PHP: 5.6
 * Tested up to: 5.2
 * Stable tag: master
 * Donate link: <https://thefragens.com/github-updater-donate>
