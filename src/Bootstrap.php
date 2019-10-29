@@ -141,8 +141,10 @@ class Bootstrap {
 			2
 		);
 
-		register_activation_hook( $this->file, [ $this, 'activate' ] );
-		register_deactivation_hook( $this->file, [ $this, 'deactivate' ] );
+		if ( file_exists( self::$config_path ) ) {
+			register_activation_hook( $this->file, [ $this, 'activate' ] );
+			register_deactivation_hook( $this->file, [ $this, 'deactivate' ] );
+		}
 	}
 
 	/**

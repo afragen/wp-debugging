@@ -1,5 +1,5 @@
 #### [unreleased]
-* early exit from `process_filter_constants()` if `wp-config.php` not set
+* early exit if `wp-config.php` not set in specific functions
 
 #### 2.5.5 / 2019-09-17
 * update composer.json for wp-dependency-installer update, now requires at least PHP 5.6 for spread operator
