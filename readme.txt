@@ -4,8 +4,8 @@ Contributors: afragen
 Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.6
-Tested up to: 5.2
-Stable tag: 2.5.5
+Tested up to: 5.3
+Stable tag: 2.5.6
 Donate link: https://thefragens.com/github-updater-donate
 License: MIT
 
@@ -89,6 +89,9 @@ This will create the following constants.
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.5.6 / 2019-11-02
+* early exit if `wp-config.php` not set in specific functions
 
 #### 2.5.5 / 2019-09-17
 * update composer.json for wp-dependency-installer update, now requires at least PHP 5.6 for spread operator
