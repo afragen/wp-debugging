@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the WP Debugging plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Debugging 2.5.5\n"
+"Project-Id-Version: WP Debugging 2.5.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-debugging\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-17T23:45:08+00:00\n"
+"POT-Creation-Date: 2019-11-02T16:33:09+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.3.0\n"
 "X-Domain: wp-debugging\n"
@@ -17,7 +17,7 @@ msgstr ""
 #. Plugin Name of the plugin
 #: src/Settings.php:80
 #: src/Settings.php:81
-#: src/Settings.php:367
+#: src/Settings.php:375
 msgid "WP Debugging"
 msgstr ""
 
@@ -37,38 +37,38 @@ msgstr ""
 msgid "The <strong>WP Debugging</strong> plugin must have a <code>wp-config.php</code> file that is writable by the filesystem."
 msgstr ""
 
-#: src/Settings.php:249
+#: src/Settings.php:257
 msgid "Saved."
 msgstr ""
 
-#: src/Settings.php:268
+#: src/Settings.php:276
 msgid "Debugging Constants"
 msgstr ""
 
-#: src/Settings.php:281
+#: src/Settings.php:289
 msgid "Set WP_DEBUG to true."
 msgstr ""
 
-#: src/Settings.php:293
+#: src/Settings.php:301
 msgid "Set WP_DEBUG_DISPLAY to false, default is true."
 msgstr ""
 
-#: src/Settings.php:306
+#: src/Settings.php:314
 msgid "Set WP_DISABLE_FATAL_ERROR_HANDLER to true."
 msgstr ""
 
-#: src/Settings.php:320
+#: src/Settings.php:328
 msgid "The following constants are set with plugin activation and removed with plugin deactivation."
 msgstr ""
 
-#: src/Settings.php:322
+#: src/Settings.php:330
 msgid "Select the debugging constants."
 msgstr ""
 
-#: src/Settings.php:369
+#: src/Settings.php:377
 msgid "<strong>Please note:</strong> Your <code>wp-config.php</code> file must be writable by the filesystem. Any errors will result in a PHP Exception being thrown. Debug constants per <a href=\"https://codex.wordpress.org/Debugging_in_WordPress\">Debugging in WordPress</a>."
 msgstr ""
 
-#: src/Settings.php:426
+#: src/Settings.php:434
 msgid "Settings"
 msgstr ""
