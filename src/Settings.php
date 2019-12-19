@@ -140,7 +140,7 @@ class Settings {
 	 */
 	public function add_constants( $add ) {
 		if ( ! file_exists( self::$config_path ) || \filesize( self::$config_path ) ) {
-			return;
+			return [];
 		}
 
 		$added              = [];
