@@ -139,7 +139,7 @@ class Settings {
 	 * @return array $added Array of added constants.
 	 */
 	public function add_constants( $add ) {
-		if ( ! file_exists( self::$config_path ) ) {
+		if ( ! file_exists( self::$config_path ) || \filesize( self::$config_path ) ) {
 			return;
 		}
 
@@ -206,7 +206,7 @@ class Settings {
 	 * @return void
 	 */
 	public function remove_constants( $remove ) {
-		if ( ! file_exists( self::$config_path ) ) {
+		if ( ! file_exists( self::$config_path ) || \filesize( self::$config_path ) ) {
 			return;
 		}
 
