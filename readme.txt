@@ -5,7 +5,7 @@ Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.6
 Tested up to: 5.3
-Stable tag: 2.5.6
+Stable tag: 2.5.7
 Donate link: https://thefragens.com/github-updater-donate
 License: MIT
 
@@ -89,6 +89,10 @@ This will create the following constants.
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.5.7 / 2019-12-20
+* check and exit early if `wp-config.php` is empty
+* return empty array for the above exit
 
 #### 2.5.6 / 2019-11-02
 * early exit if `wp-config.php` not set in specific functions
