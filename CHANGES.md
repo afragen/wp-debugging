@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 2.5.8 / 2019-12-23
+* badly messed up check for empty `wp-config.php`
+
 #### 2.5.7 / 2019-12-20
 * check and exit early if `wp-config.php` is empty
 * return empty array for the above exit
