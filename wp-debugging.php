@@ -11,7 +11,7 @@
  * Plugin Name:       WP Debugging
  * Plugin URI:        https://github.com/afragen/wp-debugging
  * Description:       A support/troubleshooting plugin for WordPress.
- * Version:           2.5.8
+ * Version:           2.5.8.1
  * Author:            Andy Fragen
  * License:           MIT
  * Network:           true
@@ -29,5 +29,5 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-require_once __DIR__ . '/src/Bootstrap.php';
+require_once __DIR__ . '/vendor/autoload.php';
 ( new Bootstrap( __FILE__ ) )->init();
