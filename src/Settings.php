@@ -78,7 +78,7 @@ class Settings {
 		add_submenu_page(
 			$parent,
 			esc_html__( 'WP Debugging', 'wp-debugging' ),
-			esc_html__( 'WP Debugging', 'wp-debugging' ),
+			esc_html_x( 'WP Debugging', 'Menu item', 'wp-debugging' ),
 			$capability,
 			'wp-debugging',
 			[ $this, 'create_settings_page' ]
