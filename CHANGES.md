@@ -1,5 +1,6 @@
 #### [unreleased]
 * load autoloader in main file
+* update composer dependencies
 
 #### 2.5.8 / 2019-12-23
 * badly messed up check for empty `wp-config.php`
