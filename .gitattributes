@@ -8,3 +8,4 @@ composer.lock export-ignore
 /tests export-ignore
 phpunit.xml export-ignore
 /.wordpress-org export-ignore
+.svnignore export-ignore
