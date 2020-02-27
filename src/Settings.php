@@ -73,7 +73,7 @@ class Settings {
 	 */
 	public function add_plugin_menu() {
 		$parent     = is_multisite() ? 'settings.php' : 'tools.php';
-		$capability = is_multisite() ? 'manage_network' : 'manage_options';
+		$capability = is_multisite() ? 'manage_network_options' : 'manage_options';
 
 		add_submenu_page(
 			$parent,
