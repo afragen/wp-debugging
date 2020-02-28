@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3bde90f69cad5c0112a04057cef8b965",
+    "content-hash": "b75e602758221867c28e21d257105584",
     "packages": [
         {
             "name": "afragen/wp-dependency-installer",
-            "version": "2.1.0",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/afragen/wp-dependency-installer.git",
-                "reference": "5aa77e50c0fffc45245ca33c1cdd3f681c17fb84"
+                "reference": "70c6131c9a7a475d42de370b12fbe1d5c8bb5aba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/5aa77e50c0fffc45245ca33c1cdd3f681c17fb84",
-                "reference": "5aa77e50c0fffc45245ca33c1cdd3f681c17fb84",
+                "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/70c6131c9a7a475d42de370b12fbe1d5c8bb5aba",
+                "reference": "70c6131c9a7a475d42de370b12fbe1d5c8bb5aba",
                 "shasum": ""
             },
             "require": {
@@ -43,11 +43,17 @@
                 },
                 {
                     "name": "Matt Gibbs",
+                    "homepage": "https://facetwp.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Raruto",
+                    "homepage": "https://raruto.github.io",
                     "role": "Developer"
                 }
             ],
             "description": "Library that helps WordPress plugin dependency management.",
-            "time": "2020-01-23T22:53:01+00:00"
+            "time": "2020-02-28T17:28:54+00:00"
         },
         {
             "name": "collizo4sky/persist-admin-notices-dismissal",
