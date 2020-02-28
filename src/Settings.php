@@ -73,12 +73,12 @@ class Settings {
 	 */
 	public function add_plugin_menu() {
 		$parent     = is_multisite() ? 'settings.php' : 'tools.php';
-		$capability = is_multisite() ? 'manage_network' : 'manage_options';
+		$capability = is_multisite() ? 'manage_network_options' : 'manage_options';
 
 		add_submenu_page(
 			$parent,
 			esc_html__( 'WP Debugging', 'wp-debugging' ),
-			esc_html__( 'WP Debugging', 'wp-debugging' ),
+			esc_html_x( 'WP Debugging', 'Menu item', 'wp-debugging' ),
 			$capability,
 			'wp-debugging',
 			[ $this, 'create_settings_page' ]

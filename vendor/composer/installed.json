@@ -1,24 +1,24 @@
 [
     {
         "name": "afragen/wp-dependency-installer",
-        "version": "2.0.0",
-        "version_normalized": "2.0.0.0",
+        "version": "3.0.0",
+        "version_normalized": "3.0.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/afragen/wp-dependency-installer.git",
-            "reference": "05ba1f94bf8268d1a66ebe6a3d510a78281d6d5d"
+            "reference": "70c6131c9a7a475d42de370b12fbe1d5c8bb5aba"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/05ba1f94bf8268d1a66ebe6a3d510a78281d6d5d",
-            "reference": "05ba1f94bf8268d1a66ebe6a3d510a78281d6d5d",
+            "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/70c6131c9a7a475d42de370b12fbe1d5c8bb5aba",
+            "reference": "70c6131c9a7a475d42de370b12fbe1d5c8bb5aba",
             "shasum": ""
         },
         "require": {
             "collizo4sky/persist-admin-notices-dismissal": "^1",
             "php": ">=5.6"
         },
-        "time": "2019-09-16T15:45:10+00:00",
+        "time": "2020-02-28T17:28:54+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -39,6 +39,12 @@
             },
             {
                 "name": "Matt Gibbs",
+                "homepage": "https://facetwp.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Raruto",
+                "homepage": "https://raruto.github.io",
                 "role": "Developer"
             }
         ],

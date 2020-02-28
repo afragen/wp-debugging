@@ -4,8 +4,8 @@ Contributors: afragen
 Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.6
-Tested up to: 5.3
-Stable tag: 2.5.8
+Tested up to: 5.4
+Stable tag: 2.6.0
 Donate link: https://thefragens.com/github-updater-donate
 License: MIT
 
@@ -89,6 +89,10 @@ This will create the following constants.
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.6.0 / 2020-02-28
+* load autoloader in main file
+* update composer dependencies
 
 #### 2.5.8 / 2019-12-23
 * badly messed up check for empty `wp-config.php`

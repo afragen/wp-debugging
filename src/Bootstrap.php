@@ -84,7 +84,6 @@ class Bootstrap {
 	 * @return void
 	 */
 	public function run() {
-		require_once $this->dir . '/vendor/autoload.php';
 		$this->load_hooks();
 		( new Settings( self::$options, self::$config_path, $this->defined_constants ) )->load_hooks();
 		\WP_Dependency_Installer::instance()->run( $this->dir );
