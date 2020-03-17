@@ -433,6 +433,6 @@ class Settings {
 		$settings_page = is_multisite() ? 'settings.php' : 'tools.php';
 		$link          = [ '<a href="' . esc_url( network_admin_url( $settings_page ) ) . '?page=wp-debugging">' . esc_html__( 'Settings', 'wp-debugging' ) . '</a>' ];
 
-		return array_merge( $links, $link );
+		return array_merge( $link, $links );
 	}
 }

@@ -1,4 +1,5 @@
 #### [unreleased]
+* move `Settings` action link to front
 
 #### 2.6.0 / 2020-02-28
 * load autoloader in main file
