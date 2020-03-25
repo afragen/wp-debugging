@@ -1,5 +1,6 @@
 #### [unreleased]
 * move `Settings` action link to front
+* change test for `wp-config.php` file empty
 
 #### 2.6.0 / 2020-02-28
 * load autoloader in main file
