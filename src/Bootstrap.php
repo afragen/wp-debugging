@@ -59,7 +59,7 @@ class Bootstrap {
 		$this->dir         = dirname( $file );
 		self::$options     = get_site_option( 'wp_debugging', [ 'wp_debug' => '1' ] );
 		self::$config_path = $this->get_config_path();
-		@ini_set( 'display_errors', 1 );
+		@ini_set( 'display_errors', 1 ); // phpcs:ignore WordPress.PHP.IniSet.display_errors_Blacklisted
 	}
 
 	/**

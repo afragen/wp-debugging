@@ -139,7 +139,7 @@ class Settings {
 	 * @return array $added Array of added constants.
 	 */
 	public function add_constants( $add ) {
-		if ( ! file_exists( self::$config_path ) || 0 === \filesize( self::$config_path ) ) {
+		if ( ! file_exists( self::$config_path ) || ! trim( file_get_contents( self::$config_path ) ) ) {
 			return [];
 		}
 
@@ -206,7 +206,7 @@ class Settings {
 	 * @return void
 	 */
 	public function remove_constants( $remove ) {
-		if ( ! file_exists( self::$config_path ) || 0 === \filesize( self::$config_path ) ) {
+		if ( ! file_exists( self::$config_path ) || ! trim( file_get_contents( self::$config_path ) ) ) {
 			return;
 		}
 
@@ -433,6 +433,6 @@ class Settings {
 		$settings_page = is_multisite() ? 'settings.php' : 'tools.php';
 		$link          = [ '<a href="' . esc_url( network_admin_url( $settings_page ) ) . '?page=wp-debugging">' . esc_html__( 'Settings', 'wp-debugging' ) . '</a>' ];
 
-		return array_merge( $links, $link );
+		return array_merge( $link, $links );
 	}
 }
