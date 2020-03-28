@@ -1,4 +1,6 @@
 #### [unreleased]
+
+#### 2.6.1 / 2020-03-28
 * move `Settings` action link to front
 * change test for `wp-config.php` file empty
 
