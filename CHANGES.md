@@ -1,4 +1,5 @@
 #### [unreleased]
+* fire `process_filter_constants()` in `plugins_loaded` action
 
 #### 2.6.1 / 2020-03-28
 * move `Settings` action link to front

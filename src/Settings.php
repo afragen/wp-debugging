@@ -328,7 +328,7 @@ class Settings {
 			);
 		}
 
-		$this->process_filter_constants();
+		add_action( 'plugins_loaded', [ $this, 'process_filter_constants' ] );
 	}
 
 	/**
