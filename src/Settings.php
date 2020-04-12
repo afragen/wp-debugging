@@ -64,6 +64,7 @@ class Settings {
 			: 'plugin_action_links_wp-debugging/wp-debugging.php',
 			[ $this, 'plugin_action_links' ]
 		);
+		add_action( 'plugins_loaded', [ $this, 'process_filter_constants' ] );
 	}
 
 	/**
@@ -327,8 +328,6 @@ class Settings {
 				]
 			);
 		}
-
-		add_action( 'plugins_loaded', [ $this, 'process_filter_constants' ] );
 	}
 
 	/**
