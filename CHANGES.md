@@ -1,6 +1,6 @@
 #### [unreleased]
 * test for `wp-config.php` before running and in `process_filter_constants()`
-* fire `process_filter_constants()` in `plugins_loaded` action
+* fire `process_filter_constants()` in `init` action with priority `99`
 
 #### 2.6.1 / 2020-03-28
 * move `Settings` action link to front
