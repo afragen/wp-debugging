@@ -140,7 +140,7 @@ class Bootstrap {
 			2
 		);
 
-		if ( file_exists( self::$config_path ) ) {
+		if ( file_exists( self::$config_path ) && trim( file_get_contents( self::$config_path ) ) ) {
 			register_activation_hook( $this->file, [ $this, 'activate' ] );
 			register_deactivation_hook( $this->file, [ $this, 'deactivate' ] );
 		}
