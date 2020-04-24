@@ -75,7 +75,11 @@ class Bootstrap {
 
 			return false;
 		}
-		$this->run();
+
+		// Don't run during WP-CLI.
+		if ( ! ( defined( 'WP_CLI' ) && \WP_CLI ) ) {
+			$this->run();
+		}
 	}
 
 	/**
@@ -142,10 +146,8 @@ class Bootstrap {
 			2
 		);
 
-		if ( file_exists( self::$config_path ) && trim( file_get_contents( self::$config_path ) ) ) {
-			register_activation_hook( $this->file, [ $this, 'activate' ] );
-			register_deactivation_hook( $this->file, [ $this, 'deactivate' ] );
-		}
+		register_activation_hook( $this->file, [ $this, 'activate' ] );
+		register_deactivation_hook( $this->file, [ $this, 'deactivate' ] );
 	}
 
 	/**

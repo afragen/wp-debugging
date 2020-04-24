@@ -169,9 +169,6 @@ class Settings {
 	 * @return void
 	 */
 	public function process_filter_constants() {
-		if ( ! file_exists( self::$config_path ) || ! trim( file_get_contents( self::$config_path ) ) ) {
-			return;
-		}
 		/**
 		 * Filter to add user define constants.
 		 *
