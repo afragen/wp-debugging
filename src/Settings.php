@@ -51,7 +51,7 @@ class Settings {
 	/**
 	 * Load hooks for settings.
 	 *
-	 * @return void
+	 * @return self
 	 */
 	public function load_hooks() {
 		add_action( 'admin_init', [ $this, 'add_settings' ] );
@@ -64,7 +64,8 @@ class Settings {
 			: 'plugin_action_links_wp-debugging/wp-debugging.php',
 			[ $this, 'plugin_action_links' ]
 		);
-		add_action( 'init', [ $this, 'process_filter_constants' ], 99 );
+
+		return $this;
 	}
 
 	/**

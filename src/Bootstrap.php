@@ -85,7 +85,9 @@ class Bootstrap {
 	 */
 	public function run() {
 		$this->load_hooks();
-		( new Settings( self::$options, self::$config_path, $this->defined_constants ) )->load_hooks();
+		( new Settings( self::$options, self::$config_path, $this->defined_constants ) )
+			->load_hooks()
+			->process_filter_constants();
 		\WP_Dependency_Installer::instance()->run( $this->dir );
 	}
 
