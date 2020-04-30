@@ -1,6 +1,6 @@
 #### [unreleased]
+* start loading in `init` hook
 * run `process_filter_constants()` as chained method in `Bootstrap`
-* fixed intermittent error of `Config file is empty` by not running during WP-CLI
 
 #### 2.6.1 / 2020-03-28
 * move `Settings` action link to front

@@ -76,22 +76,7 @@ class Bootstrap {
 			return false;
 		}
 
-		// Don't run during WP-CLI.
-		if ( ! ( defined( 'WP_CLI' ) && \WP_CLI ) ) {
-			$this->run();
-		}
-	}
-
-	/**
-	 * Let's get going.
-	 *
-	 * @return void
-	 */
-	public function run() {
 		$this->load_hooks();
-		( new Settings( self::$options, self::$config_path, $this->defined_constants ) )
-			->load_hooks()
-			->process_filter_constants();
 		\WP_Dependency_Installer::instance()->run( $this->dir );
 	}
 
@@ -129,6 +114,14 @@ class Bootstrap {
 	 * @return void
 	 */
 	public function load_hooks() {
+		add_action(
+			'init',
+			function() {
+				( new Settings( self::$options, self::$config_path, $this->defined_constants ) )
+				->load_hooks()
+				->process_filter_constants();
+			}
+		);
 		add_action(
 			'init',
 			function () {
