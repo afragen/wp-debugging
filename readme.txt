@@ -5,7 +5,7 @@ Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.6
 Tested up to: 5.4
-Stable tag: 2.6.1
+Stable tag: 2.7.0
 Donate link: https://thefragens.com/github-updater-donate
 License: MIT
 
@@ -89,6 +89,10 @@ This will create the following constants.
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.7.0 / 2020-04-30
+* start loading in `init` hook
+* run `process_filter_constants()` as chained method in `Bootstrap`
 
 #### 2.6.1 / 2020-03-28
 * move `Settings` action link to front

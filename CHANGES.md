@@ -1,4 +1,6 @@
 #### [unreleased]
+
+#### 2.7.0 / 2020-04-30
 * start loading in `init` hook
 * run `process_filter_constants()` as chained method in `Bootstrap`
 
