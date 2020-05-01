@@ -75,17 +75,8 @@ class Bootstrap {
 
 			return false;
 		}
-		$this->run();
-	}
 
-	/**
-	 * Let's get going.
-	 *
-	 * @return void
-	 */
-	public function run() {
 		$this->load_hooks();
-		( new Settings( self::$options, self::$config_path, $this->defined_constants ) )->load_hooks();
 		\WP_Dependency_Installer::instance()->run( $this->dir );
 	}
 
@@ -125,6 +116,14 @@ class Bootstrap {
 	public function load_hooks() {
 		add_action(
 			'init',
+			function() {
+				( new Settings( self::$options, self::$config_path, $this->defined_constants ) )
+				->load_hooks()
+				->process_filter_constants();
+			}
+		);
+		add_action(
+			'init',
 			function () {
 				load_plugin_textdomain( 'wp-debugging' );
 			}
@@ -140,10 +139,8 @@ class Bootstrap {
 			2
 		);
 
-		if ( file_exists( self::$config_path ) ) {
-			register_activation_hook( $this->file, [ $this, 'activate' ] );
-			register_deactivation_hook( $this->file, [ $this, 'deactivate' ] );
-		}
+		register_activation_hook( $this->file, [ $this, 'activate' ] );
+		register_deactivation_hook( $this->file, [ $this, 'deactivate' ] );
 	}
 
 	/**

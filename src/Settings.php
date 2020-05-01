@@ -51,7 +51,7 @@ class Settings {
 	/**
 	 * Load hooks for settings.
 	 *
-	 * @return void
+	 * @return self
 	 */
 	public function load_hooks() {
 		add_action( 'admin_init', [ $this, 'add_settings' ] );
@@ -64,6 +64,8 @@ class Settings {
 			: 'plugin_action_links_wp-debugging/wp-debugging.php',
 			[ $this, 'plugin_action_links' ]
 		);
+
+		return $this;
 	}
 
 	/**
@@ -88,6 +90,8 @@ class Settings {
 	/**
 	 * Update settings on save.
 	 *
+	 * phpcs:disable WordPress.Security.NonceVerification.Missing
+	 *
 	 * @return void
 	 */
 	public function update_settings() {
@@ -95,8 +99,11 @@ class Settings {
 			'wp_debugging' === $_POST['option_page']
 		) {
 			$options = isset( $_POST['wp-debugging'] )
-				? $_POST['wp-debugging']
+				// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+				? wp_unslash( $_POST['wp-debugging'] )
 				: [];
+			// phpcs:enable
+
 			$options = self::sanitize( $options );
 			$this->update_constants( self::$options, $options );
 			$filtered_options = array_filter(
@@ -139,10 +146,6 @@ class Settings {
 	 * @return array $added Array of added constants.
 	 */
 	public function add_constants( $add ) {
-		if ( ! file_exists( self::$config_path ) || ! trim( file_get_contents( self::$config_path ) ) ) {
-			return [];
-		}
-
 		$added              = [];
 		$config_transformer = new \WPConfigTransformer( self::$config_path );
 		foreach ( $add as $constant => $config ) {
@@ -206,10 +209,6 @@ class Settings {
 	 * @return void
 	 */
 	public function remove_constants( $remove ) {
-		if ( ! file_exists( self::$config_path ) || ! trim( file_get_contents( self::$config_path ) ) ) {
-			return;
-		}
-
 		$config_transformer = new \WPConfigTransformer( self::$config_path );
 		foreach ( array_keys( $remove ) as $constant ) {
 			$config_transformer->remove( 'constant', strtoupper( $constant ) );
@@ -218,6 +217,8 @@ class Settings {
 
 	/**
 	 * Redirect back to settings page on save.
+	 *
+	 * phpcs:disable WordPress.Security.NonceVerification.Missing
 	 *
 	 * @return void
 	 */
@@ -228,6 +229,7 @@ class Settings {
 		) {
 			$update = true;
 		}
+		// phpcs:enable
 
 		$redirect_url = is_multisite() ? network_admin_url( 'settings.php' ) : admin_url( 'tools.php' );
 
@@ -247,6 +249,9 @@ class Settings {
 	/**
 	 * Add notice when settings are saved.
 	 *
+	 * phpcs:disable WordPress.PHP.StrictComparisons.LooseComparison
+	 * phpcs:disable WordPress.Security.NonceVerification.Recommended
+	 *
 	 * @return void
 	 */
 	private function saved_settings_notice() {
@@ -257,6 +262,7 @@ class Settings {
 			esc_html_e( 'Saved.', 'wp-debugging' );
 			echo '</p></div>';
 		}
+		// phpcs:enable
 	}
 
 	/**
@@ -315,8 +321,6 @@ class Settings {
 				]
 			);
 		}
-
-		$this->process_filter_constants();
 	}
 
 	/**
