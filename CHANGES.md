@@ -1,4 +1,5 @@
 #### [unreleased]
+* return early if `wp-config.php` is empty before calling `WPConfigTransformer`
 
 #### 2.7.0 / 2020-04-30
 * start loading in `init` hook
