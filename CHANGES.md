@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 2.7.1 / 2020--5-15
+* return early if `wp-config.php` is empty before calling `WPConfigTransformer`
+
 #### 2.7.0 / 2020-04-30
 * start loading in `init` hook
 * run `process_filter_constants()` as chained method in `Bootstrap`
