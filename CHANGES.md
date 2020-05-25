@@ -1,6 +1,5 @@
 #### [unreleased]
 * test `wp-config.php` everywhere, still occaisional WSOD reports.
-* start loading on `wp_loaded` hook
 
 #### 2.7.1 / 2020--5-15
 * return early if `wp-config.php` is empty before calling `WPConfigTransformer`

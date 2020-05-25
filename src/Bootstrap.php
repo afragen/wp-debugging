@@ -118,7 +118,7 @@ class Bootstrap {
 	 */
 	public function load_hooks() {
 		add_action(
-			'wp_loaded',
+			'init',
 			function() {
 				( new Settings( self::$options, self::$config_path, $this->defined_constants ) )
 					->load_hooks()
