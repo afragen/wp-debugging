@@ -75,6 +75,9 @@ class Bootstrap {
 
 			return false;
 		}
+		if ( ! \file_exists( self::$config_path ) || ! trim( \file_get_contents( self::$config_path ) ) ) {
+			return;
+		}
 
 		$this->load_hooks();
 		\WP_Dependency_Installer::instance()->run( $this->dir );
@@ -118,8 +121,8 @@ class Bootstrap {
 			'init',
 			function() {
 				( new Settings( self::$options, self::$config_path, $this->defined_constants ) )
-				->load_hooks()
-				->process_filter_constants();
+					->load_hooks()
+					->process_filter_constants();
 			}
 		);
 		add_action(
@@ -187,6 +190,9 @@ class Bootstrap {
 	 * @return void
 	 */
 	private function set_pre_activation_constants() {
+		if ( ! \file_exists( self::$config_path ) || ! trim( \file_get_contents( self::$config_path ) ) ) {
+			return;
+		}
 		$config_transformer   = new \WPConfigTransformer( self::$config_path );
 		$predefined_constants = [];
 		foreach ( $this->defined_constants as $defined_constant ) {

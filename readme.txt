@@ -4,8 +4,8 @@ Contributors: afragen
 Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.6
-Tested up to: 5.4
-Stable tag: 2.7.0
+Tested up to: 5.5
+Stable tag: 2.7.2
 Donate link: https://thefragens.com/github-updater-donate
 License: MIT
 
@@ -89,6 +89,12 @@ This will create the following constants.
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.7.2 / 2020-06-01
+* test `wp-config.php` everywhere, still occaisional WSOD reports.
+
+#### 2.7.1 / 2020--5-15
+* return early if `wp-config.php` is empty before calling `WPConfigTransformer`
 
 #### 2.7.0 / 2020-04-30
 * start loading in `init` hook

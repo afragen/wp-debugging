@@ -2,21 +2,21 @@
 # This file is distributed under the same license as the WP Debugging plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Debugging 2.7.0\n"
+"Project-Id-Version: WP Debugging 2.7.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-debugging\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-05-01T00:20:19+00:00\n"
+"POT-Creation-Date: 2020-06-01T19:00:56+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: wp-debugging\n"
 
 #. Plugin Name of the plugin
 #: src/Settings.php:82
-#: src/Settings.php:379
+#: src/Settings.php:388
 msgid "WP Debugging"
 msgstr ""
 
@@ -41,38 +41,38 @@ msgctxt "Menu item"
 msgid "WP Debugging"
 msgstr ""
 
-#: src/Settings.php:262
+#: src/Settings.php:271
 msgid "Saved."
 msgstr ""
 
-#: src/Settings.php:282
+#: src/Settings.php:291
 msgid "Debugging Constants"
 msgstr ""
 
-#: src/Settings.php:295
+#: src/Settings.php:304
 msgid "Set WP_DEBUG to true."
 msgstr ""
 
-#: src/Settings.php:307
+#: src/Settings.php:316
 msgid "Set WP_DEBUG_DISPLAY to false, default is true."
 msgstr ""
 
-#: src/Settings.php:320
+#: src/Settings.php:329
 msgid "Set WP_DISABLE_FATAL_ERROR_HANDLER to true."
 msgstr ""
 
-#: src/Settings.php:332
+#: src/Settings.php:341
 msgid "The following constants are set with plugin activation and removed with plugin deactivation."
 msgstr ""
 
-#: src/Settings.php:334
+#: src/Settings.php:343
 msgid "Select the debugging constants."
 msgstr ""
 
-#: src/Settings.php:381
+#: src/Settings.php:390
 msgid "<strong>Please note:</strong> Your <code>wp-config.php</code> file must be writable by the filesystem. Any errors will result in a PHP Exception being thrown. Debug constants per <a href=\"https://codex.wordpress.org/Debugging_in_WordPress\">Debugging in WordPress</a>."
 msgstr ""
 
-#: src/Settings.php:438
+#: src/Settings.php:447
 msgid "Settings"
 msgstr ""
