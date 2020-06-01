@@ -1,4 +1,6 @@
 #### [unreleased]
+
+#### 2.7.2 / 2020-06-01
 * test `wp-config.php` everywhere, still occaisional WSOD reports.
 
 #### 2.7.1 / 2020--5-15
