@@ -1,4 +1,5 @@
 #### [unreleased]
+* don't run during WP-CLI
 
 #### 2.7.2 / 2020-06-01
 * test `wp-config.php` everywhere, still occaisional WSOD reports.

@@ -68,6 +68,9 @@ class Bootstrap {
 	 * @return bool|void
 	 */
 	public function init() {
+		if ( defined( 'WP_CLI' ) && \WP_CLI ) {
+			return;
+		}
 		if ( ! is_writable( self::$config_path ) ) {
 			echo '<div class="error notice is-dismissible"><p>';
 			echo wp_kses_post( __( 'The <strong>WP Debugging</strong> plugin must have a <code>wp-config.php</code> file that is writable by the filesystem.', 'wp-debugging' ) );
