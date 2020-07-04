@@ -1,6 +1,5 @@
 #### [unreleased]
-* don't run during WP-CLI
-* try adding filter for proctected endpoint in error proctection
+* try adding filter for protected endpoint in error protection
 
 #### 2.7.2 / 2020-06-01
 * test `wp-config.php` everywhere, still occaisional WSOD reports.
