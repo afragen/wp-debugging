@@ -172,7 +172,6 @@ class Settings {
 	 * @return void
 	 */
 	public function process_filter_constants() {
-		add_filter( 'is_protected_endpoint', '__return_true' );
 		/**
 		 * Filter to add user define constants.
 		 *
@@ -192,6 +191,7 @@ class Settings {
 		 */
 		$filter_constants    = apply_filters( 'wp_debugging_add_constants', [] );
 		$remove_user_defined = array_diff( self::$options, array_flip( $this->defined_constants ) );
+		add_filter( 'is_protected_endpoint', '__return_true' );
 
 		// Remove and re-add user defined constants. Clean up for when filter removed or changed.
 		if ( ! empty( $remove_user_defined ) ) {
