@@ -117,6 +117,7 @@ class Bootstrap {
 		add_action(
 			'init',
 			function() {
+				add_filter( 'is_protected_endpoint', '__return_true' );
 				( new Settings( self::$options, self::$config_path, $this->defined_constants ) )
 					->load_hooks()
 					->process_filter_constants();
