@@ -159,6 +159,7 @@ class Settings {
 				'raw'       => $raw,
 				'normalize' => true,
 			];
+			add_filter( 'is_protected_endpoint', '__return_true' );
 			$config_transformer->update( 'constant', strtoupper( $constant ), $value, $config_args );
 			$added[ $constant ] = $value;
 		}
@@ -191,12 +192,13 @@ class Settings {
 		 */
 		$filter_constants    = apply_filters( 'wp_debugging_add_constants', [] );
 		$remove_user_defined = array_diff( self::$options, array_flip( $this->defined_constants ) );
-		add_filter( 'is_protected_endpoint', '__return_true' );
 
 		// Remove and re-add user defined constants. Clean up for when filter removed or changed.
 		if ( ! empty( $remove_user_defined ) ) {
+			add_filter( 'is_protected_endpoint', '__return_true' );
 			$this->remove_constants( $remove_user_defined );
 		}
+		add_filter( 'is_protected_endpoint', '__return_true' );
 		$added_constants = $this->add_constants( $filter_constants );
 
 		$options       = array_diff( self::$options, $remove_user_defined );
@@ -218,6 +220,7 @@ class Settings {
 		}
 		$config_transformer = new \WPConfigTransformer( self::$config_path );
 		foreach ( array_keys( $remove ) as $constant ) {
+			add_filter( 'is_protected_endpoint', '__return_true' );
 			$config_transformer->remove( 'constant', strtoupper( $constant ) );
 		}
 	}
