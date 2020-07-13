@@ -160,7 +160,8 @@ class Settings {
 				'normalize' => true,
 			];
 			add_filter( 'is_protected_endpoint', '__return_true' );
-			$config_transformer->update( 'constant', strtoupper( $constant ), $value, $config_args );
+			// $config_transformer->update( 'constant', strtoupper( $constant ), $value, $config_args );
+			( new \WPConfigTransformer( self::$config_path ) )->update( 'constant', strtoupper( $constant ), $value, $config_args );
 			$added[ $constant ] = $value;
 		}
 
@@ -198,7 +199,7 @@ class Settings {
 			add_filter( 'is_protected_endpoint', '__return_true' );
 			$this->remove_constants( $remove_user_defined );
 		}
-		add_filter( 'is_protected_endpoint', '__return_true' );
+		// add_filter( 'is_protected_endpoint', '__return_true' );
 		$added_constants = $this->add_constants( $filter_constants );
 
 		$options       = array_diff( self::$options, $remove_user_defined );
@@ -221,7 +222,8 @@ class Settings {
 		$config_transformer = new \WPConfigTransformer( self::$config_path );
 		foreach ( array_keys( $remove ) as $constant ) {
 			add_filter( 'is_protected_endpoint', '__return_true' );
-			$config_transformer->remove( 'constant', strtoupper( $constant ) );
+			// $config_transformer->remove( 'constant', strtoupper( $constant ) );
+			( new \WPConfigTransformer( self::$config_path ) )->remove( 'constant', strtoupper( $constant ) );
 		}
 	}
 
