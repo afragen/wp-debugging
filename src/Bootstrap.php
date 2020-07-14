@@ -117,7 +117,6 @@ class Bootstrap {
 		add_action(
 			'init',
 			function() {
-				add_filter( 'is_protected_endpoint', '__return_true' );
 				( new Settings( self::$options, self::$config_path, $this->defined_constants ) )
 					->load_hooks()
 					->process_filter_constants();
@@ -194,7 +193,6 @@ class Bootstrap {
 		$config_transformer   = new \WPConfigTransformer( self::$config_path );
 		$predefined_constants = [];
 		foreach ( $this->defined_constants as $defined_constant ) {
-			add_filter( 'is_protected_endpoint', '__return_true' );
 			if ( $config_transformer->exists( 'constant', strtoupper( $defined_constant ) ) ) {
 				$value = $config_transformer->get_value( 'constant', strtoupper( $defined_constant ) );
 				$value = trim( $value, '"\'' ); // Normalize quoted value.

@@ -1,5 +1,5 @@
 #### [unreleased]
-* try adding filter for protected endpoint in error protection
+* disable WSOD protection in `Settings::process_filter_constants()`, re-enable afterwards
 
 #### 2.7.2 / 2020-06-01
 * test `wp-config.php` everywhere, still occasional WSOD reports.
