@@ -198,7 +198,6 @@ class Settings {
 			$this->remove_constants( $remove_user_defined );
 		}
 		$added_constants = $this->add_constants( $filter_constants );
-		remove_filter( 'wp_fatal_error_handler_enabled' );
 
 		$options       = array_diff( self::$options, $remove_user_defined );
 		self::$options = array_merge( $options, $added_constants );

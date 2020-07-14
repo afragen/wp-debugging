@@ -1,5 +1,5 @@
 #### [unreleased]
-* disable WSOD protection in `Settings::process_filter_constants()`, re-enable afterwards
+* disable WSOD protection in `Settings::process_filter_constants()`
 
 #### 2.7.2 / 2020-06-01
 * test `wp-config.php` everywhere, still occasional WSOD reports.
