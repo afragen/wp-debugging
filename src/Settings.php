@@ -9,6 +9,11 @@
 
 namespace Fragen\WP_Debugging;
 
+// Exit if called directly.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 /**
  * Class Settings
  */

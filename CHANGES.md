@@ -1,5 +1,5 @@
 #### [unreleased]
-* disable WSOD protection in `Settings::process_filter_constants()`
+* exit if called directly
 * exit during WP-CLI
 * no more testing `wp-config.php` everywhere
 
