@@ -127,8 +127,7 @@ class Bootstrap {
 			'init',
 			function() {
 				( new Settings( self::$options, self::$config_path, $this->defined_constants ) )
-					->load_hooks()
-					->process_filter_constants();
+					->load_hooks();
 			}
 		);
 		add_action(

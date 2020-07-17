@@ -2,6 +2,7 @@
 * exit if called directly
 * exit during WP-CLI
 * no more testing `wp-config.php` everywhere
+* use `admin_init` hook
 
 #### 2.7.2 / 2020-06-01
 * test `wp-config.php` everywhere, still occasional WSOD reports
