@@ -146,9 +146,6 @@ class Settings {
 	 * @return array $added Array of added constants.
 	 */
 	public function add_constants( $add ) {
-		if ( ! \file_exists( self::$config_path ) || ! trim( \file_get_contents( self::$config_path ) ) ) {
-			return [];
-		}
 		$added              = [];
 		$config_transformer = new \WPConfigTransformer( self::$config_path );
 		foreach ( $add as $constant => $config ) {
@@ -191,14 +188,12 @@ class Settings {
 		 */
 		$filter_constants    = apply_filters( 'wp_debugging_add_constants', [] );
 		$remove_user_defined = array_diff( self::$options, array_flip( $this->defined_constants ) );
-		add_filter( 'wp_fatal_error_handler_enabled', [ $this, 'false' ] );
 
 		// Remove and re-add user defined constants. Clean up for when filter removed or changed.
 		if ( ! empty( $remove_user_defined ) ) {
 			$this->remove_constants( $remove_user_defined );
 		}
 		$added_constants = $this->add_constants( $filter_constants );
-		remove_filter( 'wp_fatal_error_handler_enabled', [ $this, 'false' ] );
 
 		$options       = array_diff( self::$options, $remove_user_defined );
 		self::$options = array_merge( $options, $added_constants );
@@ -214,9 +209,6 @@ class Settings {
 	 * @return void
 	 */
 	public function remove_constants( $remove ) {
-		if ( ! \file_exists( self::$config_path ) || ! trim( \file_get_contents( self::$config_path ) ) ) {
-			return;
-		}
 		$config_transformer = new \WPConfigTransformer( self::$config_path );
 		foreach ( array_keys( $remove ) as $constant ) {
 			$config_transformer->remove( 'constant', strtoupper( $constant ) );
@@ -446,14 +438,5 @@ class Settings {
 		$link          = [ '<a href="' . esc_url( network_admin_url( $settings_page ) ) . '?page=wp-debugging">' . esc_html__( 'Settings', 'wp-debugging' ) . '</a>' ];
 
 		return array_merge( $link, $links );
-	}
-
-	/**
-	 * Return false.
-	 *
-	 * @return bool
-	 */
-	private function false() {
-		return false;
 	}
 }

@@ -1,9 +1,10 @@
 #### [unreleased]
 * disable WSOD protection in `Settings::process_filter_constants()`
 * exit during WP-CLI
+* no more testing `wp-config.php` everywhere
 
 #### 2.7.2 / 2020-06-01
-* test `wp-config.php` everywhere, still occasional WSOD reports.
+* test `wp-config.php` everywhere, still occasional WSOD reports
 
 #### 2.7.1 / 2020-5-15
 * return early if `wp-config.php` is empty before calling `WPConfigTransformer`

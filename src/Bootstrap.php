@@ -191,9 +191,6 @@ class Bootstrap {
 	 * @return void
 	 */
 	private function set_pre_activation_constants() {
-		if ( ! \file_exists( self::$config_path ) || ! trim( \file_get_contents( self::$config_path ) ) ) {
-			return;
-		}
 		$config_transformer   = new \WPConfigTransformer( self::$config_path );
 		$predefined_constants = [];
 		foreach ( $this->defined_constants as $defined_constant ) {
