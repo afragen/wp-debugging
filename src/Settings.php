@@ -63,7 +63,7 @@ class Settings {
 		add_action( is_multisite() ? 'network_admin_menu' : 'admin_menu', [ $this, 'add_plugin_menu' ] );
 		add_action( 'network_admin_edit_wp_debugging', [ $this, 'update_settings' ] );
 		add_action( 'admin_init', [ $this, 'update_settings' ] );
-		add_action( 'admin_init', [ $this, 'process_filter_constants' ] );
+		add_action( 'wp_loaded', [ $this, 'process_filter_constants' ] );
 		add_filter(
 			is_multisite()
 			? 'network_admin_plugin_action_links_wp-debugging/wp-debugging.php'
