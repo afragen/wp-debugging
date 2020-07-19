@@ -2,7 +2,7 @@
 * exit if called directly
 * exit during WP-CLI
 * no more testing `wp-config.php` everywhere
-* use `wp_loaded` hook for `process_filter_constants()`
+* NB: I have seen the `WPConfigTransformer` Exception error live. The issue seems to be that a `file_get_contents()` on the `wp-config.php` file path, at random times, returns an empty value. I'm done chasing this random error in `wp-cli/wp-config-transformer`.
 
 #### 2.7.2 / 2020-06-01
 * test `wp-config.php` everywhere, still occasional WSOD reports
