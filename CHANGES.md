@@ -1,6 +1,6 @@
 #### [unreleased]
 * exit if called directly
-* exit during WP-CLI
+* exit during WP-CLI and DOING_AJAX
 * no more testing `wp-config.php` everywhere
 * NB: I have seen the `WPConfigTransformer` Exception error live. The issue seems to be that a `file_get_contents()` on the `wp-config.php` file path, at random times, returns an empty value. I'm done chasing this random error in `wp-cli/wp-config-transformer`.
 
