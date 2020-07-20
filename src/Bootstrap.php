@@ -73,18 +73,6 @@ class Bootstrap {
 	 * @return bool|void
 	 */
 	public function init() {
-		if ( defined( 'WP_CLI' ) && \WP_CLI ) {
-			return;
-		}
-
-		if ( defined( 'DOING_AJAX' ) && \DOING_AJAX ) {
-			return;
-		}
-
-		if ( defined( 'DOING_CRON' ) && \DOING_CRON ) {
-			return;
-		}
-
 		if ( ! is_writable( self::$config_path ) ) {
 			echo '<div class="error notice is-dismissible"><p>';
 			echo wp_kses_post( __( 'The <strong>WP Debugging</strong> plugin must have a <code>wp-config.php</code> file that is writable by the filesystem.', 'wp-debugging' ) );
@@ -126,6 +114,25 @@ class Bootstrap {
 	}
 
 	/**
+	 * Don't run under certain circumstances.
+	 *
+	 * @return void
+	 */
+	public function exit() {
+		if ( defined( 'WP_CLI' ) && \WP_CLI ) {
+			die();
+		}
+
+		if ( defined( 'DOING_AJAX' ) && \DOING_AJAX ) {
+			die();
+		}
+
+		if ( defined( 'DOING_CRON' ) && \DOING_CRON ) {
+			die();
+		}
+	}
+
+	/**
 	 * Load hooks.
 	 *
 	 * @return void
@@ -134,6 +141,7 @@ class Bootstrap {
 		add_action(
 			'init',
 			function() {
+				$this->exit();
 				( new Settings( self::$options, self::$config_path, $this->defined_constants ) )
 					->load_hooks()
 					->process_filter_constants();
