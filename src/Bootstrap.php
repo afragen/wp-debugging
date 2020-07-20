@@ -77,7 +77,11 @@ class Bootstrap {
 			return;
 		}
 
-		if ( defined( 'DOING_AJAX' ) && \DOING_AJAX) {
+		if ( defined( 'DOING_AJAX' ) && \DOING_AJAX ) {
+			return;
+		}
+
+		if ( defined( 'DOING_CRON' ) && \DOING_CRON ) {
 			return;
 		}
 
