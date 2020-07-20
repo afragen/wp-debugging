@@ -118,7 +118,7 @@ class Bootstrap {
 	 *
 	 * @return void
 	 */
-	public function exit() {
+	public function exit( $config_path ) {
 		if ( defined( 'WP_CLI' ) && \WP_CLI ) {
 			die();
 		}
@@ -128,6 +128,9 @@ class Bootstrap {
 		}
 
 		if ( defined( 'DOING_CRON' ) && \DOING_CRON ) {
+			die();
+		}
+		if ( ! trim( \file_get_contents( $config_path ) ) ) {
 			die();
 		}
 	}
@@ -141,7 +144,7 @@ class Bootstrap {
 		add_action(
 			'init',
 			function() {
-				$this->exit();
+				$this->exit( self::$config_path );
 				( new Settings( self::$options, self::$config_path, $this->defined_constants ) )
 					->load_hooks()
 					->process_filter_constants();
