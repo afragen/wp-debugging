@@ -120,18 +120,18 @@ class Bootstrap {
 	 */
 	public function exit( $config_path ) {
 		if ( defined( 'WP_CLI' ) && \WP_CLI ) {
-			die();
+			exit( 1 );
 		}
 
 		if ( defined( 'DOING_AJAX' ) && \DOING_AJAX ) {
-			die();
+			exit( 2 );
 		}
 
 		if ( defined( 'DOING_CRON' ) && \DOING_CRON ) {
-			die();
+			exit( 3 );
 		}
 		if ( ! trim( \file_get_contents( $config_path ) ) ) {
-			die();
+			exit( 4 );
 		}
 	}
 
