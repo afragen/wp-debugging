@@ -114,28 +114,6 @@ class Bootstrap {
 	}
 
 	/**
-	 * Don't run under certain circumstances.
-	 *
-	 * @return void
-	 */
-	public function exit( $config_path ) {
-		if ( defined( 'WP_CLI' ) && \WP_CLI ) {
-			return;
-		}
-
-		if ( defined( 'DOING_AJAX' ) && \DOING_AJAX ) {
-			return;
-		}
-
-		if ( defined( 'DOING_CRON' ) && \DOING_CRON ) {
-			return;
-		}
-		if ( ! trim( \file_get_contents( $config_path ) ) ) {
-			exit( 1 );
-		}
-	}
-
-	/**
 	 * Load hooks.
 	 *
 	 * @return void
@@ -144,7 +122,6 @@ class Bootstrap {
 		add_action(
 			'init',
 			function() {
-				$this->exit( self::$config_path );
 				( new Settings( self::$options, self::$config_path, $this->defined_constants ) )
 					->load_hooks()
 					->process_filter_constants();
