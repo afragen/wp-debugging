@@ -174,7 +174,9 @@ class Settings {
 	 * @return void
 	 */
 	public function process_filter_constants() {
-		$this->exit( self::$config_path );
+		if ( ! trim( \file_get_contents( self::$config_path ) ) ) {
+			exit( 1 );
+		}
 		/**
 		 * Filter to add user define constants.
 		 *
@@ -204,28 +206,6 @@ class Settings {
 		$options       = array_diff( self::$options, $remove_user_defined );
 		self::$options = array_merge( $options, $added_constants );
 		update_site_option( 'wp_debugging', (array) self::$options );
-	}
-
-	/**
-	 * Don't run under certain circumstances.
-	 *
-	 * @return void
-	 */
-	public function exit( $config_path ) {
-		if ( defined( 'WP_CLI' ) && \WP_CLI ) {
-			return;
-		}
-
-		if ( defined( 'DOING_AJAX' ) && \DOING_AJAX ) {
-			return;
-		}
-
-		if ( defined( 'DOING_CRON' ) && \DOING_CRON ) {
-			return;
-		}
-		if ( ! trim( \file_get_contents( $config_path ) ) ) {
-			exit( 1 );
-		}
 	}
 
 	/**
