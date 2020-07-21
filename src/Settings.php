@@ -211,7 +211,7 @@ class Settings {
 	 *
 	 * @return void
 	 */
-	public function exit( $config_path ) {
+	private function exit( $config_path ) {
 		if ( defined( 'WP_CLI' ) && \WP_CLI ) {
 			return;
 		}
