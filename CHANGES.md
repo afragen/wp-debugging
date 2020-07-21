@@ -1,7 +1,7 @@
 #### [unreleased]
 * exit if called directly
-* exit during WP-CLI, DOING_AJAX, or DOING_CRON
-* no more testing `wp-config.php` everywhere
+* exit `process_filter_constants()` during WP-CLI, DOING_AJAX, or DOING_CRON
+* only test `wp-config.php` in `process_filter_constants()`
 * NB: I have seen the `WPConfigTransformer` Exception error live. The issue seems to be that a `file_get_contents()` on the `wp-config.php` file path, at random times, returns an empty value. I'm done chasing this random error in `wp-cli/wp-config-transformer`.
 
 #### 2.7.2 / 2020-06-01
