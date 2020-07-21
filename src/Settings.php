@@ -215,11 +215,9 @@ class Settings {
 		if ( defined( 'WP_CLI' ) && \WP_CLI ) {
 			return;
 		}
-
 		if ( defined( 'DOING_AJAX' ) && \DOING_AJAX ) {
 			return;
 		}
-
 		if ( defined( 'DOING_CRON' ) && \DOING_CRON ) {
 			return;
 		}
