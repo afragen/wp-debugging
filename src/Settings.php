@@ -174,7 +174,7 @@ class Settings {
 	 * @return void
 	 */
 	public function process_filter_constants() {
-		$this->exit( self::$config_path );
+		//$this->exit( self::$config_path );
 		/**
 		 * Filter to add user define constants.
 		 *
