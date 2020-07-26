@@ -216,10 +216,10 @@ class Settings {
 			return;
 		}
 		if ( defined( 'DOING_AJAX' ) && \DOING_AJAX ) {
-			//return;
+			return;
 		}
 		if ( defined( 'DOING_CRON' ) && \DOING_CRON ) {
-			//return;
+			return;
 		}
 		if ( ! trim( \file_get_contents( $config_path ) ) ) {
 			exit( 1 );
