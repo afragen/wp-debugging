@@ -67,7 +67,7 @@ class WPConfigTransformer {
 		$wp_config_src = file_get_contents( $this->wp_config_path );
 
 		if ( ! trim( $wp_config_src ) ) {
-			error_log( 'Config file is empty.' );
+			//error_log( 'Config file is empty.' );
 			exit( 1 );
 			// throw new Exception( 'Config file is empty.' );
 		}
