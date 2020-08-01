@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b75e602758221867c28e21d257105584",
+    "content-hash": "d70441836da0c025b6b71e7e43f7cb1a",
     "packages": [
         {
             "name": "afragen/wp-dependency-installer",
@@ -60,12 +60,12 @@
             "version": "1.4.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/collizo4sky/persist-admin-notices-dismissal.git",
+                "url": "https://github.com/w3guy/persist-admin-notices-dismissal.git",
                 "reference": "2d7d8bb3cba631ad227c92296a4b675d7cbc71d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/collizo4sky/persist-admin-notices-dismissal/zipball/2d7d8bb3cba631ad227c92296a4b675d7cbc71d7",
+                "url": "https://api.github.com/repos/w3guy/persist-admin-notices-dismissal/zipball/2d7d8bb3cba631ad227c92296a4b675d7cbc71d7",
                 "reference": "2d7d8bb3cba631ad227c92296a4b675d7cbc71d7",
                 "shasum": ""
             },
@@ -101,16 +101,16 @@
         },
         {
             "name": "wp-cli/wp-config-transformer",
-            "version": "v1.2.6",
+            "version": "v1.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/wp-config-transformer.git",
-                "reference": "1ca98343443a8e4585865db5f50e8e6121fee70b"
+                "reference": "bae1e975ed1277470e3dcc7fd0ef99c2d4f4c7a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/wp-config-transformer/zipball/1ca98343443a8e4585865db5f50e8e6121fee70b",
-                "reference": "1ca98343443a8e4585865db5f50e8e6121fee70b",
+                "url": "https://api.github.com/repos/wp-cli/wp-config-transformer/zipball/bae1e975ed1277470e3dcc7fd0ef99c2d4f4c7a8",
+                "reference": "bae1e975ed1277470e3dcc7fd0ef99c2d4f4c7a8",
                 "shasum": ""
             },
             "require": {
@@ -118,7 +118,7 @@
             },
             "require-dev": {
                 "composer/composer": "^1.5.6",
-                "phpunit/phpunit": "^6.5.5",
+                "phpunit/phpunit": "^6.5.5 || ^7.0.0",
                 "wp-coding-standards/wpcs": "^0.14.0 || ^1.0.0 || ^2.0.0"
             },
             "type": "library",
@@ -138,7 +138,7 @@
                 }
             ],
             "description": "Programmatically edit a wp-config.php file.",
-            "time": "2019-07-23T17:24:43+00:00"
+            "time": "2020-07-05T12:30:35+00:00"
         }
     ],
     "packages-dev": [],
