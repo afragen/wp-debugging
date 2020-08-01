@@ -1,12 +1,13 @@
 #### [unreleased]
 
+#### 2.8.0 / 2020-08-01
+* exit if called directly
+* NB: I have seen the `WPConfigTransformer` Exception error live. The issue seems to be that a `file_get_contents()` on the `wp-config.php` file path, at random times, returns an empty value. I'm done chasing this random error in `wp-cli/wp-config-transformer`. Modified version of `wp-cli/wp-config-transformer` present
+
 #### 2.7.2 / 2020-06-01
-* test `wp-config.php` everywhere, still occaisional WSOD reports.
+* test `wp-config.php` everywhere, still occasional WSOD reports
 
-#### 2.7.1 / 2020--5-15
-* return early if `wp-config.php` is empty before calling `WPConfigTransformer`
-
-#### 2.7.1 / 2020--5-15
+#### 2.7.1 / 2020-5-15
 * return early if `wp-config.php` is empty before calling `WPConfigTransformer`
 
 #### 2.7.0 / 2020-04-30

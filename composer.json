@@ -46,7 +46,7 @@
   "require": {
     "php": ">=5.6",
     "afragen/wp-dependency-installer": "^3",
-    "wp-cli/wp-config-transformer": "^1.2",
+    "wp-cli/wp-config-transformer": "1.2.7",
     "norcross/debug-quick-look": "^0.1"
   },
   "autoload": {

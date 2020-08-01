@@ -9,6 +9,11 @@
 
 namespace Fragen\WP_Debugging;
 
+// Exit if called directly.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 /**
  * Class Settings
  */
@@ -146,9 +151,6 @@ class Settings {
 	 * @return array $added Array of added constants.
 	 */
 	public function add_constants( $add ) {
-		if ( ! \file_exists( self::$config_path ) || ! trim( \file_get_contents( self::$config_path ) ) ) {
-			return [];
-		}
 		$added              = [];
 		$config_transformer = new \WPConfigTransformer( self::$config_path );
 		foreach ( $add as $constant => $config ) {
@@ -172,7 +174,7 @@ class Settings {
 	 * @return void
 	 */
 	public function process_filter_constants() {
-		if ( ! \file_exists( self::$config_path ) || ! trim( \file_get_contents( self::$config_path ) ) ) {
+		if ( defined( 'WP_CLI' ) && \WP_CLI ) {
 			return;
 		}
 		/**
@@ -215,9 +217,6 @@ class Settings {
 	 * @return void
 	 */
 	public function remove_constants( $remove ) {
-		if ( ! \file_exists( self::$config_path ) || ! trim( \file_get_contents( self::$config_path ) ) ) {
-			return;
-		}
 		$config_transformer = new \WPConfigTransformer( self::$config_path );
 		foreach ( array_keys( $remove ) as $constant ) {
 			$config_transformer->remove( 'constant', strtoupper( $constant ) );
