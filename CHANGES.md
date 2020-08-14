@@ -1,4 +1,5 @@
 #### [unreleased]
+* try using `set_exception_handler`
 
 #### 2.8.0 / 2020-08-01
 * exit if called directly
