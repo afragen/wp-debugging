@@ -179,9 +179,6 @@ class Settings {
 	 * @return void
 	 */
 	public function process_filter_constants() {
-		if ( defined( 'WP_CLI' ) && \WP_CLI ) {
-			return;
-		}
 		/**
 		 * Filter to add user define constants.
 		 *
