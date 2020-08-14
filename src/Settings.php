@@ -154,23 +154,23 @@ class Settings {
 		$added = [];
 		try {
 			$config_transformer = new \WPConfigTransformer( self::$config_path );
+			foreach ( $add as $constant => $config ) {
+				$value       = 'wp_debug_display' === $constant ? 'false' : 'true';
+				$value       = isset( $config['value'] ) ? $config['value'] : $value;
+				$raw         = isset( $config['raw'] ) ? $config['raw'] : true;
+				$config_args = [
+					'raw'       => $raw,
+					'normalize' => true,
+				];
+				$config_transformer->update( 'constant', strtoupper( $constant ), $value, $config_args );
+				$added[ $constant ] = $value;
+			}
+
+			return $added;
 		} catch ( \Exception $e ) {
 			error_log( 'Caught Exception: Settings::add_constants()' );
-			exit( 1 );
+			wp_die( 'Caught Exception: Settings::add_constants()' );
 		}
-		foreach ( $add as $constant => $config ) {
-			$value       = 'wp_debug_display' === $constant ? 'false' : 'true';
-			$value       = isset( $config['value'] ) ? $config['value'] : $value;
-			$raw         = isset( $config['raw'] ) ? $config['raw'] : true;
-			$config_args = [
-				'raw'       => $raw,
-				'normalize' => true,
-			];
-			$config_transformer->update( 'constant', strtoupper( $constant ), $value, $config_args );
-			$added[ $constant ] = $value;
-		}
-
-		return $added;
 	}
 
 	/**
@@ -224,12 +224,12 @@ class Settings {
 	public function remove_constants( $remove ) {
 		try {
 			$config_transformer = new \WPConfigTransformer( self::$config_path );
+			foreach ( array_keys( $remove ) as $constant ) {
+				$config_transformer->remove( 'constant', strtoupper( $constant ) );
+			}
 		} catch ( \Exception $e ) {
 			error_log( 'Caught Exception: Settings::remove_constants()' );
-			exit( 1 );
-		}
-		foreach ( array_keys( $remove ) as $constant ) {
-			$config_transformer->remove( 'constant', strtoupper( $constant ) );
+			wp_die( 'Caught Exception: Settings::remove_constants()' );
 		}
 	}
 
