@@ -151,8 +151,12 @@ class Settings {
 	 * @return array $added Array of added constants.
 	 */
 	public function add_constants( $add ) {
-		$added              = [];
-		$config_transformer = new \WPConfigTransformer( self::$config_path );
+		$added = [];
+		try {
+			$config_transformer = new \WPConfigTransformer( self::$config_path );
+		} catch ( \Exception $e ) {
+			error_log( 'Caught Exception: Settings::add_constants()' );
+		}
 		foreach ( $add as $constant => $config ) {
 			$value       = 'wp_debug_display' === $constant ? 'false' : 'true';
 			$value       = isset( $config['value'] ) ? $config['value'] : $value;
@@ -217,7 +221,11 @@ class Settings {
 	 * @return void
 	 */
 	public function remove_constants( $remove ) {
-		$config_transformer = new \WPConfigTransformer( self::$config_path );
+		try {
+			$config_transformer = new \WPConfigTransformer( self::$config_path );
+		} catch ( \Exception $e ) {
+			error_log( 'Caught Exception: Settings::remove_constants()' );
+		}
 		foreach ( array_keys( $remove ) as $constant ) {
 			$config_transformer->remove( 'constant', strtoupper( $constant ) );
 		}
