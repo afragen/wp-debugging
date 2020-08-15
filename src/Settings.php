@@ -168,7 +168,7 @@ class Settings {
 
 			return $added;
 		} catch ( \Exception $e ) {
-			$messsage = 'Caught Exception: WP Debugging - Settings::add_constants() - ' . $e->getMessage();
+			$messsage = 'Caught Exception: \Fragen\WP_Debugging\Settings::add_constants() - ' . $e->getMessage();
 			error_log( $messsage );
 			wp_die( $messsage );
 		}
@@ -226,7 +226,7 @@ class Settings {
 				$config_transformer->remove( 'constant', strtoupper( $constant ) );
 			}
 		} catch ( \Exception $e ) {
-			$messsage = 'Caught Exception: WP Debugging - Settings::remove_constants() - ' . $e->getMessage();
+			$messsage = 'Caught Exception: \Fragen\WP_Debugging\Settings::remove_constants() - ' . $e->getMessage();
 			error_log( $messsage );
 			wp_die( $messsage );
 		}
