@@ -1,5 +1,5 @@
 #### [unreleased]
-* use try/catch around creating `WPConfigTransformer` object
+* use try/catch around use of `WPConfigTransformer` object
 
 #### 2.8.0 / 2020-08-01
 * exit if called directly
