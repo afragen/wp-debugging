@@ -151,21 +151,27 @@ class Settings {
 	 * @return array $added Array of added constants.
 	 */
 	public function add_constants( $add ) {
-		$added              = [];
-		$config_transformer = new \WPConfigTransformer( self::$config_path );
-		foreach ( $add as $constant => $config ) {
-			$value       = 'wp_debug_display' === $constant ? 'false' : 'true';
-			$value       = isset( $config['value'] ) ? $config['value'] : $value;
-			$raw         = isset( $config['raw'] ) ? $config['raw'] : true;
-			$config_args = [
-				'raw'       => $raw,
-				'normalize' => true,
-			];
-			$config_transformer->update( 'constant', strtoupper( $constant ), $value, $config_args );
-			$added[ $constant ] = $value;
-		}
+		$added = [];
+		try {
+			$config_transformer = new \WPConfigTransformer( self::$config_path );
+			foreach ( $add as $constant => $config ) {
+				$value       = 'wp_debug_display' === $constant ? 'false' : 'true';
+				$value       = isset( $config['value'] ) ? $config['value'] : $value;
+				$raw         = isset( $config['raw'] ) ? $config['raw'] : true;
+				$config_args = [
+					'raw'       => $raw,
+					'normalize' => true,
+				];
+				$config_transformer->update( 'constant', strtoupper( $constant ), $value, $config_args );
+				$added[ $constant ] = $value;
+			}
 
-		return $added;
+			return $added;
+		} catch ( \Exception $e ) {
+			$messsage = 'Caught Exception: \Fragen\WP_Debugging\Settings::add_constants() - ' . $e->getMessage();
+			// error_log( $messsage );
+			wp_die( esc_html( $messsage ) );
+		}
 	}
 
 	/**
@@ -174,9 +180,6 @@ class Settings {
 	 * @return void
 	 */
 	public function process_filter_constants() {
-		if ( defined( 'WP_CLI' ) && \WP_CLI ) {
-			return;
-		}
 		/**
 		 * Filter to add user define constants.
 		 *
@@ -217,9 +220,15 @@ class Settings {
 	 * @return void
 	 */
 	public function remove_constants( $remove ) {
-		$config_transformer = new \WPConfigTransformer( self::$config_path );
-		foreach ( array_keys( $remove ) as $constant ) {
-			$config_transformer->remove( 'constant', strtoupper( $constant ) );
+		try {
+			$config_transformer = new \WPConfigTransformer( self::$config_path );
+			foreach ( array_keys( $remove ) as $constant ) {
+				$config_transformer->remove( 'constant', strtoupper( $constant ) );
+			}
+		} catch ( \Exception $e ) {
+			$messsage = 'Caught Exception: \Fragen\WP_Debugging\Settings::remove_constants() - ' . $e->getMessage();
+			// error_log( $messsage );
+			wp_die( esc_html( $messsage ) );
 		}
 	}
 

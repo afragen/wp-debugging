@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 2.9.0 / 2020-08-15
+* use try/catch around use of `WPConfigTransformer` object
+
 #### 2.8.0 / 2020-08-01
 * exit if called directly
 * NB: I have seen the `WPConfigTransformer` Exception error live. The issue seems to be that a `file_get_contents()` on the `wp-config.php` file path, at random times, returns an empty value. I'm done chasing this random error in `wp-cli/wp-config-transformer`. Modified version of `wp-cli/wp-config-transformer` present
