@@ -1,4 +1,6 @@
 #### [unreleased]
+
+#### 2.9.0 / 2020-08-15
 * use try/catch around use of `WPConfigTransformer` object
 
 #### 2.8.0 / 2020-08-01
