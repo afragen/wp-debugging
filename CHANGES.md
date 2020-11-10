@@ -1,4 +1,5 @@
 #### [unreleased]
+* update `wp-dependency-installer` library
 
 #### 2.9.0 / 2020-08-15
 * use try/catch around use of `WPConfigTransformer` object
