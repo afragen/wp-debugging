@@ -1,5 +1,6 @@
 #### [unreleased]
 * update `wp-dependency-installer` library
+* update `wp-cli/wp-config-transformer`
 * comment out quote normalization in `set_pre_activation_constants()`, not sure why I did that but it can cause problems [#10](https://github.com/afragen/wp-debugging/issues/10)
 
 #### 2.9.0 / 2020-08-15
