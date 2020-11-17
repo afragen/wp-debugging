@@ -14,24 +14,24 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => 'dev-develop',
-    'version' => 'dev-develop',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => '4944219502cb5349ae44ddb44cc12f2922ea2d2e',
+    'reference' => '277c853c33b021d7bddc2fb8e831b5ba048cd613',
     'name' => 'afragen/wp-debugging',
   ),
   'versions' => 
   array (
     'afragen/wp-debugging' => 
     array (
-      'pretty_version' => 'dev-develop',
-      'version' => 'dev-develop',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => '4944219502cb5349ae44ddb44cc12f2922ea2d2e',
+      'reference' => '277c853c33b021d7bddc2fb8e831b5ba048cd613',
     ),
     'afragen/wp-dependency-installer' => 
     array (
