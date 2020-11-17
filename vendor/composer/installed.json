@@ -1,144 +1,160 @@
-[
-    {
-        "name": "afragen/wp-dependency-installer",
-        "version": "3.0.0",
-        "version_normalized": "3.0.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/afragen/wp-dependency-installer.git",
-            "reference": "70c6131c9a7a475d42de370b12fbe1d5c8bb5aba"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/70c6131c9a7a475d42de370b12fbe1d5c8bb5aba",
-            "reference": "70c6131c9a7a475d42de370b12fbe1d5c8bb5aba",
-            "shasum": ""
-        },
-        "require": {
-            "collizo4sky/persist-admin-notices-dismissal": "^1",
-            "php": ">=5.6"
-        },
-        "time": "2020-02-28T17:28:54+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "wp-dependency-installer.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Andy Fragen",
-                "email": "andy@thefragens.com",
-                "homepage": "https://thefragens.com",
-                "role": "Developer"
+{
+    "packages": [
+        {
+            "name": "afragen/wp-dependency-installer",
+            "version": "3.1.0",
+            "version_normalized": "3.1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/afragen/wp-dependency-installer.git",
+                "reference": "65570a1eb966bb9adfc9d9e521357da080fbdc5a"
             },
-            {
-                "name": "Matt Gibbs",
-                "homepage": "https://facetwp.com",
-                "role": "Developer"
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/65570a1eb966bb9adfc9d9e521357da080fbdc5a",
+                "reference": "65570a1eb966bb9adfc9d9e521357da080fbdc5a",
+                "shasum": ""
             },
-            {
-                "name": "Raruto",
-                "homepage": "https://raruto.github.io",
-                "role": "Developer"
-            }
-        ],
-        "description": "Library that helps WordPress plugin dependency management."
-    },
-    {
-        "name": "collizo4sky/persist-admin-notices-dismissal",
-        "version": "1.4.3",
-        "version_normalized": "1.4.3.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/w3guy/persist-admin-notices-dismissal.git",
-            "reference": "2d7d8bb3cba631ad227c92296a4b675d7cbc71d7"
+            "require": {
+                "collizo4sky/persist-admin-notices-dismissal": "^1",
+                "php": ">=5.6"
+            },
+            "time": "2020-11-10T23:03:42+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    "wp-dependency-installer.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andy Fragen",
+                    "email": "andy@thefragens.com",
+                    "homepage": "https://thefragens.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Matt Gibbs",
+                    "homepage": "https://facetwp.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Raruto",
+                    "homepage": "https://raruto.github.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Library that helps WordPress plugin dependency management.",
+            "support": {
+                "issues": "https://github.com/afragen/wp-dependency-installer/issues",
+                "source": "https://github.com/afragen/wp-dependency-installer"
+            },
+            "install-path": "../afragen/wp-dependency-installer"
         },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/w3guy/persist-admin-notices-dismissal/zipball/2d7d8bb3cba631ad227c92296a4b675d7cbc71d7",
-            "reference": "2d7d8bb3cba631ad227c92296a4b675d7cbc71d7",
-            "shasum": ""
+        {
+            "name": "collizo4sky/persist-admin-notices-dismissal",
+            "version": "1.4.3",
+            "version_normalized": "1.4.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/w3guy/persist-admin-notices-dismissal.git",
+                "reference": "2d7d8bb3cba631ad227c92296a4b675d7cbc71d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/w3guy/persist-admin-notices-dismissal/zipball/2d7d8bb3cba631ad227c92296a4b675d7cbc71d7",
+                "reference": "2d7d8bb3cba631ad227c92296a4b675d7cbc71d7",
+                "shasum": ""
+            },
+            "time": "2019-03-12T05:19:51+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    "persist-admin-notices-dismissal.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Collins Agbonghama",
+                    "email": "me@w3guy.com"
+                }
+            ],
+            "description": "Simple library to persist dismissal of admin notices across pages in WordPress dashboard.",
+            "install-path": "../collizo4sky/persist-admin-notices-dismissal"
         },
-        "time": "2019-03-12T05:19:51+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "persist-admin-notices-dismissal.php"
-            ]
+        {
+            "name": "norcross/debug-quick-look",
+            "version": "0.1.5",
+            "version_normalized": "0.1.5.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/afragen/debug-quick-look/archive/vendor.zip"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "debug-quick-look.php"
+                ]
+            },
+            "install-path": "../norcross/debug-quick-look"
         },
-        "notification-url": "https://packagist.org/downloads/",
-        "authors": [
-            {
-                "name": "Collins Agbonghama",
-                "email": "me@w3guy.com"
-            }
-        ],
-        "description": "Simple library to persist dismissal of admin notices across pages in WordPress dashboard."
-    },
-    {
-        "name": "norcross/debug-quick-look",
-        "version": "0.1.5",
-        "version_normalized": "0.1.5.0",
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/afragen/debug-quick-look/archive/vendor.zip"
-        },
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "debug-quick-look.php"
-            ]
+        {
+            "name": "wp-cli/wp-config-transformer",
+            "version": "v1.2.8",
+            "version_normalized": "1.2.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-cli/wp-config-transformer.git",
+                "reference": "0bb2b9162c38ca72370380aea11dc06e431e13a5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-cli/wp-config-transformer/zipball/0bb2b9162c38ca72370380aea11dc06e431e13a5",
+                "reference": "0bb2b9162c38ca72370380aea11dc06e431e13a5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.29"
+            },
+            "require-dev": {
+                "composer/composer": ">=1.5.6 <1.7.0 || ^1.7.1 || ^2.0.0",
+                "phpunit/phpunit": "^6.5.5 || ^7.0.0",
+                "wp-coding-standards/wpcs": "^0.14.0 || ^1.0.0 || ^2.0.0"
+            },
+            "time": "2020-11-12T08:08:10+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "src/WPConfigTransformer.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frankie Jarrett",
+                    "email": "fjarrett@gmail.com"
+                }
+            ],
+            "description": "Programmatically edit a wp-config.php file.",
+            "support": {
+                "issues": "https://github.com/wp-cli/wp-config-transformer/issues",
+                "source": "https://github.com/wp-cli/wp-config-transformer/tree/v1.2.8"
+            },
+            "install-path": "../wp-cli/wp-config-transformer"
         }
-    },
-    {
-        "name": "wp-cli/wp-config-transformer",
-        "version": "v1.2.7",
-        "version_normalized": "1.2.7.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/wp-cli/wp-config-transformer.git",
-            "reference": "bae1e975ed1277470e3dcc7fd0ef99c2d4f4c7a8"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/wp-cli/wp-config-transformer/zipball/bae1e975ed1277470e3dcc7fd0ef99c2d4f4c7a8",
-            "reference": "bae1e975ed1277470e3dcc7fd0ef99c2d4f4c7a8",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.29"
-        },
-        "require-dev": {
-            "composer/composer": "^1.5.6",
-            "phpunit/phpunit": "^6.5.5 || ^7.0.0",
-            "wp-coding-standards/wpcs": "^0.14.0 || ^1.0.0 || ^2.0.0"
-        },
-        "time": "2020-07-05T12:30:35+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "src/WPConfigTransformer.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Frankie Jarrett",
-                "email": "fjarrett@gmail.com"
-            }
-        ],
-        "description": "Programmatically edit a wp-config.php file."
-    }
-]
+    ],
+    "dev": true,
+    "dev-package-names": []
+}
