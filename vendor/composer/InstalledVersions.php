@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '1c7defc98f920f840a2de930ee33a6d2e3073c10',
+    'reference' => '4944219502cb5349ae44ddb44cc12f2922ea2d2e',
     'name' => 'afragen/wp-debugging',
   ),
   'versions' => 
@@ -31,7 +31,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '1c7defc98f920f840a2de930ee33a6d2e3073c10',
+      'reference' => '4944219502cb5349ae44ddb44cc12f2922ea2d2e',
     ),
     'afragen/wp-dependency-installer' => 
     array (
