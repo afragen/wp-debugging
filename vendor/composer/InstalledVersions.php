@@ -1,5 +1,15 @@
 <?php
 
+
+
+
+
+
+
+
+
+
+
 namespace Composer;
 
 use Composer\Semver\VersionParser;
@@ -19,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '4944219502cb5349ae44ddb44cc12f2922ea2d2e',
+    'reference' => '5a9d9c1ac54fbbf0880c0504becc0f3aaf237e3d',
     'name' => 'afragen/wp-debugging',
   ),
   'versions' => 
@@ -31,7 +41,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '4944219502cb5349ae44ddb44cc12f2922ea2d2e',
+      'reference' => '5a9d9c1ac54fbbf0880c0504becc0f3aaf237e3d',
     ),
     'afragen/wp-dependency-installer' => 
     array (
@@ -44,12 +54,12 @@ private static $installed = array (
     ),
     'collizo4sky/persist-admin-notices-dismissal' => 
     array (
-      'pretty_version' => '1.4.3',
-      'version' => '1.4.3.0',
+      'pretty_version' => '1.4.4',
+      'version' => '1.4.4.0',
       'aliases' => 
       array (
       ),
-      'reference' => '2d7d8bb3cba631ad227c92296a4b675d7cbc71d7',
+      'reference' => '900739eb6b0ec0210465f5983a6d4e0e420289e4',
     ),
     'norcross/debug-quick-look' => 
     array (
