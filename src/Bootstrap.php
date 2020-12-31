@@ -197,8 +197,6 @@ class Bootstrap {
 		foreach ( $this->defined_constants as $defined_constant ) {
 			if ( $config_transformer->exists( 'constant', strtoupper( $defined_constant ) ) ) {
 				$value = $config_transformer->get_value( 'constant', strtoupper( $defined_constant ) );
-				// $value = trim( $value, '"\'' ); // Normalize quoted value.
-
 				$predefined_constants[ $defined_constant ]['value'] = $value;
 			}
 		}
