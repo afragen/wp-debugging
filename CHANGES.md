@@ -1,4 +1,5 @@
 #### [unreleased]
+* update dependencies
 
 #### 2.9.1 / 2020-11-17
 * update `wp-dependency-installer` library
