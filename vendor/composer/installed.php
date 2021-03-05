@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '5a9d9c1ac54fbbf0880c0504becc0f3aaf237e3d',
+    'reference' => 'db8af9ef42a4309c1fd7abb35d30e26ae744ed3b',
     'name' => 'afragen/wp-debugging',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '5a9d9c1ac54fbbf0880c0504becc0f3aaf237e3d',
+      'reference' => 'db8af9ef42a4309c1fd7abb35d30e26ae744ed3b',
     ),
     'afragen/wp-dependency-installer' => 
     array (

@@ -4,8 +4,8 @@ Contributors: afragen
 Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.6
-Tested up to: 5.6
-Stable tag: 2.9.1
+Tested up to: 5.7
+Stable tag: 2.9.2
 Donate link: https://thefragens.com/github-updater-donate
 License: MIT
 
