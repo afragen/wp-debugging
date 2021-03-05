@@ -1,5 +1,9 @@
 #### [unreleased]
 
+#### 2.9.2 / 2021-03-05
+* update dependencies
+* update tested to
+
 #### 2.9.1 / 2020-11-17
 * update `wp-dependency-installer` library
 * update `wp-cli/wp-config-transformer`
