@@ -109,7 +109,7 @@ class Settings {
 				: [];
 			// phpcs:enable
 
-			$options = self::sanitize( $options );
+			$options = $this->sanitize( $options );
 			$this->update_constants( self::$options, $options );
 			$filtered_options = array_filter(
 				self::$options,
