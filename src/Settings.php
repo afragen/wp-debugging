@@ -40,6 +40,13 @@ class Settings {
 	protected $defined_constants;
 
 	/**
+	 * Holds config args for WPConfigTransformer.
+	 *
+	 * @var array
+	 */
+	protected static $config_args;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param  array  $options           Plugin options.
@@ -51,6 +58,17 @@ class Settings {
 		self::$options           = $options;
 		self::$config_path       = $config_path;
 		$this->defined_constants = $defined_constants;
+		self::$config_args       = [ 'normalize' => true ];
+
+		if ( false === strpos( file_get_contents( self::$config_path ), "/* That's all, stop editing!" ) ) {
+			self::$config_args = array_merge(
+				self::$config_args,
+				[
+					'anchor'    => "dirname( __FILE__ ) . '/' );\n}",
+					'placement' => 'after',
+				]
+			);
+		}
 	}
 
 	/**
@@ -155,14 +173,11 @@ class Settings {
 		try {
 			$config_transformer = new \WPConfigTransformer( self::$config_path );
 			foreach ( $add as $constant => $config ) {
-				$value       = 'wp_debug_display' === $constant ? 'false' : 'true';
-				$value       = isset( $config['value'] ) ? $config['value'] : $value;
-				$raw         = isset( $config['raw'] ) ? $config['raw'] : true;
-				$config_args = [
-					'raw'       => $raw,
-					'normalize' => true,
-				];
-				$config_transformer->update( 'constant', strtoupper( $constant ), $value, $config_args );
+				$value             = 'wp_debug_display' === $constant ? 'false' : 'true';
+				$value             = isset( $config['value'] ) ? $config['value'] : $value;
+				$raw               = isset( $config['raw'] ) ? $config['raw'] : true;
+				self::$config_args = array_merge( self::$config_args, [ 'raw' => $raw ] );
+				$config_transformer->update( 'constant', strtoupper( $constant ), $value, self::$config_args );
 				$added[ $constant ] = $value;
 			}
 

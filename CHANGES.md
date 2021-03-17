@@ -1,4 +1,5 @@
 #### [unreleased]
+* add anchor if default not present which apparently can happen with translations, etc
 
 #### 2.9.2 / 2021-03-05
 * update dependencies
