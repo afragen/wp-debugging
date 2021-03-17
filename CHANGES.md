@@ -1,5 +1,5 @@
 #### [unreleased]
-* add anchor if default not present which apparently can happen with translations, etc
+* update WPConfigTransformer to use alternate anchor if default not present
 
 #### 2.9.2 / 2021-03-05
 * update dependencies
