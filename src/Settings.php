@@ -341,19 +341,18 @@ class Settings {
 			]
 		);
 
-		if ( version_compare( get_bloginfo( 'version' ), '5.2-beta', '>=' ) ) {
-			add_settings_field(
-				'wp_disable_fatal_error_handler',
-				null,
-				[ $this, 'checkbox_setting' ],
-				'wp_debugging',
-				'wp_debugging',
-				[
-					'id'    => 'wp_disable_fatal_error_handler',
-					'title' => esc_html__( 'Set WP_DISABLE_FATAL_ERROR_HANDLER to true.', 'wp-debugging' ),
-				]
-			);
-		}
+		add_settings_field(
+			'wp_disable_fatal_error_handler',
+			null,
+			[ $this, 'checkbox_setting' ],
+			'wp_debugging',
+			'wp_debugging',
+			[
+				'id'    => 'wp_disable_fatal_error_handler',
+				'title' => esc_html__( 'Set WP_DISABLE_FATAL_ERROR_HANDLER to true.', 'wp-debugging' ),
+				'class' => version_compare( get_bloginfo( 'version' ), '5.2', '>=' ) ? '' : 'hidden',
+			]
+		);
 	}
 
 	/**
