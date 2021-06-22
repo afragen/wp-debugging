@@ -6,7 +6,7 @@ Requires at least: 4.6
 Requires PHP: 5.6
 Tested up to: 5.7
 Stable tag: 2.9.3
-Donate link: https://thefragens.com/github-updater-donate
+Donate link: https://thefragens.com/git-updater-donate
 License: MIT
 
 A support/troubleshooting plugin for WordPress.

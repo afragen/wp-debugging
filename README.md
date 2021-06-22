@@ -5,7 +5,7 @@
 * Requires at least: 4.6
 * Requires PHP: 5.6
 * Stable tag: master
-* Donate link: <https://thefragens.com/github-updater-donate>
+* Donate link: <https://thefragens.com/git-updater-donate>
 * License: MIT
 
 A debugging/support plugin for WordPress.
