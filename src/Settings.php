@@ -40,6 +40,13 @@ class Settings {
 	protected $defined_constants;
 
 	/**
+	 * Holds config args for WPConfigTransformer.
+	 *
+	 * @var array
+	 */
+	protected static $config_args;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param  array  $options           Plugin options.
@@ -51,6 +58,18 @@ class Settings {
 		self::$options           = $options;
 		self::$config_path       = $config_path;
 		$this->defined_constants = $defined_constants;
+		self::$config_args       = [ 'normalize' => true ];
+
+		if ( false === strpos( file_get_contents( self::$config_path ), "/* That's all, stop editing!" ) ) {
+			preg_match( '@\$table_prefix = (.*);@', file_get_contents( self::$config_path ), $matches );
+			self::$config_args = array_merge(
+				self::$config_args,
+				[
+					'anchor'    => "$matches[0]",
+					'placement' => 'after',
+				]
+			);
+		}
 	}
 
 	/**
@@ -109,7 +128,7 @@ class Settings {
 				: [];
 			// phpcs:enable
 
-			$options = self::sanitize( $options );
+			$options = $this->sanitize( $options );
 			$this->update_constants( self::$options, $options );
 			$filtered_options = array_filter(
 				self::$options,
@@ -155,14 +174,11 @@ class Settings {
 		try {
 			$config_transformer = new \WPConfigTransformer( self::$config_path );
 			foreach ( $add as $constant => $config ) {
-				$value       = 'wp_debug_display' === $constant ? 'false' : 'true';
-				$value       = isset( $config['value'] ) ? $config['value'] : $value;
-				$raw         = isset( $config['raw'] ) ? $config['raw'] : true;
-				$config_args = [
-					'raw'       => $raw,
-					'normalize' => true,
-				];
-				$config_transformer->update( 'constant', strtoupper( $constant ), $value, $config_args );
+				$value             = 'wp_debug_display' === $constant ? 'false' : 'true';
+				$value             = isset( $config['value'] ) ? $config['value'] : $value;
+				$raw               = isset( $config['raw'] ) ? $config['raw'] : true;
+				self::$config_args = array_merge( self::$config_args, [ 'raw' => $raw ] );
+				$config_transformer->update( 'constant', strtoupper( $constant ), $value, self::$config_args );
 				$added[ $constant ] = $value;
 			}
 
@@ -325,19 +341,18 @@ class Settings {
 			]
 		);
 
-		if ( version_compare( get_bloginfo( 'version' ), '5.2-beta', '>=' ) ) {
-			add_settings_field(
-				'wp_disable_fatal_error_handler',
-				null,
-				[ $this, 'checkbox_setting' ],
-				'wp_debugging',
-				'wp_debugging',
-				[
-					'id'    => 'wp_disable_fatal_error_handler',
-					'title' => esc_html__( 'Set WP_DISABLE_FATAL_ERROR_HANDLER to true.', 'wp-debugging' ),
-				]
-			);
-		}
+		add_settings_field(
+			'wp_disable_fatal_error_handler',
+			null,
+			[ $this, 'checkbox_setting' ],
+			'wp_debugging',
+			'wp_debugging',
+			[
+				'id'    => 'wp_disable_fatal_error_handler',
+				'title' => esc_html__( 'Set WP_DISABLE_FATAL_ERROR_HANDLER to true.', 'wp-debugging' ),
+				'class' => version_compare( get_bloginfo( 'version' ), '5.2', '>=' ) ? '' : 'hidden',
+			]
+		);
 	}
 
 	/**

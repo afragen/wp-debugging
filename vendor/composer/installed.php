@@ -1,60 +1,59 @@
-<?php return array (
-  'root' => 
-  array (
-    'pretty_version' => 'dev-master',
-    'version' => 'dev-master',
-    'aliases' => 
-    array (
+<?php return array(
+    'root' => array(
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'type' => 'wordpress-plugin',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'reference' => 'afd1a05f6ee8d78b8c69c454af45979c882723ef',
+        'name' => 'afragen/wp-debugging',
+        'dev' => false,
     ),
-    'reference' => 'f9aa32750b634b4cc837ea649e8565879deeb542',
-    'name' => 'afragen/wp-debugging',
-  ),
-  'versions' => 
-  array (
-    'afragen/wp-debugging' => 
-    array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'f9aa32750b634b4cc837ea649e8565879deeb542',
+    'versions' => array(
+        'afragen/wp-debugging' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'wordpress-plugin',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'reference' => 'afd1a05f6ee8d78b8c69c454af45979c882723ef',
+            'dev_requirement' => false,
+        ),
+        'afragen/wp-dependency-installer' => array(
+            'pretty_version' => '3.1.0',
+            'version' => '3.1.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../afragen/wp-dependency-installer',
+            'aliases' => array(),
+            'reference' => '65570a1eb966bb9adfc9d9e521357da080fbdc5a',
+            'dev_requirement' => false,
+        ),
+        'collizo4sky/persist-admin-notices-dismissal' => array(
+            'pretty_version' => '1.4.4',
+            'version' => '1.4.4.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../collizo4sky/persist-admin-notices-dismissal',
+            'aliases' => array(),
+            'reference' => '900739eb6b0ec0210465f5983a6d4e0e420289e4',
+            'dev_requirement' => false,
+        ),
+        'norcross/debug-quick-look' => array(
+            'pretty_version' => '0.1.5',
+            'version' => '0.1.5.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../norcross/debug-quick-look',
+            'aliases' => array(),
+            'reference' => NULL,
+            'dev_requirement' => false,
+        ),
+        'wp-cli/wp-config-transformer' => array(
+            'pretty_version' => 'v1.2.8',
+            'version' => '1.2.8.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../wp-cli/wp-config-transformer',
+            'aliases' => array(),
+            'reference' => '0bb2b9162c38ca72370380aea11dc06e431e13a5',
+            'dev_requirement' => false,
+        ),
     ),
-    'afragen/wp-dependency-installer' => 
-    array (
-      'pretty_version' => '3.1.0',
-      'version' => '3.1.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '65570a1eb966bb9adfc9d9e521357da080fbdc5a',
-    ),
-    'collizo4sky/persist-admin-notices-dismissal' => 
-    array (
-      'pretty_version' => '1.4.4',
-      'version' => '1.4.4.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '900739eb6b0ec0210465f5983a6d4e0e420289e4',
-    ),
-    'norcross/debug-quick-look' => 
-    array (
-      'pretty_version' => '0.1.5',
-      'version' => '0.1.5.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => NULL,
-    ),
-    'wp-cli/wp-config-transformer' => 
-    array (
-      'pretty_version' => 'v1.2.8',
-      'version' => '1.2.8.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '0bb2b9162c38ca72370380aea11dc06e431e13a5',
-    ),
-  ),
 );

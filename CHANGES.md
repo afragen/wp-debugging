@@ -1,5 +1,9 @@
 #### [unreleased]
 
+#### 2.9.3 / 2021-06-22
+* update WPConfigTransformer to use alternate anchor if default not present
+* add @10up GitHub Actions for WordPress svn integration
+
 #### 2.9.2 / 2021-03-05
 * update dependencies
 * update tested to
