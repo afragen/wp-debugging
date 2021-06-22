@@ -5,7 +5,7 @@ Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.6
 Tested up to: 5.7
-Stable tag: 2.9.2
+Stable tag: 2.9.3
 Donate link: https://thefragens.com/github-updater-donate
 License: MIT
 
@@ -89,6 +89,10 @@ This will create the following constants.
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.9.3 / 2021-06-22
+* update WPConfigTransformer to use alternate anchor if default not present
+* add @10up GitHub Actions for WordPress svn integration
 
 #### 2.9.1 / 2020-11-17
 * update `wp-dependency-installer` library
