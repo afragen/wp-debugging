@@ -17,6 +17,7 @@ use DebugQuickLook\Helpers as Helpers;
  */
 add_action( 'wp_head', __NAMESPACE__ . '\add_warning_css' );
 add_action( 'admin_head', __NAMESPACE__ . '\add_warning_css' );
+add_action( 'admin_head', __NAMESPACE__ . '\add_mobile_css' );
 add_action( 'admin_bar_menu', __NAMESPACE__ . '\admin_bar_links', 9999 );
 
 /**
@@ -102,4 +103,36 @@ function admin_bar_links( $wp_admin_bar ) {
 
 	// And be done.
 	return;
+}
+
+/**
+ * Add the CSS to add admin bar menu on mobile.
+ */
+function add_mobile_css() {
+
+	// Run my cap check.
+	$hascap = Helpers\check_user_cap( 'warning-css' );
+
+	// Bail without.
+	if ( ! $hascap ) {
+		return;
+	}
+
+	// Open the style tag.
+	echo '<style>';
+
+	// Output the actual CSS item.
+	echo '@media screen and (max-width: 782px) {';
+		echo '#wp-toolbar > ul > li#wp-admin-bar-debug-quick-look {';
+			echo 'display: list-item;';
+			echo 'padding: 5px 10px;';
+		echo '}';
+		echo '#wp-toolbar > ul > li#wp-admin-bar-debug-quick-look:before {';
+			echo 'content: "DQL"';
+		echo '}';
+
+	echo '}';
+
+	// Close the style tag.
+	echo '</style>';
 }
