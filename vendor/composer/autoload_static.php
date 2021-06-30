@@ -7,8 +7,8 @@ namespace Composer\Autoload;
 class ComposerStaticInit8fbb530a853b5e85ef54e29cb992c886
 {
     public static $files = array (
-        'ab4b292309a54cb14fb006d8f6ed2fba' => __DIR__ . '/..' . '/norcross/debug-quick-look/debug-quick-look.php',
         'ac949ce40a981819ba132473518a9a31' => __DIR__ . '/..' . '/wp-cli/wp-config-transformer/src/WPConfigTransformer.php',
+        'ab4b292309a54cb14fb006d8f6ed2fba' => __DIR__ . '/..' . '/norcross/debug-quick-look/debug-quick-look.php',
     );
 
     public static $prefixLengthsPsr4 = array (
