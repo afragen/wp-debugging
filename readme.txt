@@ -4,8 +4,8 @@ Contributors: afragen
 Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.6
-Tested up to: 5.7
-Stable tag: 2.9.3
+Tested up to: 5.8
+Stable tag: 2.10.0
 Donate link: https://thefragens.com/git-updater-donate
 License: MIT
 
@@ -89,6 +89,9 @@ This will create the following constants.
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.10.0 / 2021-06-30
+* update Debug Quick Look to show menu on mobile
 
 #### 2.9.3 / 2021-06-22
 * update WPConfigTransformer to use alternate anchor if default not present

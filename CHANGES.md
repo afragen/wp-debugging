@@ -1,4 +1,6 @@
 #### [unreleased]
+
+#### 2.10.0 / 2021-06-30
 * update Debug Quick Look to show menu on mobile
 
 #### 2.9.3 / 2021-06-22
