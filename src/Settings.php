@@ -61,14 +61,15 @@ class Settings {
 		self::$config_args       = [ 'normalize' => true ];
 
 		if ( false === strpos( file_get_contents( self::$config_path ), "/* That's all, stop editing!" ) ) {
-			preg_match( '@\$table_prefix = (.*);@', file_get_contents( self::$config_path ), $matches );
-			self::$config_args = array_merge(
-				self::$config_args,
-				[
-					'anchor'    => "$matches[0]",
-					'placement' => 'after',
-				]
-			);
+			if ( 1 === preg_match( '@\$table_prefix = (.*);@', file_get_contents( self::$config_path ), $matches ) ) {
+				self::$config_args = array_merge(
+					self::$config_args,
+					[
+						'anchor'    => "$matches[0]",
+						'placement' => 'after',
+					]
+				);
+			}
 		}
 	}
 

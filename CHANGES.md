@@ -1,4 +1,5 @@
 #### [unreleased]
+* fix PHP Notice, `Settings:line 68`
 
 #### 2.10.0 / 2021-06-30
 * update Debug Quick Look to show menu on mobile
