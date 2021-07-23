@@ -1,5 +1,9 @@
 #### [unreleased]
 
+#### 2.10.1 / 2021-07-23
+* fix PHP Notice, `Settings:line 68`
+* update Debug Quick Look admin bar menu for mobile
+
 #### 2.10.0 / 2021-06-30
 * update Debug Quick Look to show menu on mobile
 
