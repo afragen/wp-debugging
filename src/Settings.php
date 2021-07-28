@@ -414,7 +414,7 @@ class Settings {
 				<p><?php echo wp_kses_post( __( '<strong>Please note:</strong> Your <code>wp-config.php</code> file must be writable by the filesystem. Any errors will result in a PHP Exception being thrown. Debug constants per <a href="https://codex.wordpress.org/Debugging_in_WordPress">Debugging in WordPress</a>.', 'wp-debugging' ) ); ?></p>
 			</div>
 			<div>
-			<form method="post" action="<?php esc_attr_e( $action ); ?>">
+			<form method="post" action="<?php echo esc_attr( $action ); ?>">
 				<?php settings_fields( 'wp_debugging' ); ?>
 				<?php do_settings_sections( 'wp_debugging' ); ?>
 				<?php submit_button(); ?>
@@ -451,8 +451,8 @@ class Settings {
 		$checked = isset( self::$options[ $args['id'] ] ) ? self::$options[ $args['id'] ] : null;
 		?>
 		<style> .form-table th { display:none; } </style>
-		<label for="<?php esc_attr_e( $args['id'] ); ?>">
-			<input type="checkbox" name="wp-debugging[<?php esc_attr_e( $args['id'] ); ?>]" value="1" <?php checked( '1', $checked ); ?> >
+		<label for="<?php echo esc_attr( $args['id'] ); ?>">
+			<input type="checkbox" name="wp-debugging[<?php echo esc_attr( $args['id'] ); ?>]" value="1" <?php checked( '1', $checked ); ?> >
 			<?php esc_html_e( $args['title'] ); ?>
 		</label>
 		<?php
