@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 2.10.2 / 2021-09-04
+* only use `esc_attr_e` for translating strings
+
 #### 2.10.1 / 2021-07-23
 * fix PHP Notice, `Settings:line 68`
 * update Debug Quick Look admin bar menu for mobile

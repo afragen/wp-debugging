@@ -5,7 +5,7 @@ Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.6
 Tested up to: 5.8
-Stable tag: 2.10.1
+Stable tag: 2.10.2
 Donate link: https://thefragens.com/git-updater-donate
 License: MIT
 
@@ -89,6 +89,9 @@ This will create the following constants.
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.10.2 / 2021-09-04
+* only use `esc_attr_e` for translating strings
 
 #### 2.10.1 / 2021-07-23
 * fix PHP Notice, `Settings:line 68`

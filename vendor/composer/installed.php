@@ -5,7 +5,7 @@
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '2b356ea2757cf9cb44a5860dab43a1d2bb9fc816',
+        'reference' => '6eaaed03f0fdae345a8208d7e867c0e28d397837',
         'name' => 'afragen/wp-debugging',
         'dev' => false,
     ),
@@ -16,7 +16,7 @@
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '2b356ea2757cf9cb44a5860dab43a1d2bb9fc816',
+            'reference' => '6eaaed03f0fdae345a8208d7e867c0e28d397837',
             'dev_requirement' => false,
         ),
         'afragen/wp-dependency-installer' => array(
