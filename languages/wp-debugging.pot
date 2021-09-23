@@ -2,21 +2,21 @@
 # This file is distributed under the MIT.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Debugging 2.10.2\n"
+"Project-Id-Version: WP Debugging 2.11.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-debugging\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-09-23T21:58:00+00:00\n"
+"POT-Creation-Date: 2021-09-23T22:27:44+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: wp-debugging\n"
 
 #. Plugin Name of the plugin
 #: src/Settings.php:107
-#: src/Settings.php:413
+#: src/Settings.php:414
 msgid "WP Debugging"
 msgstr ""
 
@@ -41,38 +41,38 @@ msgctxt "Menu item"
 msgid "WP Debugging"
 msgstr ""
 
-#: src/Settings.php:296
+#: src/Settings.php:298
 msgid "Saved."
 msgstr ""
 
-#: src/Settings.php:316
+#: src/Settings.php:317
 msgid "Debugging Constants"
 msgstr ""
 
-#: src/Settings.php:329
+#: src/Settings.php:330
 msgid "Set WP_DEBUG to true."
 msgstr ""
 
-#: src/Settings.php:341
+#: src/Settings.php:342
 msgid "Set WP_DEBUG_DISPLAY to false, default is true."
 msgstr ""
 
-#: src/Settings.php:353
+#: src/Settings.php:354
 msgid "Set WP_DISABLE_FATAL_ERROR_HANDLER to true."
 msgstr ""
 
-#: src/Settings.php:365
+#: src/Settings.php:366
 msgid "The following constants are set with plugin activation and removed with plugin deactivation."
 msgstr ""
 
-#: src/Settings.php:367
+#: src/Settings.php:368
 msgid "Select the debugging constants."
 msgstr ""
 
-#: src/Settings.php:415
+#: src/Settings.php:416
 msgid "<strong>Please note:</strong> Your <code>wp-config.php</code> file must be writable by the filesystem. Any errors will result in a PHP Exception being thrown. Debug constants per <a href=\"https://codex.wordpress.org/Debugging_in_WordPress\">Debugging in WordPress</a>."
 msgstr ""
 
-#: src/Settings.php:472
+#: src/Settings.php:473
 msgid "Settings"
 msgstr ""

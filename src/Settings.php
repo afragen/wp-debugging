@@ -283,19 +283,21 @@ class Settings {
 	/**
 	 * Add notice when settings are saved.
 	 *
+	 * @param string $nonce Nonce.
 	 * @return void
 	 */
-	private function saved_settings_notice($nonce) {
-		if ( wp_verify_nonce( $nonce, 'settings-page' ) ) {
-			// phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
-			if ( ( isset( $_GET['updated'] ) && true == $_GET['updated'] ) ||
-			// phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
-			( isset( $_GET['settings-updated'] ) && true == $_GET['settings-updated'] )
-			) {
-				echo '<div class="updated"><p>';
-				esc_html_e( 'Saved.', 'wp-debugging' );
-				echo '</p></div>';
-			}
+	private function saved_settings_notice( $nonce ) {
+		if ( ! wp_verify_nonce( $nonce, 'settings-page' ) ) {
+			return;
+		}
+		// phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
+		if ( ( isset( $_GET['updated'] ) && true == $_GET['updated'] ) ||
+		// phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
+		( isset( $_GET['settings-updated'] ) && true == $_GET['settings-updated'] )
+		) {
+			echo '<div class="updated"><p>';
+			esc_html_e( 'Saved.', 'wp-debugging' );
+			echo '</p></div>';
 		}
 	}
 
