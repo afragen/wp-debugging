@@ -45,7 +45,7 @@
   "prefer-stable": true,
   "require": {
     "php": ">=5.6",
-    "afragen/wp-dependency-installer": "^3",
+    "afragen/wp-dependency-installer": "^4",
     "wp-cli/wp-config-transformer": "^1.2",
     "norcross/debug-quick-look": "^0.1"
   },
