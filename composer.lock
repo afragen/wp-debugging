@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "afragen/wp-dependency-installer",
-            "version": "4.0.0",
+            "version": "4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/afragen/wp-dependency-installer.git",
-                "reference": "7d058f25e043180b390551395089d74c931a5e55"
+                "reference": "8c963c28303ab75392c1de6136cd074dac670f99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/7d058f25e043180b390551395089d74c931a5e55",
-                "reference": "7d058f25e043180b390551395089d74c931a5e55",
+                "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/8c963c28303ab75392c1de6136cd074dac670f99",
+                "reference": "8c963c28303ab75392c1de6136cd074dac670f99",
                 "shasum": ""
             },
             "require": {
@@ -27,7 +27,8 @@
             "type": "library",
             "autoload": {
                 "classmap": [
-                    "wp-dependency-installer.php"
+                    "wp-dependency-installer.php",
+                    "wp-dependency-installer-skin.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -63,7 +64,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-09-23T21:12:37+00:00"
+            "time": "2021-09-24T17:47:57+00:00"
         },
         {
             "name": "afragen/wp-dismiss-notice",
