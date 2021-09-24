@@ -90,6 +90,9 @@ PRs are welcome against the [develop branch on GitHub](https://github.com/afrage
 
 ## Changelog
 
+#### 2.11.2 / 2021-09-24
+* composer update, cause of course I needed to fix something
+
 #### 2.11.1 / 2021-09-24
 * init in `plugins_loaded` hook
 * composer update

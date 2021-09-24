@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 2.11.2 / 2021-09-24
+* composer update, cause of course I needed to fix something
+
 #### 2.11.1 / 2021-09-24
 * init in `plugins_loaded` hook
 * composer update
