@@ -120,7 +120,7 @@ class Bootstrap {
 	 */
 	public function load_hooks() {
 		add_action(
-			'init',
+			'plugins_loaded',
 			function() {
 				( new Settings( self::$options, self::$config_path, $this->defined_constants ) )
 					->load_hooks()

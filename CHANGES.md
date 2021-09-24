@@ -1,5 +1,9 @@
 #### [unreleased]
 
+#### 2.11.1 / 2021-09-24
+* init in `plugins_loaded` hook
+* composer update
+
 #### 2.11.0 / 2021-09-23
 * fix security issue for capabilities check, possible CSRF, and nonce checks.
 
