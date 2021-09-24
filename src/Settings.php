@@ -47,6 +47,13 @@ class Settings {
 	protected static $config_args;
 
 	/**
+	 * Holds nonce.
+	 *
+	 * @var $nonce
+	 */
+	protected static $nonce;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param  array  $options           Plugin options.
@@ -59,6 +66,7 @@ class Settings {
 		self::$config_path       = $config_path;
 		$this->defined_constants = $defined_constants;
 		self::$config_args       = [ 'normalize' => true ];
+		static::$nonce           = wp_create_nonce( 'wp-debugging' );
 
 		if ( false === strpos( file_get_contents( self::$config_path ), "/* That's all, stop editing!" ) ) {
 			if ( 1 === preg_match( '@\$table_prefix = (.*);@', file_get_contents( self::$config_path ), $matches ) ) {
@@ -115,13 +123,11 @@ class Settings {
 	/**
 	 * Update settings on save.
 	 *
-	 * phpcs:disable WordPress.Security.NonceVerification.Missing
-	 *
 	 * @return void
 	 */
 	public function update_settings() {
 		// Exit if improper privileges.
-		if ( ! current_user_can( 'manage_options' ) ) {
+		if ( ! current_user_can( 'manage_options' ) || ! wp_verify_nonce( static::$nonce, 'wp-debugging' ) ) {
 			return;
 		}
 
@@ -259,6 +265,10 @@ class Settings {
 	 */
 	private function redirect_on_save() {
 		$update = false;
+		if ( ! wp_verify_nonce( static::$nonce, 'wp-debugging' ) ) {
+			return;
+		}
+
 		if ( ( isset( $_POST['action'] ) && 'update' === $_POST['action'] ) &&
 			( isset( $_POST['option_page'] ) && 'wp_debugging' === $_POST['option_page'] )
 		) {
@@ -283,17 +293,14 @@ class Settings {
 	/**
 	 * Add notice when settings are saved.
 	 *
-	 * @param string $nonce Nonce.
 	 * @return void
 	 */
-	private function saved_settings_notice( $nonce ) {
-		if ( ! wp_verify_nonce( $nonce, 'settings-page' ) ) {
+	private function saved_settings_notice() {
+		if ( ! wp_verify_nonce( static::$nonce, 'wp-debugging' ) ) {
 			return;
 		}
-		// phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
-		if ( ( isset( $_GET['updated'] ) && true == $_GET['updated'] ) ||
-		// phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
-		( isset( $_GET['settings-updated'] ) && true == $_GET['settings-updated'] )
+		if ( ( isset( $_GET['updated'] ) && '1' === $_GET['updated'] ) ||
+		( isset( $_GET['settings-updated'] ) && '1' === $_GET['settings-updated'] )
 		) {
 			echo '<div class="updated"><p>';
 			esc_html_e( 'Saved.', 'wp-debugging' );
@@ -408,8 +415,7 @@ class Settings {
 	 * @return void
 	 */
 	public function create_settings_page() {
-		$nonce = wp_create_nonce( 'settings-page' );
-		$this->saved_settings_notice( $nonce );
+		$this->saved_settings_notice();
 		$action = is_multisite() ? 'edit.php?action=wp-debugging' : 'options.php'; ?>
 		<div class="wrap">
 			<h1><?php esc_html_e( 'WP Debugging', 'wp-debugging' ); ?></h1>
