@@ -17,7 +17,6 @@ use DebugQuickLook\Helpers as Helpers;
  */
 add_action( 'wp_head', __NAMESPACE__ . '\add_warning_css' );
 add_action( 'admin_head', __NAMESPACE__ . '\add_warning_css' );
-add_action( 'wp_head', __NAMESPACE__ . '\add_mobile_css' );
 add_action( 'admin_head', __NAMESPACE__ . '\add_mobile_css' );
 add_action( 'admin_bar_menu', __NAMESPACE__ . '\admin_bar_links', 9999 );
 
@@ -125,18 +124,13 @@ function add_mobile_css() {
 	// Output the actual CSS item.
 	echo '@media screen and (max-width: 782px) {';
 		echo '#wp-toolbar > ul > li#wp-admin-bar-debug-quick-look {';
-			// Style similar to Query Monitor.
 			echo 'display: list-item;';
-			echo 'font: 18px/44px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif !important;';
-			echo 'padding: 0 10px !important;';
-			echo 'width: auto !important';
+			echo 'padding: 5px 10px;';
 		echo '}';
 		echo '#wp-toolbar > ul > li#wp-admin-bar-debug-quick-look:before {';
-			echo 'content: "DQL";';
+			echo 'content: "DQL"';
 		echo '}';
-		echo '#wp-toolbar > ul > li#wp-admin-bar-debug-quick-look div.ab-item.ab-empty-item {';
-			echo 'display: none;';
-		echo '}';
+
 	echo '}';
 
 	// Close the style tag.

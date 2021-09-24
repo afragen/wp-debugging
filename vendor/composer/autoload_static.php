@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit8fbb530a853b5e85ef54e29cb992c886
+class ComposerStaticInit9f13e01a769ab94b1e472bddafa96a42
 {
     public static $files = array (
         'ab4b292309a54cb14fb006d8f6ed2fba' => __DIR__ . '/..' . '/norcross/debug-quick-look/debug-quick-look.php',
@@ -27,17 +27,17 @@ class ComposerStaticInit8fbb530a853b5e85ef54e29cb992c886
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'PAnD' => __DIR__ . '/..' . '/collizo4sky/persist-admin-notices-dismissal/persist-admin-notices-dismissal.php',
         'WPDI_Plugin_Installer_Skin' => __DIR__ . '/..' . '/afragen/wp-dependency-installer/wp-dependency-installer.php',
         'WP_Dependency_Installer' => __DIR__ . '/..' . '/afragen/wp-dependency-installer/wp-dependency-installer.php',
+        'WP_Dismiss_Notice' => __DIR__ . '/..' . '/afragen/wp-dismiss-notice/wp-dismiss-notice.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit8fbb530a853b5e85ef54e29cb992c886::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit8fbb530a853b5e85ef54e29cb992c886::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit8fbb530a853b5e85ef54e29cb992c886::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit9f13e01a769ab94b1e472bddafa96a42::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit9f13e01a769ab94b1e472bddafa96a42::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit9f13e01a769ab94b1e472bddafa96a42::$classMap;
 
         }, null, ClassLoader::class);
     }

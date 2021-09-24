@@ -120,14 +120,17 @@ class Settings {
 	 * @return void
 	 */
 	public function update_settings() {
+		// Exit if improper privileges.
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
 		if ( isset( $_POST['option_page'] ) &&
 			'wp_debugging' === $_POST['option_page']
 		) {
 			$options = isset( $_POST['wp-debugging'] )
-				// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-				? wp_unslash( $_POST['wp-debugging'] )
+				? array_map( 'sanitize_text_field', wp_unslash( $_POST['wp-debugging'] ) )
 				: [];
-			// phpcs:enable
 
 			$options = $this->sanitize( $options );
 			$this->update_constants( self::$options, $options );
@@ -252,8 +255,6 @@ class Settings {
 	/**
 	 * Redirect back to settings page on save.
 	 *
-	 * phpcs:disable WordPress.Security.NonceVerification.Missing
-	 *
 	 * @return void
 	 */
 	private function redirect_on_save() {
@@ -263,7 +264,6 @@ class Settings {
 		) {
 			$update = true;
 		}
-		// phpcs:enable
 
 		$redirect_url = is_multisite() ? network_admin_url( 'settings.php' ) : admin_url( 'tools.php' );
 
@@ -283,20 +283,22 @@ class Settings {
 	/**
 	 * Add notice when settings are saved.
 	 *
-	 * phpcs:disable WordPress.PHP.StrictComparisons.LooseComparison
-	 * phpcs:disable WordPress.Security.NonceVerification.Recommended
-	 *
+	 * @param string $nonce Nonce.
 	 * @return void
 	 */
-	private function saved_settings_notice() {
+	private function saved_settings_notice( $nonce ) {
+		if ( ! wp_verify_nonce( $nonce, 'settings-page' ) ) {
+			return;
+		}
+		// phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
 		if ( ( isset( $_GET['updated'] ) && true == $_GET['updated'] ) ||
-			( isset( $_GET['settings-updated'] ) && true == $_GET['settings-updated'] )
+		// phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
+		( isset( $_GET['settings-updated'] ) && true == $_GET['settings-updated'] )
 		) {
 			echo '<div class="updated"><p>';
 			esc_html_e( 'Saved.', 'wp-debugging' );
 			echo '</p></div>';
 		}
-		// phpcs:enable
 	}
 
 	/**
@@ -406,7 +408,8 @@ class Settings {
 	 * @return void
 	 */
 	public function create_settings_page() {
-		$this->saved_settings_notice();
+		$nonce = wp_create_nonce( 'settings-page' );
+		$this->saved_settings_notice( $nonce );
 		$action = is_multisite() ? 'edit.php?action=wp-debugging' : 'options.php'; ?>
 		<div class="wrap">
 			<h1><?php esc_html_e( 'WP Debugging', 'wp-debugging' ); ?></h1>
