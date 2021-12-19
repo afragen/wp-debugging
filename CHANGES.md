@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 2.11.3 / 2021-12-19
+* more fixes via composer update
+
 #### 2.11.2 / 2021-09-24
 * composer update, cause of course I needed to fix something
 
