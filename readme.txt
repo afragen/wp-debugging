@@ -5,7 +5,7 @@ Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.6
 Tested up to: 5.9
-Stable tag: 2.11.3
+Stable tag: 2.11.4
 Donate link: https://thefragens.com/git-updater-donate
 License: MIT
 
@@ -89,6 +89,12 @@ This will create the following constants.
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.11.4 / 2022-01-10
+* composer updates
+
+#### 2.11.3 / 2021-12-19
+* more fixes via composer update
 
 #### 2.11.2 / 2021-09-24
 * composer update, cause of course I needed to fix something
