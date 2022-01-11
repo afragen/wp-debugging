@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 2.11.4 / 2022-01-10
+* composer updates
+
 #### 2.11.3 / 2021-12-19
 * more fixes via composer update
 
