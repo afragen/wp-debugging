@@ -1,4 +1,5 @@
 #### [unreleased]
+* proper nonce verification
 
 #### 2.11.5 / 2022-01-11
 * I messed up the release 🤦‍♂️
