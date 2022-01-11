@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 2.11.5 / 2022-01-11
+* I messed up the release 🤦‍♂️
+
 #### 2.11.4 / 2022-01-10
 * composer updates
 
