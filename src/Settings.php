@@ -47,13 +47,6 @@ class Settings {
 	protected static $config_args;
 
 	/**
-	 * Holds nonce.
-	 *
-	 * @var $nonce
-	 */
-	protected static $nonce;
-
-	/**
 	 * Constructor.
 	 *
 	 * @param  array  $options           Plugin options.
@@ -66,7 +59,6 @@ class Settings {
 		self::$config_path       = $config_path;
 		$this->defined_constants = $defined_constants;
 		self::$config_args       = [ 'normalize' => true ];
-		static::$nonce           = wp_create_nonce( 'wp-debugging' );
 
 		if ( false === strpos( file_get_contents( self::$config_path ), "/* That's all, stop editing!" ) ) {
 			if ( 1 === preg_match( '@\$table_prefix = (.*);@', file_get_contents( self::$config_path ), $matches ) ) {
@@ -127,7 +119,9 @@ class Settings {
 	 */
 	public function update_settings() {
 		// Exit if improper privileges.
-		if ( ! current_user_can( 'manage_options' ) || ! wp_verify_nonce( static::$nonce, 'wp-debugging' ) ) {
+		if ( ! current_user_can( 'manage_options' )
+			|| ( isset( $_POST['_wpnonce'] ) && ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ), 'wp_debugging-options' ) )
+		) {
 			return;
 		}
 
@@ -265,15 +259,14 @@ class Settings {
 	 */
 	private function redirect_on_save() {
 		$update = false;
-		if ( ! wp_verify_nonce( static::$nonce, 'wp-debugging' ) ) {
-			return;
-		}
 
+		// phpcs:disable WordPress.Security.NonceVerification.Missing
 		if ( ( isset( $_POST['action'] ) && 'update' === $_POST['action'] ) &&
 			( isset( $_POST['option_page'] ) && 'wp_debugging' === $_POST['option_page'] )
 		) {
 			$update = true;
 		}
+		// phpcs:enable
 
 		$redirect_url = is_multisite() ? network_admin_url( 'settings.php' ) : admin_url( 'tools.php' );
 
@@ -296,9 +289,7 @@ class Settings {
 	 * @return void
 	 */
 	private function saved_settings_notice() {
-		if ( ! wp_verify_nonce( static::$nonce, 'wp-debugging' ) ) {
-			return;
-		}
+		// phpcs:disable WordPress.Security.NonceVerification.Recommended
 		if ( ( isset( $_GET['updated'] ) && '1' === $_GET['updated'] ) ||
 		( isset( $_GET['settings-updated'] ) && '1' === $_GET['settings-updated'] )
 		) {
@@ -306,6 +297,7 @@ class Settings {
 			esc_html_e( 'Saved.', 'wp-debugging' );
 			echo '</p></div>';
 		}
+		// phpcs:enable
 	}
 
 	/**
