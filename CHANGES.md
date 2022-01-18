@@ -1,5 +1,8 @@
 #### [unreleased]
+
+#### 2.11.6 /2022-01-18
 * proper nonce verification
+* composer updates
 
 #### 2.11.5 / 2022-01-11
 * I messed up the release 🤦‍♂️
