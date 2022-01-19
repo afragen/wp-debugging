@@ -120,7 +120,7 @@ class Settings {
 	public function update_settings() {
 		// Exit if improper privileges.
 		if ( ! current_user_can( 'manage_options' )
-			|| ( isset( $_POST['_wpnonce'] ) && ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ), 'wp_debugging-options' ) )
+			|| ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ), 'wp_debugging-options' ) )
 		) {
 			return;
 		}

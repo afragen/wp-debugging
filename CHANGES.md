@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 2.11.7 / 2022-01-18
+* fix logic in verify nonce conditional
+
 #### 2.11.6 /2022-01-18
 * proper nonce verification
 * composer updates
