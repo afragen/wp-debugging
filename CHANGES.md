@@ -1,4 +1,5 @@
 #### [unreleased]
+* fix logic in verify nonce conditional
 
 #### 2.11.6 /2022-01-18
 * proper nonce verification
