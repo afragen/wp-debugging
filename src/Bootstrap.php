@@ -82,7 +82,12 @@ class Bootstrap {
 		}
 
 		$this->load_hooks();
-		\WP_Dependency_Installer::instance()->run( $this->dir );
+		add_action(
+			'plugins_loaded',
+			function() {
+				\WP_Dependency_Installer::instance()->run( $this->dir );
+			}
+		);
 	}
 
 	/**

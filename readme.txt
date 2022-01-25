@@ -5,7 +5,7 @@ Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.6
 Tested up to: 5.9
-Stable tag: 2.11.7
+Stable tag: 2.11.8
 Donate link: https://thefragens.com/git-updater-donate
 License: MIT
 
@@ -89,6 +89,10 @@ This will create the following constants.
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.11.8 / 2022-01-24
+* load call to `WP_Dependency_Installer()` in `plugins_loaded` hook to avoid loading `pluggable.php`.
+* update `WP_Dependency_Installer`
 
 #### 2.11.7 / 2022-01-18
 * fix logic in verify nonce conditional
