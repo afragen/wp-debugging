@@ -1,5 +1,8 @@
 #### [unreleased]
+
+#### 2.11.8 / 2022-01-24
 * load call to `WP_Dependency_Installer()` in `plugins_loaded` hook to avoid loading `pluggable.php`.
+* update `WP_Dependency_Installer`
 
 #### 2.11.7 / 2022-01-18
 * fix logic in verify nonce conditional
