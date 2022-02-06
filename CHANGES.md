@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 2.11.9 / 2022-02-05
+* composer update
+
 #### 2.11.8 / 2022-01-24
 * load call to `WP_Dependency_Installer()` in `plugins_loaded` hook to avoid loading `pluggable.php`.
 * update `WP_Dependency_Installer`
