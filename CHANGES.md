@@ -1,5 +1,9 @@
 #### [unreleased]
 
+#### 2.11.10 / 2022-05-10
+* use `sanitize_key()` for nonces
+* composer update
+
 #### 2.11.9 / 2022-02-05
 * composer update
 

@@ -4,8 +4,8 @@ Contributors: afragen
 Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.6
-Tested up to: 5.9
-Stable tag: 2.11.9
+Tested up to: 6.0
+Stable tag: 2.11.10
 Donate link: https://thefragens.com/git-updater-donate
 License: MIT
 
@@ -13,7 +13,7 @@ A support/troubleshooting plugin for WordPress.
 
 ## Description
 
-This plugin sets the following debug constants in `wp-config.php` on plugin activation and removes them on plugin deactivation. Any errors will result in a PHP Exception being thrown. Debug constants per [Debugging in WordPress](https://codex.wordpress.org/Debugging_in_WordPress).
+This plugin sets the following debug constants in `wp-config.php` on plugin activation and removes them on plugin deactivation. Any errors will result in a PHP Exception being thrown. Debug constants per [Debugging in WordPress](https://wordpress.org/support/article/debugging-in-wordpress/).
 
 Default settings:
 
@@ -89,6 +89,10 @@ This will create the following constants.
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.11.10 / 2022-05-10
+* use `sanitize_key()` for nonces
+* composer update
 
 #### 2.11.9 / 2022-02-05
 * composer update
