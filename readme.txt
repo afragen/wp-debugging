@@ -5,7 +5,7 @@ Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.6
 Tested up to: 6.0
-Stable tag: 2.11.10
+Stable tag: 2.11.11
 Donate link: https://thefragens.com/git-updater-donate
 License: MIT
 
@@ -89,6 +89,9 @@ This will create the following constants.
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.11.11 / 2022--5-16
+* update `wp-dismiss-notice` with transient and only poll `wp_remote_get()` weekly
 
 #### 2.11.10 / 2022-05-10
 * use `sanitize_key()` for nonces

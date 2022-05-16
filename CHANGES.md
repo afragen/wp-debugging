@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 2.11.11 / 2022-05-16
+* update `wp-dismiss-notice` with transient and only poll `wp_remote_get()` weekly
+
 #### 2.11.10 / 2022-05-10
 * use `sanitize_key()` for nonces
 * composer update

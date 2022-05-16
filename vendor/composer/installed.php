@@ -5,7 +5,7 @@
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '813cb4e40fc304938f453ae674543f5d566badf5',
+        'reference' => '0f0c5ca6d4430b15334d8ec7ae4de3595ff38be1',
         'name' => 'afragen/wp-debugging',
         'dev' => false,
     ),
@@ -16,7 +16,7 @@
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '813cb4e40fc304938f453ae674543f5d566badf5',
+            'reference' => '0f0c5ca6d4430b15334d8ec7ae4de3595ff38be1',
             'dev_requirement' => false,
         ),
         'afragen/wp-dependency-installer' => array(
@@ -29,12 +29,12 @@
             'dev_requirement' => false,
         ),
         'afragen/wp-dismiss-notice' => array(
-            'pretty_version' => '0.2.3',
-            'version' => '0.2.3.0',
+            'pretty_version' => '0.2.5',
+            'version' => '0.2.5.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../afragen/wp-dismiss-notice',
             'aliases' => array(),
-            'reference' => '21949732f1ea21d81500bdda8f882ac7eb0f98af',
+            'reference' => '71029356cc2a8dfa13ee835c08d8a1b484c0e673',
             'dev_requirement' => false,
         ),
         'norcross/debug-quick-look' => array(
