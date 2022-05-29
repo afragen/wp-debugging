@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 2.11.12 / 2022-05-29
+* update to latest `afragen/debug-quick-look`
+
 #### 2.11.11 / 2022-05-16
 * update `wp-dismiss-notice` with transient and only poll `wp_remote_get()` weekly
 
