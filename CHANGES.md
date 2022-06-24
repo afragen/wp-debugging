@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 2.11.13 / 2022-06-23
+* make anchor `preg_match` more greedy
+
 #### 2.11.12 / 2022-05-29
 * update to latest `afragen/debug-quick-look`
 
