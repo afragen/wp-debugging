@@ -5,7 +5,7 @@ Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.6
 Tested up to: 6.0
-Stable tag: 2.11.12
+Stable tag: 2.11.13
 Donate link: https://thefragens.com/git-updater-donate
 License: MIT
 
@@ -89,6 +89,9 @@ This will create the following constants.
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.11.13 / 2022-06-23
+* make anchor `preg_match` more greedy
 
 #### 2.11.12 / 2022-05-29
 * update to latest `afragen/debug-quick-look`
