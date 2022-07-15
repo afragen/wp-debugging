@@ -1,4 +1,5 @@
 #### [unreleased]
+* composer update
 
 #### 2.11.13 / 2022-06-23
 * make anchor `preg_match` more greedy
