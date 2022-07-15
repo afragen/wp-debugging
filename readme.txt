@@ -5,7 +5,7 @@ Tags: debug, support, wp-config
 Requires at least: 4.6
 Requires PHP: 5.6
 Tested up to: 6.0
-Stable tag: 2.11.13
+Stable tag: 2.11.14
 Donate link: https://thefragens.com/git-updater-donate
 License: MIT
 
