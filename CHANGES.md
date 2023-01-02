@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 2.11.15 / 2023-01-02
+* composer update
+
 #### 2.11.14 / 2022-07-15
 * composer update
 
