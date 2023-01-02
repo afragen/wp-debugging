@@ -16,7 +16,7 @@ class WP_Dismiss_Notice {
 	 */
 	public static function init() {
 		add_action( 'admin_enqueue_scripts', [ __CLASS__, 'load_script' ] );
-		add_action( 'wp_ajax_dismiss_admin_notice', [ __CLASS__, 'dismiss_admin_notice' ] );
+		add_action( 'wp_ajax_wp_dismiss_notice', [ __CLASS__, 'dismiss_admin_notice' ] );
 	}
 
 	/**
@@ -28,7 +28,14 @@ class WP_Dismiss_Notice {
 			return;
 		}
 
-		$composer_js_path = '/vendor/afragen/wp-dismiss-notice/js/dismiss-notice.js';
+		/**
+		 * Filter composer.json vendor directory.
+		 * Some people don't use the standard vendor directory.
+		 *
+		 * @param string Composer vendor directory.
+		 */
+		$vendor_dir       = apply_filters( 'dismiss_notice_vendor_dir', '/vendor' );
+		$composer_js_path = untrailingslashit( $vendor_dir ) . '/afragen/wp-dismiss-notice/js/dismiss-notice.js';
 		$plugin_js_url    = plugins_url( 'js/dismiss-notice.js', __FILE__, 'wp-dismiss-notice' );
 
 		// Test to get correct URL for JS.
