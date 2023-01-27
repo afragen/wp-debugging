@@ -412,7 +412,7 @@ class Settings {
 		<div class="wrap">
 			<h1><?php esc_html_e( 'WP Debugging', 'wp-debugging' ); ?></h1>
 			<div class="updated fade">
-				<p><?php echo wp_kses_post( __( '<strong>Please note:</strong> Your <code>wp-config.php</code> file must be writable by the filesystem. Any errors will result in a PHP Exception being thrown. Debug constants per <a href="https://codex.wordpress.org/Debugging_in_WordPress">Debugging in WordPress</a>.', 'wp-debugging' ) ); ?></p>
+				<p><?php echo wp_kses_post( __( '<strong>Please note:</strong> Your <code>wp-config.php</code> file must be writable by the filesystem. Any errors will result in a PHP Exception being thrown. Debug constants as documented in <a href="https://wordpress.org/documentation/article/debugging-in-wordpress/">Debugging in WordPress</a>.', 'wp-debugging' ) ); ?></p>
 			</div>
 			<div>
 			<form method="post" action="<?php echo esc_attr( $action ); ?>">
