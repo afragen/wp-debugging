@@ -5,7 +5,7 @@ Tags: debug, support, wp-config
 Requires at least: 5.2
 Requires PHP: 5.6
 Tested up to: 6.2
-Stable tag: 2.11.19
+Stable tag: 2.11.20
 Donate link: https://thefragens.com/git-updater-donate
 License: MIT
 
@@ -90,7 +90,7 @@ PRs are welcome against the [develop branch on GitHub](https://github.com/afrage
 
 ## Changelog
 
-#### 2.11.18 and 2.11.19 / 2023-02-05
+#### 2.11.18, 2.11.19, 2.11.20 / 2023-02-07
 * composer update
 
 #### 2.11.17 / 2023-01-27
