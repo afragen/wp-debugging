@@ -1,4 +1,5 @@
 #### [unreleased]
+* update `afragen/wp-dismiss-notice`
 
 #### 2.11.18, 2.11.19, 2.11.20 / 2023-02-07
 * composer update
