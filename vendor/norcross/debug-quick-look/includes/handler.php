@@ -22,10 +22,10 @@ use DebugQuickLook\Formatting as Formatting;
  *
  * @return void
  */
-function build_handler( $message, $title = '', $args = array() ) {
+function build_handler( $message, $title = '', $args = [] ) {
 
 	// Set an empty.
-	$build  = '';
+	$build = '';
 
 	// Set the doctype.
 	$build .= '<!DOCTYPE html>';
@@ -58,13 +58,13 @@ function build_handler( $message, $title = '', $args = array() ) {
  *
  * @return mixed
  */
-function handler_head_tag( $title = '', $args = array(), $echo = false ) {
+function handler_head_tag( $title = '', $args = [], $echo = false ) {
 
 	// Determine the page title.
-	$title  = ! empty( $title ) ? sanitize_text_field( $title ) : __( 'View Your File', 'debug-quick-look' );
+	$title = ! empty( $title ) ? sanitize_text_field( $title ) : __( 'View Your File', 'debug-quick-look' );
 
 	// Set an empty.
-	$build  = '';
+	$build = '';
 
 	// Set the opening head tag.
 	$build .= '<head>' . "\n";
@@ -78,9 +78,9 @@ function handler_head_tag( $title = '', $args = array(), $echo = false ) {
 		$build .= '<meta name="viewport" content="width=device-width, initial-scale=1.0"/>' . "\n";
 
 		// Check the 'no robots', but output ourselves since the function only echos.
-		if ( function_exists( 'wp_no_robots' ) ) {
-			$build .= '<meta name="robots" content="noindex,follow" />' . "\n";
-		}
+	if ( function_exists( 'wp_no_robots' ) ) {
+		$build .= '<meta name="robots" content="noindex,follow" />' . "\n";
+	}
 
 		// Load our CSS.
 		$build .= load_handler_css();
@@ -112,10 +112,10 @@ function handler_head_tag( $title = '', $args = array(), $echo = false ) {
  *
  * @return mixed
  */
-function handler_body_tag( $message = '', $args = array(), $echo = false ) {
+function handler_body_tag( $message = '', $args = [], $echo = false ) {
 
 	// Set an empty.
-	$build  = '';
+	$build = '';
 
 	// Set the opening body tag.
 	$build .= '<body class="debug-quick-look">' . "\n";
@@ -158,14 +158,14 @@ function load_handler_css() {
 	if ( ! did_action( 'admin_head' ) ) {
 
 		// Set my stylesheet URL.
-		$stylesheet = add_query_arg( array( 'ver' => time() ), $stylesheet );
+		$stylesheet = add_query_arg( [ 'ver' => time() ], $stylesheet );
 
 		// And just return
 		return '<link href="' . esc_url( $stylesheet ) . '" rel="stylesheet" type="text/css">' . "\n";
 	}
 
 	// Get my raw CSS.
-	$style  = @file_get_contents( $stylesheet );
+	$style = @file_get_contents( $stylesheet );
 
 	// Set it displayed via filter.
 	$display = apply_filters( Core\HOOK_PREFIX . 'raw_css', $style );
@@ -181,7 +181,7 @@ function load_handler_css() {
  *
  * @return mixed
  */
-function load_handler_intro( $args = array() ) {
+function load_handler_intro( $args = [] ) {
 
 	// Bail if we said to skip the intro.
 	if ( ! empty( $args['skip-intro'] ) ) {
@@ -189,7 +189,7 @@ function load_handler_intro( $args = array() ) {
 	}
 
 	// Set my purge URL.
-	$purge  = Helpers\build_quicklook_url( 'purge' );
+	$purge = Helpers\build_quicklook_url( 'purge' );
 
 	// Set the totals variable.
 	$ttlnum = ! empty( $args['totals'] ) ? $args['totals'] : 0;
@@ -198,7 +198,7 @@ function load_handler_intro( $args = array() ) {
 	$totals = sprintf( __( 'Total log entries: %s', 'debug-quick-look' ), '<strong>' . absint( $ttlnum ) . '</strong>' );
 
 	// Set an empty.
-	$build  = '';
+	$build = '';
 
 	// Set the opening div.
 	$build .= '<div class="debug-quick-look-intro">' . "\n";
@@ -237,14 +237,16 @@ function load_handler_intro( $args = array() ) {
 /**
  * Load our message to display.
  *
- * @param  string  $message  The total message output.
+ * @param  string|WP_Error $message  The total message output.
  *
  * @return mixed
  */
 function load_handler_message( $message ) {
 
+	$message = is_wp_error( $message ) ? $message->get_error_message() : $message;
+
 	// Set an empty.
-	$build  = '';
+	$build = '';
 
 	// Set the opening div.
 	$build .= '<div class="debug-quick-look-block-list">' . "\n";

@@ -55,15 +55,15 @@ function run_quicklook_action() {
 	// Switch through and return the item.
 	switch ( esc_attr( $setkey ) ) {
 
-		case 'view' :
+		case 'view':
 			Parser\run_parse();
 			break;
 
-		case 'raw' :
+		case 'raw':
 			Parser\run_parse( false );
 			break;
 
-		case 'purge' :
+		case 'purge':
 			Helpers\purge_debug_file();
 			break;
 
@@ -86,8 +86,8 @@ function run_quicklook_action() {
  */
 function add_removable_arg( $args ) {
 
-    // Include my new args and return.
-	return wp_parse_args( array( 'quicklook', 'quickpurge' ), $args );
+	// Include my new args and return.
+	return wp_parse_args( [ 'quicklook', 'quickpurge' ], $args );
 }
 
 /**

@@ -22,7 +22,7 @@ use DebugQuickLook\Helpers as Helpers;
 function format_parsed_lines( $lines ) {
 
 	// Filter the lines.
-	$lines  = apply_filters( Core\HOOK_PREFIX . 'before_line_parse', $lines );
+	$lines = apply_filters( Core\HOOK_PREFIX . 'before_line_parse', $lines );
 
 	// Now return the lines.
 	return array_map( __NAMESPACE__ . '\format_single_line', $lines );
@@ -38,7 +38,7 @@ function format_parsed_lines( $lines ) {
 function format_single_line( $single ) {
 
 	// Set our block class before we start manupulating.
-	$div_class  = set_parse_block_class( $single );
+	$div_class = set_parse_block_class( $single );
 
 	// Get our formatting args.
 	$formatting = Helpers\get_formatting_args();
@@ -72,17 +72,17 @@ function format_single_line( $single ) {
 function set_parse_block_class( $single ) {
 
 	// Set the notice types we want.
-	$types  = array(
+	$types = [
 		'notice'       => 'PHP Notice:',
 		'warning'      => 'PHP Warning:',
 		'fatal'        => 'PHP Fatal error:',
 		'wordpress-db' => 'WordPress database error',
 		'stack-trace'  => 'Stack trace:',
 		'wp-community' => 'WP_Community_Events',
-	);
+	];
 
 	// Filter the available types.
-	$types  = apply_filters( Core\HOOK_PREFIX . 'block_class_types', $types );
+	$types = apply_filters( Core\HOOK_PREFIX . 'block_class_types', $types );
 
 	// Set our default class.
 	$data[] = 'log-entry-block';
@@ -100,10 +100,10 @@ function set_parse_block_class( $single ) {
 	}
 
 	// Filter the array of classes.
-	$items  = apply_filters( Core\HOOK_PREFIX . 'block_classes', $data );
+	$items = apply_filters( Core\HOOK_PREFIX . 'block_classes', $data );
 
 	// Make sure each one is sanitized.
-	$setup  = array_map( 'sanitize_html_class', $items );
+	$setup = array_map( 'sanitize_html_class', $items );
 
 	// Return the whole thing.
 	return implode( ' ', $setup );
@@ -119,7 +119,7 @@ function set_parse_block_class( $single ) {
 function wrap_dateblock( $single ) {
 
 	// Set up our formatting rules.
-	$format = "~
+	$format = '~
 		\[(              # open outer square brackets and capturing group
 		(?:              # open subpattern for optional inner square brackets
 		    [^[\]]*      # non-square-bracket characters
@@ -134,7 +134,7 @@ function wrap_dateblock( $single ) {
 		    [a-z]+       # letters
 		    )\)          # close capturing group and parentheses
 		)?               # end subpattern and make it optional
-		~isx";
+		~isx';
 
 	// Run the big match for the date bracket.
 	preg_match( $format, $single, $matches );
@@ -145,13 +145,13 @@ function wrap_dateblock( $single ) {
 	}
 
 	// Format our date.
-	$fdate  = date( 'c', strtotime( $matches[1] ) );
+	$fdate = date( 'c', strtotime( $matches[1] ) );
 
 	// Set the markup.
 	$markup = '<span class="log-entry-date"><time datetime="' . esc_attr( $fdate ) . '">' . $matches[0] . '</time></span>';
 
 	// Wrap the dateblock itself in a time.
-	$setup  = str_replace( $matches[0], $markup, $single );
+	$setup = str_replace( $matches[0], $markup, $single );
 
 	// Return it.
 	return apply_filters( Core\HOOK_PREFIX . 'dateblock_wrap', $setup, $single );
@@ -178,13 +178,13 @@ function wrap_stacktrace( $single ) {
 	}
 
 	// Set our string to be modified.
-	$setup  = $single;
+	$setup = $single;
 
 	// Create an array of the stack data.
-	$items  = explode( PHP_EOL, $matches[1] );
+	$items = explode( PHP_EOL, $matches[1] );
 
 	// Set the empty list tagged items.
-	$ltags  = '';
+	$ltags = '';
 
 	// Wrap each one with a list tag.
 	foreach ( $items as $line_item ) {
@@ -198,10 +198,10 @@ function wrap_stacktrace( $single ) {
 	$merged = str_replace( $matches[1], $ulwrap, $setup );
 
 	// Set my title.
-	$twrap  = '<p class="log-entry-stack-trace-title">Stack trace:</p>';
+	$twrap = '<p class="log-entry-stack-trace-title">Stack trace:</p>';
 
 	// Wrap the stack trace word in a paragraph.
-	$setup  = str_replace( 'Stack trace:', $twrap, $merged );
+	$setup = str_replace( 'Stack trace:', $twrap, $merged );
 
 	// Return it.
 	return apply_filters( Core\HOOK_PREFIX . 'stacktrace_wrap', $setup, $single );
@@ -217,19 +217,19 @@ function wrap_stacktrace( $single ) {
 function wrap_warning_types( $single ) {
 
 	// Set the notice types we want.
-	$types  = array(
+	$types = [
 		'notice'       => 'PHP Notice:  ',
 		'warning'      => 'PHP Warning:  ',
 		'fatal'        => 'PHP Fatal error:  ',
 		'wordpress-db' => 'WordPress database error ',
 		'wp-community' => 'WP_Community_Events::maybe_log_events_response: ',
-	);
+	];
 
 	// Filter the available types.
-	$types  = apply_filters( Core\HOOK_PREFIX . 'warning_types', $types );
+	$types = apply_filters( Core\HOOK_PREFIX . 'warning_types', $types );
 
 	// Set our string to be modified.
-	$setup  = $single;
+	$setup = $single;
 
 	// Now loop them and check each one.
 	foreach ( $types as $key => $text ) {
@@ -246,7 +246,7 @@ function wrap_warning_types( $single ) {
 		$markup = '<span class="' . esc_attr( $nclass ) . '">' . esc_html( rtrim( $text, ': ' ) ) . '</span>' . PHP_EOL;
 
 		// Now wrap it in some markup.
-		$setup  = str_replace( $text, $markup, $setup );
+		$setup = str_replace( $text, $markup, $setup );
 	}
 
 	// Return it with our filter.
@@ -274,7 +274,7 @@ function wrap_json_bits( $single ) {
 	}
 
 	// Set our string to be modified.
-	$setup  = $single;
+	$setup = $single;
 
 	// Loop each bit of JSON and attempt to format it.
 	foreach ( $matches[0] as $found_json ) {
@@ -291,7 +291,7 @@ function wrap_json_bits( $single ) {
 		$markup = '<div class="log-entry-json-array-section">' . format_json_array( $maybe_json ) . '</div>';
 
 		// Now wrap it in some markup.
-		$setup  = str_replace( $found_json, $markup, $setup );
+		$setup = str_replace( $found_json, $markup, $setup );
 	}
 
 	// Return it with our filter.
@@ -300,7 +300,7 @@ function wrap_json_bits( $single ) {
 
 /**************************************
   Set the various callback formatting.
-***************************************/
+ ***************************************/
 
 /**
  * Take the JSON array and make it fancy.
@@ -312,7 +312,7 @@ function wrap_json_bits( $single ) {
 function format_json_array( $maybe_json ) {
 
 	// Set my empty build.
-	$build  = '';
+	$build = '';
 
 	// Wrap the whole thing in a list.
 	$build .= '<ul class="log-entry-json-array-wrap">';
@@ -330,22 +330,22 @@ function format_json_array( $maybe_json ) {
 			$build .= '<span class="log-entry-json-array-piece log-entry-json-array-splitter">&nbsp;&equals;&gt;&nbsp;</span>';
 
 			// If the value isn't an array, make a basic list item.
-			if ( ! is_array( $value ) ) {
+		if ( ! is_array( $value ) ) {
 
-				// Make boolean a string for display.
-				$value = is_bool( $value ) ? var_export( $value, true ) : $value;
+			// Make boolean a string for display.
+			$value = is_bool( $value ) ? var_export( $value, true ) : $value;
 
-				// Just wrap the piece as per usual.
-				$build .= '<span class="log-entry-json-array-piece">' . esc_html( $value ) . '</span>';
+			// Just wrap the piece as per usual.
+			$build .= '<span class="log-entry-json-array-piece">' . esc_html( $value ) . '</span>';
 
-			} else {
+		} else {
 
-				// Set the "array" holder text.
-				$build .= '<span class="log-entry-json-array-piece"><em>' . esc_html__( '(array)', 'debug-quick-look' ) . '</em></span>';
+			// Set the "array" holder text.
+			$build .= '<span class="log-entry-json-array-piece"><em>' . esc_html__( '(array)', 'debug-quick-look' ) . '</em></span>';
 
-				// And get recursive with it.
-				$build .= format_json_array( $value );
-			}
+			// And get recursive with it.
+			$build .= format_json_array( $value );
+		}
 
 		// Close the item inside.
 		$build .= '</li>';
@@ -369,7 +369,7 @@ function format_json_array( $maybe_json ) {
 function wrap_final_return( $single, $class = '' ) {
 
 	// Now set our display.
-	$build  = '';
+	$build = '';
 
 	// Set the div wrapper.
 	$build .= '<div class="' . esc_attr( $class ) . '">';

@@ -25,7 +25,7 @@
       "type": "package",
       "package": {
         "name": "norcross/debug-quick-look",
-        "version": "0.1.7",
+        "version": "0.1.8",
         "dist": {
           "url": "https://github.com/afragen/debug-quick-look/archive/vendor.zip",
           "type": "zip"
