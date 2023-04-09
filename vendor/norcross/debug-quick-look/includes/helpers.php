@@ -148,6 +148,9 @@ function check_debug_file() {
 	// Set our file.
 	$debug = get_debug_file();
 
+	// Set file if empty.
+	$debug = empty( $debug ) ? @ini_set( 'error_log', \WP_CONTENT_DIR . '/debug.log' ) : $debug;
+
 	// If no file exists at all, create an empty one.
 	if ( false === file_exists( $debug ) ) {
 		file_put_contents( $debug, '' );
