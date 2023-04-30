@@ -1,3 +1,8 @@
 .DS_Store
 .idea
 .vs-code
+
+vendor/bin
+vendor/dealerdirect
+vendor/squizlabs
+vendor/wp-coding-standards

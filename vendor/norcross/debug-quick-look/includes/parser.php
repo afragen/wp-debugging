@@ -41,7 +41,7 @@ function run_parse( $parse = true ) {
 	if ( ! $parse ) {
 
 		// Get our raw file.
-		$raw_debug  = file_get_contents( $debug_file );
+		$raw_debug = file_get_contents( $debug_file );
 
 		// And die with the raw.
 		wp_die( '<pre class="debug-quick-look-raw">' . $raw_debug . '</pre>', __( 'Viewing Raw Debug', 'debug-quick-look' ) );
@@ -51,7 +51,7 @@ function run_parse( $parse = true ) {
 	$parsed = parse_debug_file( $debug_file );
 
 	// And show the world.
-	wp_die( $parsed['display'], __( 'View Your File', 'debug-quick-look' ), array( 'totals' => absint( $parsed['totals'] ) ) );
+	wp_die( $parsed['display'], __( 'View Your File', 'debug-quick-look' ), [ 'totals' => absint( $parsed['totals'] ) ] );
 }
 
 /**
@@ -65,22 +65,22 @@ function run_parse( $parse = true ) {
 function parse_debug_file( $logfile = '', $order = 'asc' ) {
 
 	// Fetch the full lines.
-	$lines  = file( $logfile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
+	$lines = file( $logfile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
 
 	// Run a quick right trim on each line.
-	$lines  = array_map( 'rtrim', $lines );
+	$lines = array_map( 'rtrim', $lines );
 
 	// Set our empty.
-	$setup  = array();
+	$setup = [];
 
 	// Set a marker for the proper lines.
-	$index  = 0;
+	$index = 0;
 
 	// Loop the lines.
 	foreach ( $lines as $nm => $linestring ) {
 
 		// Get our first character, which we test with.
-		$first  = substr( $linestring, 0, 1 );
+		$first = substr( $linestring, 0, 1 );
 
 		// Starting with the date bracket.
 		if ( '[' === esc_attr( $first ) ) {
@@ -96,10 +96,10 @@ function parse_debug_file( $logfile = '', $order = 'asc' ) {
 		if ( '[' !== esc_attr( $first ) ) {
 
 			// Get our current line data.
-			$start  = $setup[ $index ];
+			$start = $setup[ $index ];
 
 			// Merge our current string with whatever we already had.
-			$merge  = $start . PHP_EOL . $linestring;
+			$merge = $start . PHP_EOL . $linestring;
 
 			// Add it to the merged string.
 			$setup[ $index ] = $merge;
@@ -109,21 +109,21 @@ function parse_debug_file( $logfile = '', $order = 'asc' ) {
 	}
 
 	// Reset the array keys.
-	$setup  = array_values( $setup );
+	$setup = array_values( $setup );
 
 	// Run our individual formatting.
-	$setup  = Formatting\format_parsed_lines( $setup );
+	$setup = Formatting\format_parsed_lines( $setup );
 
 	// If we wanted descending, swap.
 	if ( 'desc' === sanitize_text_field( $order ) ) {
-		$setup  = array_reverse( $setup );
+		$setup = array_reverse( $setup );
 	}
 
 	// Return an array of the markup and count.
-	return array(
-		'totals' => count( $setup ),
+	return [
+		'totals'  => count( $setup ),
 		'display' => implode( "\n", $setup ),
-	);
+	];
 }
 
 /**

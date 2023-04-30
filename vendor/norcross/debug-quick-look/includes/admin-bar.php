@@ -66,7 +66,7 @@ function admin_bar_links( $wp_admin_bar ) {
 	}
 
 	// Fetch my nodes.
-	$nodes  = Helpers\get_admin_bar_nodes();
+	$nodes = Helpers\get_admin_bar_nodes();
 
 	// Bail without nodes.
 	if ( ! $nodes ) {
@@ -75,10 +75,10 @@ function admin_bar_links( $wp_admin_bar ) {
 
 	// Add a parent item.
 	$wp_admin_bar->add_node(
-		array(
+		[
 			'id'    => 'debug-quick-look',
 			'title' => __( 'Debug Quick Look', 'debug-quick-look' ),
-		)
+		]
 	);
 
 	// Check to see if we have our constant.
