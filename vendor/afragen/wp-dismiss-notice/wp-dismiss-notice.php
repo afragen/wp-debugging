@@ -15,7 +15,6 @@ class WP_Dismiss_Notice {
 	 * Init hooks.
 	 */
 	public static function init() {
-		$version = json_decode( file_get_contents( './composer.json' ) );
 		add_action( 'admin_enqueue_scripts', [ __CLASS__, 'load_script' ] );
 		add_action( 'wp_ajax_wp_dismiss_notice', [ __CLASS__, 'dismiss_admin_notice' ] );
 	}
