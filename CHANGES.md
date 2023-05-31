@@ -1,4 +1,6 @@
 #### [unreleased]
+
+#### 2.11.22 / 2023-05-31 🎂
 * update `afragen/wp-dismiss-notice`
 
 #### 2.11.21 / 2023-04-29
