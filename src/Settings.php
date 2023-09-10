@@ -136,7 +136,7 @@ class Settings {
 			$this->update_constants( self::$options, $options );
 			$filtered_options = array_filter(
 				self::$options,
-				function ( $e ) {
+				static function ( $e ) {
 					return '1' !== $e;
 				}
 			);
