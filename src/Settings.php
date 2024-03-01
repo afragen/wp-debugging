@@ -149,13 +149,13 @@ class Settings {
 	/**
 	 * Update constants in wp-config.php.
 	 *
-	 * @param  array $old Current value of self::$options.
-	 * @param  mixed $new New value of $options.
+	 * @param  array $old     Current value of self::$options.
+	 * @param  mixed $updated New value of $options.
 	 * @return void
 	 */
-	private function update_constants( $old, $new ) {
-		$remove = array_diff_assoc( $old, $new );
-		$add    = array_diff_assoc( $new, $old );
+	private function update_constants( $old, $updated ) {
+		$remove = array_diff_assoc( $old, $updated );
+		$add    = array_diff_assoc( $updated, $old );
 
 		if ( ! empty( $add ) ) {
 			$this->add_constants( $add );

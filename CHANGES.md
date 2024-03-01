@@ -1,4 +1,6 @@
 #### [unreleased]
+* composer update
+* WPCS updates
 
 #### 2.11.22 / 2023-05-31 🎂
 * update `afragen/wp-dismiss-notice`
