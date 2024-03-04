@@ -3,7 +3,7 @@
         'name' => 'afragen/wp-debugging',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => '9a431a673674df979a3a7755f47e5d068f95e4b1',
+        'reference' => '2032eef2fe1c8cd8be6992ea8938d4a4f655be86',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'afragen/wp-debugging' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => '9a431a673674df979a3a7755f47e5d068f95e4b1',
+            'reference' => '2032eef2fe1c8cd8be6992ea8938d4a4f655be86',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

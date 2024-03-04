@@ -1,4 +1,6 @@
 #### [unreleased]
+
+#### 2.11.23 / 2024-03-04
 * composer update
 * WPCS updates
 
