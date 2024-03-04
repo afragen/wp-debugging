@@ -64,7 +64,7 @@ class Bootstrap {
 		$this->dir         = dirname( $file );
 		self::$options     = get_site_option( 'wp_debugging', [ 'wp_debug' => '1' ] );
 		self::$config_path = $this->get_config_path();
-		@ini_set( 'display_errors', 1 ); // phpcs:ignore WordPress.PHP.IniSet.display_errors_Blacklisted
+		@ini_set( 'display_errors', 1 ); // phpcs:ignore WordPress.PHP.IniSet.display_errors_Blacklisted,WordPress.PHP.NoSilencedErrors.Discouraged,WordPress.PHP.IniSet.display_errors_Disallowed
 	}
 
 	/**
@@ -84,7 +84,7 @@ class Bootstrap {
 		$this->load_hooks();
 		add_action(
 			'plugins_loaded',
-			function() {
+			function () {
 				\WP_Dependency_Installer::instance()->run( $this->dir );
 			}
 		);
@@ -103,6 +103,7 @@ class Bootstrap {
 		$config_path = ABSPATH . 'wp-config.php';
 
 		if ( ! file_exists( $config_path ) ) {
+			// phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
 			if ( @file_exists( dirname( ABSPATH ) . '/wp-config.php' ) && ! @file_exists( dirname( ABSPATH ) . '/wp-settings.php' ) ) {
 				$config_path = dirname( ABSPATH ) . '/wp-config.php';
 			}
@@ -126,7 +127,7 @@ class Bootstrap {
 	public function load_hooks() {
 		add_action(
 			'plugins_loaded',
-			function() {
+			function () {
 				( new Settings( self::$options, self::$config_path, $this->defined_constants ) )
 					->load_hooks()
 					->process_filter_constants();

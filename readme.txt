@@ -4,8 +4,8 @@ Contributors: afragen
 Tags: debug, support, wp-config
 Requires at least: 5.2
 Requires PHP: 5.6
-Tested up to: 6.3
-Stable tag: 2.11.22
+Tested up to: 6.5
+Stable tag: 2.11.23
 Donate link: https://thefragens.com/git-updater-donate
 License: MIT
 
@@ -89,6 +89,10 @@ This will create the following constants.
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.11.23 / 2024-03-04
+* composer update
+* WPCS updates
 
 #### 2.11.22 / 2023-05-31 🎂
 * update `afragen/wp-dismiss-notice`
