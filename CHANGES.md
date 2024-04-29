@@ -1,6 +1,8 @@
 #### [unreleased]
+
+#### 2.11.24 / 2024-04-29
 * update link to Debugging in WordPress, thanks @tobifjellner
-* cast variable to array in `Bootstrap::deactivate()`
+* cast variable to array in `Bootstrap::deactivate()` fix for PHP 8.3
 
 #### 2.11.23 / 2024-03-04
 * composer update
