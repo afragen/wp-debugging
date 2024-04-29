@@ -12,7 +12,7 @@ A debugging/support plugin for WordPress.
 
 ## Description
 
-This plugin sets the following debug constants in `wp-config.php` on plugin activation and removes them on plugin deactivation. Any errors will result in a PHP Exception being thrown. Debug constants per [Debugging in WordPress](https://wordpress.org/support/article/debugging-in-wordpress/).
+This plugin sets the following debug constants in `wp-config.php` on plugin activation and removes them on plugin deactivation. Any errors will result in a PHP Exception being thrown. Debug constants per [Debugging in WordPress](https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/).
 
 Default settings:
 
