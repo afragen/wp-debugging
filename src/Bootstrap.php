@@ -184,7 +184,7 @@ class Bootstrap {
 	public function deactivate() {
 		$restore_constants = get_site_option( 'wp_debugging_restore' );
 		$remove_user_added = array_diff( self::$options, array_flip( $this->defined_constants ) );
-		$remove_constants  = array_diff( array_flip( $this->defined_constants ), array_keys( $restore_constants ) );
+		$remove_constants  = array_diff( array_flip( $this->defined_constants ), array_keys( (array) $restore_constants ) );
 		$remove_constants  = array_merge( $remove_constants, $remove_user_added );
 
 		( new Settings( self::$options, self::$config_path, $this->defined_constants ) )->remove_constants( $remove_constants );

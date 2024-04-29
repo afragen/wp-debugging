@@ -1,5 +1,6 @@
 #### [unreleased]
 * update link to Debugging in WordPress, thanks @tobifjellner
+* cast variable to array in `Bootstrap::deactivate()`
 
 #### 2.11.23 / 2024-03-04
 * composer update
