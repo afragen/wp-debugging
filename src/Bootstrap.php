@@ -73,6 +73,14 @@ class Bootstrap {
 	 * @return bool|void
 	 */
 	public function init() {
+		// Load settings hooks and exit if not on WP Debugging settings page.
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if ( ! isset( $_REQUEST['page'] ) || 'wp-debugging' !== sanitize_key( wp_unslash( $_REQUEST['page'] ) ) ) {
+			( new Settings( self::$options, self::$config_path, $this->defined_constants ) )
+				->load_hooks();
+			return false;
+		}
+
 		if ( ! is_writable( self::$config_path ) ) {
 			echo '<div class="error notice is-dismissible"><p>';
 			echo wp_kses_post( __( 'The <strong>WP Debugging</strong> plugin must have a <code>wp-config.php</code> file that is writable by the filesystem.', 'wp-debugging' ) );

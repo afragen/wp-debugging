@@ -1,4 +1,5 @@
 #### [unreleased]
+* exit early(ish) if not on WP Debugging settings page
 
 #### 2.11.24 / 2024-04-29
 * update link to Debugging in WordPress, thanks @tobifjellner
