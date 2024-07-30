@@ -82,12 +82,6 @@ class Bootstrap {
 		}
 
 		$this->load_hooks();
-		add_action(
-			'plugins_loaded',
-			function () {
-				\WP_Dependency_Installer::instance()->run( $this->dir );
-			}
-		);
 	}
 
 	/**
@@ -148,6 +142,12 @@ class Bootstrap {
 			},
 			10,
 			2
+		);
+		add_action(
+			'plugins_loaded',
+			function () {
+				\WP_Dependency_Installer::instance()->run( $this->dir );
+			}
 		);
 
 		register_activation_hook( $this->file, [ $this, 'activate' ] );
