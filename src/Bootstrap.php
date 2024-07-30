@@ -78,7 +78,7 @@ class Bootstrap {
 		if ( ! isset( $_REQUEST['page'] ) || 'wp-debugging' !== sanitize_key( wp_unslash( $_REQUEST['page'] ) ) ) {
 			( new Settings( self::$options, self::$config_path, $this->defined_constants ) )
 				->load_hooks();
-			return false;
+			return;
 		}
 
 		if ( ! is_writable( self::$config_path ) ) {
