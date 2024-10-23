@@ -135,12 +135,6 @@ class Bootstrap {
 					->process_filter_constants();
 			}
 		);
-		add_action(
-			'init',
-			function () {
-				load_plugin_textdomain( 'wp-debugging' );
-			}
-		);
 		add_filter(
 			'wp_dependency_timeout',
 			function ( $timeout, $source ) {
