@@ -1,5 +1,10 @@
 #### [unreleased]
 
+#### 2.12.0 / 2024-11-01
+* exit early(ish) if not on WP Debugging settings page
+* composer update
+* remove `load_plugin_textdomain()`
+
 #### 2.11.24 / 2024-04-29
 * update link to Debugging in WordPress, thanks @tobifjellner
 * cast variable to array in `Bootstrap::deactivate()` fix for PHP 8.3

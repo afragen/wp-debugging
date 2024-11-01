@@ -73,6 +73,14 @@ class Bootstrap {
 	 * @return bool|void
 	 */
 	public function init() {
+		// Load settings hooks and exit if not on WP Debugging settings page.
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if ( ! isset( $_REQUEST['page'] ) || 'wp-debugging' !== sanitize_key( wp_unslash( $_REQUEST['page'] ) ) ) {
+			( new Settings( self::$options, self::$config_path, $this->defined_constants ) )
+				->load_hooks();
+			return;
+		}
+
 		if ( ! is_writable( self::$config_path ) ) {
 			echo '<div class="error notice is-dismissible"><p>';
 			echo wp_kses_post( __( 'The <strong>WP Debugging</strong> plugin must have a <code>wp-config.php</code> file that is writable by the filesystem.', 'wp-debugging' ) );
@@ -82,12 +90,6 @@ class Bootstrap {
 		}
 
 		$this->load_hooks();
-		add_action(
-			'plugins_loaded',
-			function () {
-				\WP_Dependency_Installer::instance()->run( $this->dir );
-			}
-		);
 	}
 
 	/**
@@ -133,12 +135,6 @@ class Bootstrap {
 					->process_filter_constants();
 			}
 		);
-		add_action(
-			'init',
-			function () {
-				load_plugin_textdomain( 'wp-debugging' );
-			}
-		);
 		add_filter(
 			'wp_dependency_timeout',
 			function ( $timeout, $source ) {
@@ -148,6 +144,12 @@ class Bootstrap {
 			},
 			10,
 			2
+		);
+		add_action(
+			'plugins_loaded',
+			function () {
+				\WP_Dependency_Installer::instance()->run( $this->dir );
+			}
 		);
 
 		register_activation_hook( $this->file, [ $this, 'activate' ] );
