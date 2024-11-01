@@ -1,4 +1,6 @@
 #### [unreleased]
+
+#### 2.12.0 / 2024-11-01
 * exit early(ish) if not on WP Debugging settings page
 * composer update
 * remove `load_plugin_textdomain()`

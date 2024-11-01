@@ -5,7 +5,7 @@ Tags: debug, support, wp-config
 Requires at least: 5.2
 Requires PHP: 5.6
 Tested up to: 6.7
-Stable tag: 2.11.24
+Stable tag: 2.12.0
 Donate link: https://thefragens.com/git-updater-donate
 License: MIT
 
@@ -89,6 +89,11 @@ This will create the following constants.
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.12.0 / 2024-11-01
+* exit early(ish) if not on WP Debugging settings page
+* composer update
+* remove `load_plugin_textdomain()`
 
 #### 2.11.24 / 2024-04-29
 * update link to Debugging in WordPress, thanks @tobifjellner
