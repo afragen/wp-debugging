@@ -73,6 +73,9 @@ class Bootstrap {
 	 * @return bool|void
 	 */
 	public function init() {
+		register_activation_hook( $this->file, [ $this, 'activate' ] );
+		register_deactivation_hook( $this->file, [ $this, 'deactivate' ] );
+
 		// Load settings hooks and exit if not on WP Debugging settings page.
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		if ( ! isset( $_REQUEST['page'] ) || 'wp-debugging' !== sanitize_key( wp_unslash( $_REQUEST['page'] ) ) ) {
@@ -151,9 +154,6 @@ class Bootstrap {
 				\WP_Dependency_Installer::instance()->run( $this->dir );
 			}
 		);
-
-		register_activation_hook( $this->file, [ $this, 'activate' ] );
-		register_deactivation_hook( $this->file, [ $this, 'deactivate' ] );
 	}
 
 	/**
