@@ -5,8 +5,8 @@ on:
     branches:
       - master
     paths:
-      - '.wordpress-org/**'
-      - 'readme.txt'
+      - ".wordpress-org/**"
+      - "readme.txt"
 
 jobs:
   trunk:
@@ -14,10 +14,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@master
+      - uses: actions/checkout@master
 
-    - name: WordPress.org plugin asset/readme update
-      uses: 10up/action-wordpress-plugin-asset-update@stable
-      env:
-        SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-        SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+      - name: WordPress.org plugin asset/readme update
+        uses: 10up/action-wordpress-plugin-asset-update@stable
+        env:
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}

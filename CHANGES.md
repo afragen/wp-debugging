@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 2.12.1 / 2024-11-08
+* move `register_activation_hook` and `register_deactivation_hook` up the chain
+
 #### 2.12.0 / 2024-11-01
 * exit early(ish) if not on WP Debugging settings page
 * composer update
