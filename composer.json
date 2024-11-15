@@ -63,9 +63,6 @@
     }
   },
   "scripts": {
-    "make-pot": [
-      "wp i18n make-pot . languages/wp-debugging.pot"
-    ],
     "wpcs": [
       "vendor/bin/phpcbf .; vendor/bin/phpcs ."
     ]
