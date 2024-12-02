@@ -1,4 +1,6 @@
 #### [unreleased]
+
+#### 2.12.2 / 2024-12-02
 * add GA to generate POT
 * update for PCP
 
