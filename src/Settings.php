@@ -454,7 +454,7 @@ class Settings {
 		<style> .form-table th { display:none; } </style>
 		<label for="<?php echo esc_attr( $args['id'] ); ?>">
 			<input type="checkbox" name="wp-debugging[<?php echo esc_attr( $args['id'] ); ?>]" value="1" <?php checked( '1', $checked ); ?> >
-			<?php esc_html_e( $args['title'] ); ?>
+			<?php echo esc_html( $args['title'] ); ?>
 		</label>
 		<?php
 	}

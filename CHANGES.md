@@ -1,5 +1,9 @@
 #### [unreleased]
 
+#### 2.12.2 / 2024-12-02
+* add GA to generate POT
+* update for PCP
+
 #### 2.12.1 / 2024-11-08
 * move `register_activation_hook` and `register_deactivation_hook` up the chain
 
