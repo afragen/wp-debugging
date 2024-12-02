@@ -1,38 +1,42 @@
-# Copyright (C) 2023 Andy Fragen
+# Copyright (C) 2024 Andy Fragen
 # This file is distributed under the MIT.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Debugging 2.11.16.1\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-debugging\n"
+"Project-Id-Version: wp-debugging 2.12.2\n"
+"Report-Msgid-Bugs-To: https://github.com/afragen/wp-debugging/wp-debugging/issues\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-01-27T18:18:41+00:00\n"
+"POT-Creation-Date: 2024-12-02T19:41:11+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.7.1\n"
+"X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: wp-debugging\n"
 
 #. Plugin Name of the plugin
+#: wp-debugging.php
 #: src/Settings.php:107
 #: src/Settings.php:413
 msgid "WP Debugging"
 msgstr ""
 
 #. Plugin URI of the plugin
+#: wp-debugging.php
 msgid "https://github.com/afragen/wp-debugging"
 msgstr ""
 
 #. Description of the plugin
+#: wp-debugging.php
 msgid "A support/troubleshooting plugin for WordPress."
 msgstr ""
 
 #. Author of the plugin
+#: wp-debugging.php
 msgid "Andy Fragen"
 msgstr ""
 
-#: src/Bootstrap.php:78
+#: src/Bootstrap.php:89
 msgid "The <strong>WP Debugging</strong> plugin must have a <code>wp-config.php</code> file that is writable by the filesystem."
 msgstr ""
 
