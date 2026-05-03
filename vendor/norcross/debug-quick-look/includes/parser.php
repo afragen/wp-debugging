@@ -65,7 +65,7 @@ function run_parse( $parse = true ) {
 function parse_debug_file( $logfile = '', $order = 'asc' ) {
 
 	// Fetch the full lines.
-	$lines = file( $logfile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
+	$lines = file( $logfile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES ) ?: [];
 
 	// Run a quick right trim on each line.
 	$lines = array_map( 'rtrim', $lines );
