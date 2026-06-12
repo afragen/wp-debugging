@@ -70,6 +70,9 @@ function parse_debug_file( $logfile = '', $order = 'asc' ) {
 	// Run a quick right trim on each line.
 	$lines = array_map( 'rtrim', $lines );
 
+	// Escape the lines for output.
+	$lines = array_map( 'esc_html', $lines );
+
 	// Set our empty.
 	$setup = [];
 

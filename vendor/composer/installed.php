@@ -3,7 +3,7 @@
         'name' => 'afragen/wp-debugging',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '248c1f3bfbd28f228712c571ebf4e1441bf39331',
+        'reference' => 'f4c37830a741f7819e8a70d6ea1cba95d2d1d91a',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'afragen/wp-debugging' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '248c1f3bfbd28f228712c571ebf4e1441bf39331',
+            'reference' => 'f4c37830a741f7819e8a70d6ea1cba95d2d1d91a',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -47,8 +47,8 @@
             'dev_requirement' => true,
         ),
         'norcross/debug-quick-look' => array(
-            'pretty_version' => '0.1.14',
-            'version' => '0.1.14.0',
+            'pretty_version' => '0.1.15',
+            'version' => '0.1.15.0',
             'reference' => null,
             'type' => 'library',
             'install_path' => __DIR__ . '/../norcross/debug-quick-look',

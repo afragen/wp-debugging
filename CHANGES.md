@@ -1,6 +1,9 @@
 #### [unreleased]
 
-#### 2.12.3 /2026-06-11
+#### 2.12.4 / 2026-06-12
+* missed an escape in afragen/debug-quick-look for parsed output
+
+#### 2.12.3 / 2026-06-11
 * composer update
 * update afragen/debug-quick-look escape raw output
 * update tested to

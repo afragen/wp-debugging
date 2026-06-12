@@ -209,8 +209,8 @@
         },
         {
             "name": "norcross/debug-quick-look",
-            "version": "0.1.14",
-            "version_normalized": "0.1.14.0",
+            "version": "0.1.15",
+            "version_normalized": "0.1.15.0",
             "dist": {
                 "type": "zip",
                 "url": "https://github.com/afragen/debug-quick-look/archive/vendor.zip"
