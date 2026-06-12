@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInite1f5adc9515432075cab7f858b4fb8f2
+class ComposerStaticInitfee2b201ed65ce1c019065831091f75a
 {
     public static $files = array (
         'ab4b292309a54cb14fb006d8f6ed2fba' => __DIR__ . '/..' . '/norcross/debug-quick-look/debug-quick-look.php',
@@ -95,9 +95,9 @@ class ComposerStaticInite1f5adc9515432075cab7f858b4fb8f2
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInite1f5adc9515432075cab7f858b4fb8f2::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInite1f5adc9515432075cab7f858b4fb8f2::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInite1f5adc9515432075cab7f858b4fb8f2::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitfee2b201ed65ce1c019065831091f75a::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitfee2b201ed65ce1c019065831091f75a::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitfee2b201ed65ce1c019065831091f75a::$classMap;
 
         }, null, ClassLoader::class);
     }

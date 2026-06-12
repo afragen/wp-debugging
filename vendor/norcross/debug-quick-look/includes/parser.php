@@ -43,8 +43,8 @@ function run_parse( $parse = true ) {
 		// Get our raw file.
 		$raw_debug = file_get_contents( $debug_file );
 
-		// And die with the raw.
-		wp_die( '<pre class="debug-quick-look-raw">' . $raw_debug . '</pre>', __( 'Viewing Raw Debug', 'debug-quick-look' ) );
+		// And die with the escaped raw.
+		wp_die( '<pre class="debug-quick-look-raw">' . esc_html( $raw_debug ) . '</pre>', __( 'Viewing Raw Debug', 'debug-quick-look' ) );
 	}
 
 	// Parse it.
