@@ -43,8 +43,8 @@ function run_parse( $parse = true ) {
 		// Get our raw file.
 		$raw_debug = file_get_contents( $debug_file );
 
-		// And die with the raw.
-		wp_die( '<pre class="debug-quick-look-raw">' . $raw_debug . '</pre>', __( 'Viewing Raw Debug', 'debug-quick-look' ) );
+		// And die with the escaped raw.
+		wp_die( '<pre class="debug-quick-look-raw">' . esc_html( $raw_debug ) . '</pre>', __( 'Viewing Raw Debug', 'debug-quick-look' ) );
 	}
 
 	// Parse it.
@@ -65,7 +65,7 @@ function run_parse( $parse = true ) {
 function parse_debug_file( $logfile = '', $order = 'asc' ) {
 
 	// Fetch the full lines.
-	$lines = file( $logfile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
+	$lines = file( $logfile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES ) ?: [];
 
 	// Run a quick right trim on each line.
 	$lines = array_map( 'rtrim', $lines );

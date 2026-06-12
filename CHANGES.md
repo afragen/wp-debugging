@@ -1,5 +1,10 @@
 #### [unreleased]
 
+#### 2.12.3 /2026-06-11
+* composer update
+* update afragen/debug-quick-look escape raw output
+* update tested to
+
 #### 2.12.2 / 2024-12-02
 * add GA to generate POT
 * update for PCP
