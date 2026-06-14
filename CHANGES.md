@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 2.12.5 / 2026-06-14
+* use `wp_kses_post` to sanitize parsed code for output and retain formatting
+
 #### 2.12.4 / 2026-06-12
 * missed an escape in afragen/debug-quick-look for parsed output
 

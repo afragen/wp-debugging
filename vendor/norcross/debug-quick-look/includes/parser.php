@@ -70,8 +70,8 @@ function parse_debug_file( $logfile = '', $order = 'asc' ) {
 	// Run a quick right trim on each line.
 	$lines = array_map( 'rtrim', $lines );
 
-	// Escape the lines for output.
-	$lines = array_map( 'esc_html', $lines );
+	// Run the lines through wp_kses_post, which should be enough to strip dangerous code and retain the formatting.
+	$lines = array_map( 'wp_kses_post', $lines );
 
 	// Set our empty.
 	$setup = [];
