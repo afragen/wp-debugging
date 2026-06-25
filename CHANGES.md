@@ -1,4 +1,5 @@
 #### [unreleased]
+* update `norcross/debug-quick-look` to better format JSON
 
 #### 2.12.5 / 2026-06-14
 * use `wp_kses_post` to sanitize parsed code for output and retain formatting

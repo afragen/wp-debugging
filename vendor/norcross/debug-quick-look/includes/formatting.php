@@ -273,6 +273,18 @@ function wrap_json_bits( $single ) {
 		return $single;
 	}
 
+	// Escape any quotes in the JSON for proper display.
+	$matches[0] = preg_replace(
+        '/="([^"]*)"/',
+        '=\\"$1\\"',
+        $matches[0]
+    );
+	$single = preg_replace(
+        '/="([^"]*)"/',
+        '=\\"$1\\"',
+        $single
+    );
+
 	// Set our string to be modified.
 	$setup = $single;
 
@@ -307,7 +319,7 @@ function wrap_json_bits( $single ) {
  *
  * @param  array $maybe_json  The array parsed from the JSON.
  *
- * @return HTML
+ * @return string
  */
 function format_json_array( $maybe_json ) {
 
