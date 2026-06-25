@@ -76,6 +76,7 @@ function set_parse_block_class( $single ) {
 		'notice'       => 'PHP Notice:',
 		'warning'      => 'PHP Warning:',
 		'fatal'        => 'PHP Fatal error:',
+		'deprecated'   => 'PHP Deprecated:',
 		'wordpress-db' => 'WordPress database error',
 		'stack-trace'  => 'Stack trace:',
 		'wp-community' => 'WP_Community_Events',
@@ -221,6 +222,7 @@ function wrap_warning_types( $single ) {
 		'notice'       => 'PHP Notice:  ',
 		'warning'      => 'PHP Warning:  ',
 		'fatal'        => 'PHP Fatal error:  ',
+		'deprecated'   => 'PHP Deprecated:  ',
 		'wordpress-db' => 'WordPress database error ',
 		'wp-community' => 'WP_Community_Events::maybe_log_events_response: ',
 	];
