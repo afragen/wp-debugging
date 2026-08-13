@@ -76,6 +76,7 @@ function set_parse_block_class( $single ) {
 		'notice'       => 'PHP Notice:',
 		'warning'      => 'PHP Warning:',
 		'fatal'        => 'PHP Fatal error:',
+		'deprecated'   => 'PHP Deprecated:',
 		'wordpress-db' => 'WordPress database error',
 		'stack-trace'  => 'Stack trace:',
 		'wp-community' => 'WP_Community_Events',
@@ -221,6 +222,7 @@ function wrap_warning_types( $single ) {
 		'notice'       => 'PHP Notice:  ',
 		'warning'      => 'PHP Warning:  ',
 		'fatal'        => 'PHP Fatal error:  ',
+		'deprecated'   => 'PHP Deprecated:  ',
 		'wordpress-db' => 'WordPress database error ',
 		'wp-community' => 'WP_Community_Events::maybe_log_events_response: ',
 	];
@@ -273,6 +275,18 @@ function wrap_json_bits( $single ) {
 		return $single;
 	}
 
+	// Escape any quotes in the JSON for proper display.
+	$matches[0] = preg_replace(
+        '/="([^"]*)"/',
+        '=\\"$1\\"',
+        $matches[0]
+    );
+	$single = preg_replace(
+        '/="([^"]*)"/',
+        '=\\"$1\\"',
+        $single
+    );
+
 	// Set our string to be modified.
 	$setup = $single;
 
@@ -307,7 +321,7 @@ function wrap_json_bits( $single ) {
  *
  * @param  array $maybe_json  The array parsed from the JSON.
  *
- * @return HTML
+ * @return string
  */
 function format_json_array( $maybe_json ) {
 

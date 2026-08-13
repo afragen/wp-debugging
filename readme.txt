@@ -4,8 +4,8 @@ Contributors: afragen
 Tags: debug, support, wp-config
 Requires at least: 5.2
 Requires PHP: 5.6
-Tested up to: 7.0
-Stable tag: 2.12.5
+Tested up to: 7.1
+Stable tag: 2.12.6
 Donate link: https://thefragens.com/git-updater-donate
 License: MIT
 
@@ -89,6 +89,10 @@ This will create the following constants.
 PRs are welcome against the [develop branch on GitHub](https://github.com/afragen/wp-debugging).
 
 ## Changelog
+
+#### 2.12.6 / 2026-08-13
+* update `norcross/debug-quick-look` to better format JSON
+* update GitHub Actions
 
 #### 2.12.2 / 2024-12-02
 * add GA to generate POT
