@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a90a2580fc0789265036cf61af790fc2",
+    "content-hash": "24f2dc9ad5e896a27ce6baccc5098f7c",
     "packages": [
         {
             "name": "afragen/wp-dependency-installer",
@@ -110,7 +110,7 @@
         },
         {
             "name": "norcross/debug-quick-look",
-            "version": "0.1.18",
+            "version": "0.1.19",
             "dist": {
                 "type": "zip",
                 "url": "https://github.com/afragen/debug-quick-look/archive/vendor.zip"

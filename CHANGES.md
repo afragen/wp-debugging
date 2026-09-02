@@ -1,4 +1,5 @@
 #### [unreleased]
+* update `norcross/debug-quick-look`
 
 #### 2.12.6 / 2026-08-13
 * update `norcross/debug-quick-look` to better format JSON

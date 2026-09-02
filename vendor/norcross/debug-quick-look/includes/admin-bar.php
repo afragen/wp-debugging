@@ -119,26 +119,24 @@ function add_mobile_css() {
 		return;
 	}
 
-	// Open the style tag.
-	echo '<style>';
+	?>
+	<style>
+		@media screen and (max-width: 782px) {
+			#wp-toolbar>ul>li#wp-admin-bar-debug-quick-look {
+				display: list-item;
+				font: 18px/44px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif !important;
+				padding: 0 10px !important;
+				width: auto !important;
+			}
 
-	// Output the actual CSS item.
-	echo '@media screen and (max-width: 782px) {';
-		echo '#wp-toolbar > ul > li#wp-admin-bar-debug-quick-look {';
-			// Style similar to Query Monitor.
-			echo 'display: list-item;';
-			echo 'font: 18px/44px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif !important;';
-			echo 'padding: 0 10px !important;';
-			echo 'width: auto !important';
-		echo '}';
-		echo '#wp-toolbar > ul > li#wp-admin-bar-debug-quick-look:before {';
-			echo 'content: "DQL";';
-		echo '}';
-		echo '#wp-toolbar > ul > li#wp-admin-bar-debug-quick-look div.ab-item.ab-empty-item {';
-			echo 'display: none;';
-		echo '}';
-	echo '}';
+			#wp-toolbar>ul>li#wp-admin-bar-debug-quick-look:before {
+				content: "DQL";
+			}
 
-	// Close the style tag.
-	echo '</style>';
+			#wp-toolbar>ul>li#wp-admin-bar-debug-quick-look div.ab-item.ab-empty-item {
+				display: none;
+			}
+		}
+	</style>
+	<?php
 }
