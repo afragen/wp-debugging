@@ -5,7 +5,7 @@
  * @package DebugQuickLook
  */
 
-// Call our namepsace.
+// Call our namespace.
 namespace DebugQuickLook\Parser;
 
 // Set our alias items.
@@ -69,6 +69,9 @@ function parse_debug_file( $logfile = '', $order = 'asc' ) {
 
 	// Run a quick right trim on each line.
 	$lines = array_map( 'rtrim', $lines );
+
+	// Strip any span tags that may have been added and break JSON formatting.
+	$lines = array_map( __NAMESPACE__ . '\strip_span_tags', $lines );
 
 	// Run the lines through wp_kses_post, which should be enough to strip dangerous code and retain the formatting.
 	$lines = array_map( 'wp_kses_post', $lines );
@@ -138,4 +141,15 @@ function parse_debug_file( $logfile = '', $order = 'asc' ) {
  */
 function die_handler( $die_handler ) {
 	return apply_filters( Core\HOOK_PREFIX . 'die_handler', '\DebugQuickLook\Handler\build_handler', $die_handler );
+}
+
+/**
+ * Strip any span tags that may have been added and break JSON formatting.
+ *
+ * @param  string $html  The HTML to strip.
+ *
+ * @return string
+ */
+function strip_span_tags( string $html ): string {
+    return (string) preg_replace( '#</?span\b[^>]*>#i', '', $html );
 }

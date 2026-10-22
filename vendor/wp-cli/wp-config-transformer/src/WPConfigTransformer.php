@@ -149,13 +149,26 @@ class WPConfigTransformer {
 		if ( self::ANCHOR_EOF === $anchor ) {
 			$contents = $this->wp_config_src . $this->normalize( $type, $name, $this->format_value( $value, $raw ) );
 		} else {
-			if ( false === strpos( $this->wp_config_src, $anchor ) ) {
+			$anchor_pos = strpos( $this->wp_config_src, $anchor );
+
+			if ( false === $anchor_pos ) {
 				throw new Exception( 'Unable to locate placement anchor.' );
 			}
 
-			$new_src  = $this->normalize( $type, $name, $this->format_value( $value, $raw ) );
-			$new_src  = ( 'after' === $placement ) ? $anchor . $separator . $new_src : $new_src . $separator . $anchor;
-			$contents = str_replace( $anchor, $new_src, $this->wp_config_src );
+			$new_src = $this->normalize( $type, $name, $this->format_value( $value, $raw ) );
+
+			if ( 'after' === $placement ) {
+				// Append past the end of the anchor's line: an anchor can match just part of
+				// a line, and the config would otherwise be inserted into the middle of it.
+				// A newline of the anchor's own already ends that line.
+				$anchor_end = $anchor_pos + strlen( rtrim( $anchor, "\n" ) );
+				$line_end   = strpos( $this->wp_config_src, "\n", $anchor_end );
+				$insert_pos = ( false === $line_end ) ? strlen( $this->wp_config_src ) : $line_end;
+				$contents   = substr_replace( $this->wp_config_src, $separator . $new_src, $insert_pos, 0 );
+			} else {
+				// Only replace the first occurrence, in case the anchor appears more than once.
+				$contents = substr_replace( $this->wp_config_src, $new_src . $separator . $anchor, $anchor_pos, strlen( $anchor ) );
+			}
 		}
 
 		return $this->save( $contents );
@@ -173,7 +186,7 @@ class WPConfigTransformer {
 	 *
 	 * @return bool
 	 *
-	 * @phpstan-param array{raw?: bool, anchor?: string, separator?: string, placement?: 'before'|'after'} $options
+	 * @phpstan-param array{add?: bool, raw?: bool, normalize?: bool, anchor?: string, separator?: string, placement?: 'before'|'after'} $options
 	 */
 	public function update( $type, $name, $value, array $options = array() ) {
 		if ( ! is_string( $value ) ) {

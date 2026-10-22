@@ -7,7 +7,7 @@
  * Author URI:          http://andrewnorcross.com
  * Text Domain:         debug-quick-look
  * Domain Path:         /languages
- * Version:             0.1.19
+ * Version:             0.1.20
  * License:             MIT
  * License URI:         https://opensource.org/licenses/MIT
  * GitHub Plugin URI:   https://github.com/norcross/debug-quick-look
@@ -16,7 +16,7 @@
  * @package             DebugQuickLook
  */
 
-// Call our namepsace.
+// Call our namespace.
 namespace DebugQuickLook;
 
 // Exit if accessed directly
@@ -30,7 +30,7 @@ if ( defined( __NAMESPACE__ . '\VERS' ) ) {
 }
 
 // Define our version.
-define( __NAMESPACE__ . '\VERS', '0.1.19' );
+define( __NAMESPACE__ . '\VERS', '0.1.20' );
 
 // Plugin Folder URL.
 define( __NAMESPACE__ . '\URL', plugin_dir_url( __FILE__ ) );

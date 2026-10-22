@@ -209,8 +209,8 @@
         },
         {
             "name": "norcross/debug-quick-look",
-            "version": "0.1.19",
-            "version_normalized": "0.1.19.0",
+            "version": "0.1.20",
+            "version_normalized": "0.1.20.0",
             "dist": {
                 "type": "zip",
                 "url": "https://github.com/afragen/debug-quick-look/archive/vendor.zip"
@@ -489,17 +489,17 @@
         },
         {
             "name": "wp-cli/wp-config-transformer",
-            "version": "v1.4.6",
-            "version_normalized": "1.4.6.0",
+            "version": "v1.4.7",
+            "version_normalized": "1.4.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/wp-config-transformer.git",
-                "reference": "1ef18784990b85b35202c2d68dbbc4a8fe6615b6"
+                "reference": "dc99e9eadacd6b9dd091056a98b0868b69a48a28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/wp-config-transformer/zipball/1ef18784990b85b35202c2d68dbbc4a8fe6615b6",
-                "reference": "1ef18784990b85b35202c2d68dbbc4a8fe6615b6",
+                "url": "https://api.github.com/repos/wp-cli/wp-config-transformer/zipball/dc99e9eadacd6b9dd091056a98b0868b69a48a28",
+                "reference": "dc99e9eadacd6b9dd091056a98b0868b69a48a28",
                 "shasum": ""
             },
             "require": {
@@ -508,7 +508,7 @@
             "require-dev": {
                 "wp-cli/wp-cli-tests": "^4.0 || ^5.0"
             },
-            "time": "2026-04-10T07:32:03+00:00",
+            "time": "2026-10-06T06:18:26+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -535,7 +535,7 @@
             "homepage": "https://github.com/wp-cli/wp-config-transformer",
             "support": {
                 "issues": "https://github.com/wp-cli/wp-config-transformer/issues",
-                "source": "https://github.com/wp-cli/wp-config-transformer/tree/v1.4.6"
+                "source": "https://github.com/wp-cli/wp-config-transformer/tree/v1.4.7"
             },
             "install-path": "../wp-cli/wp-config-transformer"
         },

@@ -5,7 +5,7 @@
  * @package DebugQuickLook
  */
 
-// Call our namepsace.
+// Call our namespace.
 namespace DebugQuickLook\Handler;
 
 // Set our alias items.

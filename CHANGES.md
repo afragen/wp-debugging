@@ -1,5 +1,6 @@
 #### [unreleased]
 * update `norcross/debug-quick-look`
+* update `wp-cli/wp-config-transformer`
 
 #### 2.12.6 / 2026-08-13
 * update `norcross/debug-quick-look` to better format JSON

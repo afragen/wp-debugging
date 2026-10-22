@@ -84,7 +84,7 @@ The `raw` option means that instead of placing the value inside the config as a 
 
 ### Anchor string
 
-The anchor string is the piece of text that additions will be anchored to.
+The anchor string is the piece of text that additions will be anchored to. If it occurs more than once, only its first occurrence is used.
 
 ```php
 $config_transformer->update( 'constant', 'FOO', 'bar', array( 'anchor' => '/** Absolute path to the WordPress directory' ) ); // Default
@@ -98,6 +98,8 @@ By default, new configs will be placed before the anchor string.
 $config_transformer->update( 'constant', 'FOO', 'bar', array( 'placement' => 'before' ) ); // Default
 $config_transformer->update( 'constant', 'BAZ', 'qux', array( 'placement' => 'after' ) );
 ```
+
+With the `after` placement, the config is added on the line following the anchor. An anchor may match only part of a line — the default one matches the beginning of the "stop editing" comment — and is never split in two.
 
 ### Anchor separator
 
